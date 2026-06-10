@@ -9,10 +9,10 @@ import { getPageDomainConfig } from "@/lib/get-domain-config";
 import { agentInfo, marketStats } from "@/lib/site-config";
 import SchemaScript from "@/components/SchemaScript";
 import { combineSchemas, generateFAQSchema } from "@/lib/schema";
-import { tournamentHillsFaqs } from "@/lib/tournament-hills-content";
+import { tournamentHillsAllFaqs } from "@/lib/tournament-hills-content";
 import RealScoutOfficeListings from "@/components/realscout/RealScoutOfficeListings";
 
-const homepageFaqSchema = combineSchemas(generateFAQSchema(tournamentHillsFaqs));
+const homepageFaqSchema = combineSchemas(generateFAQSchema(tournamentHillsAllFaqs));
 
 export default async function Home() {
   const config = await getPageDomainConfig();
@@ -143,7 +143,7 @@ export default async function Home() {
         <WhyChooseUs />
         <ReviewsSection />
         <FAQSection
-          faqs={tournamentHillsFaqs}
+          faqs={tournamentHillsAllFaqs}
           title="Tournament Hills Real Estate FAQ"
           subtitle="Answers about guard-gated luxury, TPC Summerlin, schools, and buying with Dr. Jan Duffy"
         />

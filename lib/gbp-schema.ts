@@ -3,7 +3,7 @@
 
 import { agentInfo, siteConfig } from "./site-config";
 import { generateFAQSchema as createFAQPageSchema } from "./schema";
-import { tournamentHillsFaqs } from "./tournament-hills-content";
+import { tournamentHillsAllFaqs } from "./tournament-hills-content";
 
 export const businessInfo = {
   // NAP - Must match GBP exactly
@@ -169,7 +169,7 @@ Office located at 9406 W Lake Mead Blvd, Suite 100, Las Vegas, NV 89134. Availab
 
 // FAQ Schema for GBP Q&A section (Tournament Hills + general Las Vegas)
 export const gbpFAQs = [
-  ...tournamentHillsFaqs,
+  ...tournamentHillsAllFaqs,
   {
     question: "What areas does Dr. Jan Duffy serve in Las Vegas?",
     answer:

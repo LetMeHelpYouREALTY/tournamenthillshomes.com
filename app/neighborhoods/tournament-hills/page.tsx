@@ -21,7 +21,7 @@ import {
 } from "@/lib/schema";
 import {
   tournamentHillsBreadcrumbs,
-  tournamentHillsFaqs,
+import { tournamentHillsAllFaqs, tournamentHillsPeopleAlsoSearchQueries } from "@/lib/tournament-hills-content";
   tournamentHillsMarket,
   tournamentHillsNeighborhood,
 } from "@/lib/tournament-hills-content";
@@ -33,9 +33,14 @@ export const metadata: Metadata = {
     "Explore Tournament Hills homes for sale in guard-gated Summerlin West, Las Vegas (89134). TPC Summerlin golf community with custom luxury estates. Dr. Jan Duffy, BHHS Nevada. Call (702) 500-1942.",
   keywords: [
     "Tournament Hills homes for sale",
+    "Tournament Hills gated community Summerlin",
+    "Tournament Hills Summerlin reviews",
+    "Tournament Hills Summerlin map",
+    "Tournament Hills HOA fees",
+    "Tournament Hills Las Vegas Zillow",
+    "Who lives in Tournament Hills Las Vegas",
     "TPC Summerlin real estate",
     "Tournament Hills Summerlin",
-    "guard gated luxury Summerlin",
     "89134 luxury homes",
     "Berkshire Hathaway Tournament Hills",
   ],
@@ -44,7 +49,7 @@ export const metadata: Metadata = {
 const pageSchemas = combineSchemas(
   generateBreadcrumbSchema(tournamentHillsBreadcrumbs),
   generateNeighborhoodSchema(tournamentHillsNeighborhood),
-  generateFAQSchema(tournamentHillsFaqs)
+  generateFAQSchema(tournamentHillsAllFaqs)
 );
 
 export default function TournamentHillsPage() {
@@ -291,13 +296,17 @@ export default function TournamentHillsPage() {
             </div>
           </section>
 
-          {/* FAQ */}
+          {/* FAQ + People Also Search For (AEO) */}
           <section className="mb-16 max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+            <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
               Tournament Hills Real Estate FAQ
             </h2>
+            <p className="text-center text-slate-600 mb-8 max-w-2xl mx-auto text-sm">
+              People also search for:{" "}
+              {tournamentHillsPeopleAlsoSearchQueries.slice(0, 4).join(" · ")} · and more below.
+            </p>
             <div className="space-y-6">
-              {tournamentHillsFaqs.map((faq) => (
+              {tournamentHillsAllFaqs.map((faq) => (
                 <div key={faq.question} className="bg-white border border-slate-200 rounded-lg p-6">
                   <h3 className="font-bold text-slate-900 mb-2">{faq.question}</h3>
                   <p className="text-slate-600">{faq.answer}</p>

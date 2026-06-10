@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Phone } from "lucide-react";
 import type { Metadata } from "next";
 import { agentInfo } from "@/lib/site-config";
+import { tournamentHillsAllFaqs, tournamentHillsFaqs, tournamentHillsPeopleAlsoSearchFaqs } from "@/lib/tournament-hills-content";
 import SchemaScript from "@/components/SchemaScript";
 import {
   generateBreadcrumbSchema,
@@ -31,12 +32,17 @@ const breadcrumbs = [
   { name: "FAQ", url: "/faq" },
 ];
 
-import { tournamentHillsFaqs } from "@/lib/tournament-hills-content";
-
 const faqCategories = [
   {
     title: "Tournament Hills & TPC Summerlin",
     faqs: tournamentHillsFaqs.map((faq) => ({ q: faq.question, a: faq.answer })),
+  },
+  {
+    title: "People Also Search For — Tournament Hills Summerlin",
+    faqs: tournamentHillsPeopleAlsoSearchFaqs.map((faq) => ({
+      q: faq.question,
+      a: faq.answer,
+    })),
   },
   {
     title: "About Berkshire Hathaway HomeServices",
