@@ -33,6 +33,13 @@ Domain-specific content lives in:
 
 Set `NEXT_PUBLIC_SITE_URL=https://www.tournamenthillshomes.com` in Vercel environment variables.
 
+## SEO spec
+
+Hyperlocal SEO/GEO/AEO documentation:
+
+- [`docs/seo/tournament-hills-hyperlocal-spec.md`](docs/seo/tournament-hills-hyperlocal-spec.md) — main spec
+- [`AGENTS.md`](AGENTS.md) — agent entrypoint for Cursor
+
 ## Deploy
 
 1. Connect this repo to Vercel

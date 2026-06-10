@@ -1,0 +1,17 @@
+---
+description: Tournament Hills hyperlocal SEO rules for tournamenthillshomes.com
+globs: app/**/*,lib/**/*,docs/seo/**/*
+alwaysApply: false
+---
+
+# Tournament Hills SEO
+
+Before editing pages or schema on this site:
+
+1. Follow `docs/seo/tournament-hills-hyperlocal-spec.md`
+2. NAP must match GBP: Dr. Jan Duffy, (702) 500-1942, 9406 W Lake Mead Blvd Suite 100, Las Vegas NV 89134
+3. Community zip is **89134** (Tournament Hills / TPC Summerlin)
+4. Use `lib/tournament-hills-content.ts` for TH FAQs — visible text must match FAQPage JSON-LD
+5. Do not invent luxury price medians; use `marketStats.tournamentHills.priceRangeFormatted` or MLS-verified bands
+6. One `@graph` per page; site-wide RealEstateAgent + WebSite live in `app/layout.tsx`
+7. RealScout: load script once in layout; CSP allows em.realscout.com and www.realscout.com
