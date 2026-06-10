@@ -20,6 +20,15 @@ export const metadata: Metadata = {
 
 const neighborhoods = [
   {
+    name: "Tournament Hills",
+    slug: "tournament-hills",
+    medianPrice: "From $3.5M",
+    priceChange: "Luxury",
+    description: "Guard-gated luxury golf community surrounding TPC Summerlin in central Summerlin",
+    highlights: ["TPC Summerlin", "Guard-Gated", "Custom Estates", "89134"],
+    bestFor: "Luxury buyers, golf enthusiasts, executives",
+  },
+  {
     name: "Summerlin",
     slug: "summerlin",
     medianPrice: "$625,000",

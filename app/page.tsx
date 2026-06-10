@@ -7,37 +7,20 @@ import Footer from "@/components/layouts/Footer";
 import Link from "next/link";
 import { Phone, Home as HomeIcon, TrendingUp, Shield, Users } from "lucide-react";
 import { getPageDomainConfig } from "@/lib/get-domain-config";
-import { agentInfo, siteConfig } from "@/lib/site-config";
+import { agentInfo, marketStats } from "@/lib/site-config";
+import SchemaScript from "@/components/SchemaScript";
+import { combineSchemas, generateFAQSchema } from "@/lib/schema";
+import { tournamentHillsFaqs } from "@/lib/tournament-hills-content";
+
+const homepageFaqSchema = combineSchemas(generateFAQSchema(tournamentHillsFaqs));
 
 export default async function Home() {
   const config = await getPageDomainConfig();
-
-  const organizationSchema = {
-    "@context": "https://schema.org",
-    "@type": "RealEstateAgent",
-    name: `Dr. Jan Duffy - ${config.neighborhood} Real Estate`,
-    url: `https://${config.domain !== "default" ? config.domain : siteConfig.domain}`,
-    telephone: agentInfo.phoneTel.replace("tel:", ""),
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "9406 W Lake Mead Blvd, Suite 100",
-      addressLocality: "Las Vegas",
-      addressRegion: "NV",
-      postalCode: "89134",
-    },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.9",
-      reviewCount: "200",
-    },
-  };
+  const thMarket = marketStats.tournamentHills;
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-      />
+      <SchemaScript schema={homepageFaqSchema} id="homepage-faq-schema" />
       <Navbar />
       <main>
         {/* Domain-Aware Hero */}
@@ -75,7 +58,7 @@ export default async function Home() {
                 <span>Families Helped</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="font-semibold text-white">30+ Years</span>
+                <span className="font-semibold text-white">Since 2008</span>
                 <span>Las Vegas Experience</span>
               </div>
               <div className="flex items-center gap-2">
@@ -94,15 +77,15 @@ export default async function Home() {
                 Why Work With Dr. Jan Duffy?
               </h2>
               <p className="text-lg text-slate-600">
-                Berkshire Hathaway HomeServices Nevada Properties — the most trusted name in Las Vegas real estate.
+                Berkshire Hathaway HomeServices Nevada Properties — trusted luxury Summerlin expertise.
               </p>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
               {[
                 { icon: Shield, title: "Trusted Brand", desc: "Backed by Warren Buffett's Berkshire Hathaway — unmatched integrity" },
                 { icon: Users, title: "50K+ Network", desc: "Global referral network for seamless moves to or from any market" },
-                { icon: TrendingUp, title: "$127M+ Sold", desc: "Proven results across every Las Vegas neighborhood since 2008" },
-                { icon: HomeIcon, title: "Full Service", desc: "Buying, selling, 55+, luxury, investment — one expert handles it all" },
+                { icon: TrendingUp, title: "$127M+ Sold", desc: "Proven results across Summerlin guard-gated communities since 2008" },
+                { icon: HomeIcon, title: "Tournament Hills", desc: "Guard-gated TPC Summerlin expertise — buying, selling, and valuations" },
               ].map(({ icon: Icon, title, desc }) => (
                 <div key={title} className="text-center p-6">
                   <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
@@ -113,6 +96,14 @@ export default async function Home() {
                 </div>
               ))}
             </div>
+            <p className="text-center mt-8">
+              <Link
+                href="/neighborhoods/tournament-hills"
+                className="text-blue-600 font-semibold hover:underline"
+              >
+                Read the Tournament Hills neighborhood guide →
+              </Link>
+            </p>
           </div>
         </section>
 
@@ -120,20 +111,20 @@ export default async function Home() {
         <section className="py-16 bg-slate-900 text-white">
           <div className="container mx-auto px-4">
             <div className="text-center mb-10">
-              <h2 className="text-3xl font-bold mb-3">
-                {config.neighborhood} Real Estate Market
-              </h2>
-              <p className="text-slate-400">Current data — updated regularly</p>
+              <h2 className="text-3xl font-bold mb-3">Tournament Hills Luxury Market</h2>
+              <p className="text-slate-400">
+                Guard-gated golf community · Zip {thMarket.zip} · Updated {thMarket.lastUpdated}
+              </p>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
               {[
-                { value: "$450K", label: "Median Price", sub: "+4.2% YoY" },
-                { value: "28", label: "Avg Days on Market", sub: "" },
-                { value: "4,850", label: "Active Listings", sub: "" },
-                { value: "2.1", label: "Months Inventory", sub: "" },
+                { value: thMarket.priceRangeFormatted, label: "Active Price Band", sub: "MLS samples" },
+                { value: thMarket.zip, label: "Zip Code", sub: "" },
+                { value: "Guard-Gated", label: "Community Type", sub: "" },
+                { value: "TPC Summerlin", label: "Golf Course", sub: "PGA Tour venue" },
               ].map(({ value, label, sub }) => (
                 <div key={label} className="text-center">
-                  <div className="text-4xl font-bold text-blue-400 mb-1">{value}</div>
+                  <div className="text-2xl md:text-3xl font-bold text-blue-400 mb-1">{value}</div>
                   <div className="text-slate-300 text-sm">{label}</div>
                   {sub && <div className="text-green-400 text-xs mt-1">{sub}</div>}
                 </div>
@@ -150,7 +141,11 @@ export default async function Home() {
         <RealScoutListings />
         <WhyChooseUs />
         <ReviewsSection />
-        <FAQSection />
+        <FAQSection
+          faqs={tournamentHillsFaqs}
+          title="Tournament Hills Real Estate FAQ"
+          subtitle="Answers about guard-gated luxury, TPC Summerlin, schools, and buying with Dr. Jan Duffy"
+        />
 
         {/* Domain-Specific CTA */}
         <section className="py-16 md:py-20 bg-blue-600 text-white">
@@ -163,11 +158,11 @@ export default async function Home() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:+17022221964"
+                href={agentInfo.phoneTel}
                 className="inline-flex items-center justify-center bg-white text-blue-600 px-8 py-4 rounded-md font-bold text-lg hover:bg-blue-50 transition-colors"
               >
                 <Phone className="h-5 w-5 mr-2" />
-                Call 702-222-1964
+                Call {agentInfo.phoneFormatted}
               </a>
               <Link
                 href="/contact"
@@ -177,7 +172,7 @@ export default async function Home() {
               </Link>
             </div>
             <p className="mt-6 text-blue-200 text-sm">
-              Dr. Jan Duffy | License S.0197614.LLC | Berkshire Hathaway HomeServices Nevada Properties
+              Dr. Jan Duffy | License {agentInfo.license} | Berkshire Hathaway HomeServices Nevada Properties
             </p>
           </div>
         </section>

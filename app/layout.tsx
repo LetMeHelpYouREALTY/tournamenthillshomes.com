@@ -5,11 +5,25 @@ import { headers } from "next/headers";
 import { getDomainConfig } from "@/lib/domain-config";
 import { Analytics } from "@vercel/analytics/react";
 import Script from "next/script";
+import SchemaScript from "@/components/SchemaScript";
+import {
+  combineSchemas,
+  generateRealEstateAgentSchema,
+  generateWebSiteSchema,
+} from "@/lib/schema";
+import { siteConfig } from "@/lib/site-config";
+
+const siteWideSchemas = combineSchemas(
+  generateRealEstateAgentSchema(),
+  generateWebSiteSchema()
+);
 
 export async function generateMetadata(): Promise<Metadata> {
   const domain = headers().get("x-domain") || "";
   const config = getDomainConfig(domain);
+  const metadataBase = new URL(siteConfig.url);
   return {
+    metadataBase,
     title: `${config.neighborhood} | Dr. Jan Duffy, REALTOR® | BHHS Nevada`,
     description: config.description,
     keywords: config.keywords,
@@ -17,6 +31,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title: config.heroHeadline,
       description: config.description,
       type: "website",
+      url: metadataBase,
     },
   };
 }
@@ -37,6 +52,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         `}</Script>
       </head>
       <body>
+        <SchemaScript schema={siteWideSchemas} id="site-wide-schema" />
         {children}
         <Analytics />
       </body>

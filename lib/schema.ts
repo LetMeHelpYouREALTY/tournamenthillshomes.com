@@ -128,6 +128,11 @@ export function generateRealEstateAgentSchema() {
         name: "Summerlin",
       },
       {
+        "@type": "Place",
+        name: "Tournament Hills",
+        sameAs: "https://www.tournamenthillshomes.com/neighborhoods/tournament-hills",
+      },
+      {
         "@type": "City",
         name: "North Las Vegas",
       },

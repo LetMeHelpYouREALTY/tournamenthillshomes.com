@@ -73,6 +73,12 @@ export const marketStats = {
     luxuryMedian: 1200000,
     luxuryMedianFormatted: "$1.2M",
   },
+  tournamentHills: {
+    priceRangeFormatted: "$3.5M – $7M+",
+    zip: "89134",
+    communityType: "Guard-gated luxury golf community",
+    lastUpdated: "June 2026",
+  },
   luxury: {
     medianPrice: 1200000,
     medianPriceFormatted: "$1.2M",
@@ -106,7 +112,7 @@ export const neighborhoods = [
     name: "Tournament Hills",
     slug: "tournament-hills",
     description: "Guard-gated luxury golf community in Summerlin West near TPC Las Vegas",
-    medianPrice: "$850,000",
+    medianPrice: "From $3.5M",
     highlights: ["TPC Las Vegas golf", "Guard-gated", "Strip views", "Custom estates"],
   },
   {

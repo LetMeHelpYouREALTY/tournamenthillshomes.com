@@ -6,7 +6,6 @@ Allow: /
 
 Disallow: /api/
 Disallow: /admin/
-Disallow: /_next/
 Disallow: /monitoring/
 
 Allow: /neighborhoods/
