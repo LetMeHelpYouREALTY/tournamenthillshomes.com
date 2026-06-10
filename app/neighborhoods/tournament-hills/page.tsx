@@ -20,10 +20,11 @@ import {
   combineSchemas,
 } from "@/lib/schema";
 import {
+  tournamentHillsAllFaqs,
   tournamentHillsBreadcrumbs,
-import { tournamentHillsAllFaqs, tournamentHillsPeopleAlsoSearchQueries } from "@/lib/tournament-hills-content";
   tournamentHillsMarket,
   tournamentHillsNeighborhood,
+  tournamentHillsPeopleAlsoSearchQueries,
 } from "@/lib/tournament-hills-content";
 import { agentInfo, officeInfo } from "@/lib/site-config";
 
