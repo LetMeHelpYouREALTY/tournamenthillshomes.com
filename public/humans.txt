@@ -3,7 +3,8 @@
 /* TEAM */
 Agent: Dr. Jan Duffy
 License: S.0197614.LLC
-Site: https://heyberkshire.com
+Site: https://www.tournamenthillshomes.com
+Email: DrDuffySells@TournamentHillsHomes.com
 Location: Las Vegas, Nevada, USA
 Phone: (702) 500-1942
 

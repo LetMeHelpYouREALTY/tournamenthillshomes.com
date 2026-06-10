@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { SITE_DOMAIN, siteConfig } from "@/lib/site-config";
+import { agentInfo, SITE_DOMAIN, siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   title: 'Security Policy',
@@ -48,8 +48,8 @@ export default function SecurityPolicyPage() {
               <ul className="space-y-2 text-blue-800">
                 <li>
                   <strong>Email:</strong>{' '}
-                  <a href={`mailto:security@${SITE_DOMAIN}`} className="underline">
-                    security@{SITE_DOMAIN}
+                  <a href={`mailto:${agentInfo.email}`} className="underline">
+                    {agentInfo.email}
                   </a>
                 </li>
                 <li>
@@ -247,8 +247,8 @@ export default function SecurityPolicyPage() {
               </p>
               <p className="mb-2">
                 Email:{' '}
-                <a href={`mailto:info@${SITE_DOMAIN}`} className="text-blue-600 underline">
-                  info@{SITE_DOMAIN}
+                <a href={`mailto:${agentInfo.email}`} className="text-blue-600 underline">
+                  {agentInfo.email}
                 </a>
               </p>
               <p>

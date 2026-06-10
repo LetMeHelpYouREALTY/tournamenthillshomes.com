@@ -5,7 +5,7 @@ Hyperlocal SEO microsite for **Tournament Hills** (Summerlin West, Las Vegas 891
 ## Start here
 
 1. Read [`docs/seo/tournament-hills-hyperlocal-spec.md`](docs/seo/tournament-hills-hyperlocal-spec.md)
-2. NAP source: [`lib/site-config.ts`](lib/site-config.ts) — phone **(702) 500-1942**, email **DrDuffyDells@TournamentHillsHomes.com**
+2. NAP source: [`lib/site-config.ts`](lib/site-config.ts) — phone **(702) 500-1942**, email **DrDuffySells@TournamentHillsHomes.com**
 3. Tournament Hills copy/FAQs: [`lib/tournament-hills-content.ts`](lib/tournament-hills-content.ts)
 
 ## Agent

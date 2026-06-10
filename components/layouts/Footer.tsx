@@ -194,7 +194,7 @@ export default function Footer() {
                   href={`mailto:${agentInfo.email}`}
                   className="text-slate-300 hover:text-white transition-colors text-sm"
                 >
-                  Homes@HeyBerkshire.com
+                  {agentInfo.email}
                 </Link>
               </li>
             </ul>

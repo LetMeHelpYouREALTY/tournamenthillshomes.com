@@ -18,6 +18,8 @@ export const siteConfig = {
   primaryNeighborhood: "Tournament Hills",
 };
 
+export const CONTACT_EMAIL = "DrDuffySells@TournamentHillsHomes.com";
+
 export const agentInfo = {
   name: "Dr. Jan Duffy",
   title: "REALTOR®",
@@ -25,8 +27,7 @@ export const agentInfo = {
   phone: "(702) 500-1942",
   phoneFormatted: "(702) 500-1942",
   phoneTel: "tel:+17025001942",
-  email:
-    process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "DrDuffyDells@TournamentHillsHomes.com",
+  email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? CONTACT_EMAIL,
   brokerage: "Berkshire Hathaway HomeServices Nevada Properties",
 };
 

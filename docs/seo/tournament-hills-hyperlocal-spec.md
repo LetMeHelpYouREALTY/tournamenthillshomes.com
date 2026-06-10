@@ -30,7 +30,7 @@ Two distinct entities — do not merge office NAP with the residential community
 - **Name:** Dr. Jan Duffy — Berkshire Hathaway HomeServices Nevada Properties
 - **Office NAP:** 9406 W Lake Mead Blvd, Suite 100, Las Vegas, NV 89134
 - **Phone:** (702) 500-1942
-- **Email:** `DrDuffyDells@TournamentHillsHomes.com` (override via `NEXT_PUBLIC_CONTACT_EMAIL` in Vercel if needed)
+- **Email:** `DrDuffySells@TournamentHillsHomes.com` (override via `NEXT_PUBLIC_CONTACT_EMAIL` in Vercel if needed)
 - **License:** S.0197614.LLC
 - **areaServed:** Tournament Hills, Summerlin, Las Vegas, Clark County NV
 
