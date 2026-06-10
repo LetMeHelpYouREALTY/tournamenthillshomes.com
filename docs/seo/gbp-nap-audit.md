@@ -13,7 +13,7 @@ Reconcile visible site copy, JSON-LD, and Google Business Profile before each de
 | **City, state, zip** | Las Vegas, NV 89134 |
 | **Phone** | (702) 500-1942 |
 | **Phone tel:** | `tel:+17025001942` |
-| **Email** | homes@heyberkshire.com |
+| **Email** | DrDuffyDells@TournamentHillsHomes.com |
 | **License** | S.0197614.LLC |
 | **Website** | https://www.tournamenthillshomes.com |
 
