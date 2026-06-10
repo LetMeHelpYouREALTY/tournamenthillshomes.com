@@ -1,5 +1,4 @@
 import Navbar from "@/components/layouts/Navbar";
-import RealScoutListings from "@/components/realscout/RealScoutListings";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import ReviewsSection from "@/components/sections/ReviewsSection";
 import FAQSection from "@/components/sections/FAQSection";
@@ -11,6 +10,7 @@ import { agentInfo, marketStats } from "@/lib/site-config";
 import SchemaScript from "@/components/SchemaScript";
 import { combineSchemas, generateFAQSchema } from "@/lib/schema";
 import { tournamentHillsFaqs } from "@/lib/tournament-hills-content";
+import RealScoutOfficeListings from "@/components/realscout/RealScoutOfficeListings";
 
 const homepageFaqSchema = combineSchemas(generateFAQSchema(tournamentHillsFaqs));
 
@@ -68,6 +68,8 @@ export default async function Home() {
             </div>
           </div>
         </section>
+
+        <RealScoutOfficeListings />
 
         {/* Value Proposition */}
         <section className="py-16 md:py-20 bg-white">
@@ -138,7 +140,6 @@ export default async function Home() {
           </div>
         </section>
 
-        <RealScoutListings />
         <WhyChooseUs />
         <ReviewsSection />
         <FAQSection

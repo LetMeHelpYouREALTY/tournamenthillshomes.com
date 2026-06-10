@@ -12,6 +12,8 @@ import {
   generateWebSiteSchema,
 } from "@/lib/schema";
 import { siteConfig } from "@/lib/site-config";
+import { REALSCOUT_SCRIPT_URL } from "@/lib/realscout-config";
+import RealScoutAfterHero from "@/components/realscout/RealScoutAfterHero";
 
 const siteWideSchemas = combineSchemas(
   generateRealEstateAgentSchema(),
@@ -50,9 +52,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           window.widgetTracker("create","WT-XQHVYQWW");
           window.widgetTracker("send","pageview");
         `}</Script>
+        <Script
+          id="realscout-web-components"
+          src={REALSCOUT_SCRIPT_URL}
+          strategy="afterInteractive"
+          type="module"
+        />
       </head>
       <body>
         <SchemaScript schema={siteWideSchemas} id="site-wide-schema" />
+        <RealScoutAfterHero />
         {children}
         <Analytics />
       </body>
