@@ -7,6 +7,9 @@
 
 import { Ratelimit, type Duration } from '@upstash/ratelimit';
 import { Redis } from '@upstash/redis';
+import { SITE_DOMAIN } from './site-config';
+
+const rateLimitPrefix = `@${SITE_DOMAIN.replace(/\./g, '-')}`;
 
 // Initialize Redis client (uses env vars automatically)
 const redis = process.env.UPSTASH_REDIS_REST_URL && process.env.UPSTASH_REDIS_REST_TOKEN
@@ -27,7 +30,7 @@ export const leadFormLimiter = redis
       redis,
       limiter: Ratelimit.slidingWindow(5, '1 h'),
       analytics: true,
-      prefix: '@heyberkshire/lead-form',
+      prefix: `${rateLimitPrefix}/lead-form`,
     })
   : null;
 
@@ -42,7 +45,7 @@ export const claudeAiLimiter = redis
       redis,
       limiter: Ratelimit.slidingWindow(10, '1 m'),
       analytics: true,
-      prefix: '@heyberkshire/claude-ai',
+      prefix: `${rateLimitPrefix}/claude-ai`,
     })
   : null;
 
@@ -57,7 +60,7 @@ export const apiLimiter = redis
       redis,
       limiter: Ratelimit.slidingWindow(100, '1 m'),
       analytics: true,
-      prefix: '@heyberkshire/api',
+      prefix: `${rateLimitPrefix}/api`,
     })
   : null;
 
@@ -165,7 +168,7 @@ export function createRateLimiter(config: {
     redis,
     limiter: Ratelimit.slidingWindow(config.requests, config.window),
     analytics: true,
-    prefix: `@heyberkshire/${config.prefix}`,
+    prefix: `${rateLimitPrefix}/${config.prefix}`,
   });
 }
 

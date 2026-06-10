@@ -1,5 +1,5 @@
 /**
- * Schema.org Structured Data Generators for heyberkshire.com
+ * Schema.org Structured Data Generators for tournamenthillshomes.com
  * Following Google's 2025 Structured Data Guidelines
  *
  * @see https://schema.org
@@ -87,7 +87,8 @@ export function generateRealEstateAgentSchema() {
     "@id": `${BASE_URL}#organization`,
     name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
     alternateName: [
-      "HeyBerkshire",
+      siteConfig.name,
+      "Tournament Hills Homes",
       "BHHS Nevada Properties",
       "Berkshire Hathaway HomeServices",
     ],

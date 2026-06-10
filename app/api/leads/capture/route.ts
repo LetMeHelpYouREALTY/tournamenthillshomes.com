@@ -12,6 +12,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { FollowUpBossClient } from '@/lib/fub/client';
 import { leadFormLimiter, getClientId, checkRateLimit, getRateLimitHeaders } from '@/lib/rate-limit';
+import { SITE_DOMAIN } from '@/lib/site-config';
 
 export interface LeadCaptureRequest {
   // Required
@@ -267,7 +268,7 @@ function enrichSource(source: string | undefined, request: NextRequest): string 
   if (referrer) {
     try {
       const refUrl = new URL(referrer);
-      if (!refUrl.hostname.includes('heyberkshire.com')) {
+      if (!refUrl.hostname.includes(SITE_DOMAIN)) {
         return `referral/${refUrl.hostname}`;
       }
     } catch (e) {

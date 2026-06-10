@@ -7,6 +7,7 @@ import Footer from "@/components/layouts/Footer";
 import Link from "next/link";
 import { Phone, Home as HomeIcon, TrendingUp, Shield, Users } from "lucide-react";
 import { getPageDomainConfig } from "@/lib/get-domain-config";
+import { agentInfo, siteConfig } from "@/lib/site-config";
 
 export default async function Home() {
   const config = await getPageDomainConfig();
@@ -15,8 +16,8 @@ export default async function Home() {
     "@context": "https://schema.org",
     "@type": "RealEstateAgent",
     name: `Dr. Jan Duffy - ${config.neighborhood} Real Estate`,
-    url: `https://${config.domain !== "default" ? config.domain : "heyberkshire.com"}`,
-    telephone: "+17022221964",
+    url: `https://${config.domain !== "default" ? config.domain : siteConfig.domain}`,
+    telephone: agentInfo.phoneTel.replace("tel:", ""),
     address: {
       "@type": "PostalAddress",
       streetAddress: "9406 W Lake Mead Blvd, Suite 100",

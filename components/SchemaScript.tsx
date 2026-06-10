@@ -8,6 +8,9 @@
  */
 
 import { combineSchemas, schemaToJsonLd } from "@/lib/schema";
+import { siteConfig } from "@/lib/site-config";
+
+const siteUrl = siteConfig.url.replace(/\/$/, "");
 
 interface SchemaScriptProps {
   /** Single schema object */
@@ -64,7 +67,7 @@ export function BreadcrumbSchema({
       name: item.name,
       item: item.url.startsWith("http")
         ? item.url
-        : `https://heyberkshire.com${item.url}`,
+        : `${siteUrl}${item.url}`,
     })),
   };
 
@@ -118,7 +121,7 @@ export function ReviewSchema({
   const schema: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "RealEstateAgent",
-    "@id": "https://heyberkshire.com#organization",
+    "@id": `${siteUrl}#organization`,
     name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
   };
 
@@ -174,7 +177,7 @@ export function NeighborhoodSchema({
   const schema: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "Place",
-    "@id": `https://heyberkshire.com/neighborhoods/${slug}#place`,
+    "@id": `${siteUrl}/neighborhoods/${slug}#place`,
     name: `${name}, Las Vegas`,
     description,
     address: {

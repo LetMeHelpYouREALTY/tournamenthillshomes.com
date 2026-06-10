@@ -32,10 +32,10 @@ const nextConfig = {
         has: [
           {
             type: 'host',
-            value: 'heyberkshire.com',
+            value: 'tournamenthillshomes.com',
           },
         ],
-        destination: 'https://www.heyberkshire.com/:path*',
+        destination: 'https://www.tournamenthillshomes.com/:path*',
         permanent: true,
       },
     ]

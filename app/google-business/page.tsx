@@ -18,6 +18,7 @@ import {
   Heart,
 } from "lucide-react";
 import type { Metadata } from "next";
+import { siteConfig } from "@/lib/site-config";
 import {
   businessInfo,
   gbpDescription,
@@ -42,7 +43,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
     description: "Trusted Las Vegas REALTOR® serving since 2008. Summerlin, Henderson, luxury homes, 55+ communities.",
-    url: "https://heyberkshire.com/google-business",
+    url: `${siteConfig.url}/google-business`,
     type: "profile",
   },
 };

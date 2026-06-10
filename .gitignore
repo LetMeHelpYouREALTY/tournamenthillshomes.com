@@ -124,6 +124,8 @@ credentials.json
 # ===================
 /real-estate-template
 *.bak
+*.backup
+package.json.backup
 *.tmp
 *.temp
 

@@ -1,18 +1,21 @@
-// Site Configuration - HeyBerkshire.com
-// Berkshire Hathaway HomeServices Nevada Properties
+// Site Configuration - tournamenthillshomes.com
+// Tournament Hills | Summerlin West | Dr. Jan Duffy | BHHS Nevada Properties
+
+export const SITE_DOMAIN = "tournamenthillshomes.com";
 
 export const siteConfig = {
-  name: "HeyBerkshire",
+  name: "Tournament Hills Homes",
+  domain: SITE_DOMAIN,
   fullName: "Berkshire Hathaway HomeServices Nevada Properties",
-  tagline: "Private Client Real Estate Advisory",
-  /** Full brand line for titles and OG: Berkshire Hathaway HomeServices Nevada Properties | Private Client Real Estate Advisory */
+  tagline: "Tournament Hills Homes for Sale in Summerlin West",
   brandLine:
-    "Berkshire Hathaway HomeServices Nevada Properties | Private Client Real Estate Advisory",
+    "Tournament Hills Homes for Sale | Dr. Jan Duffy | Berkshire Hathaway HomeServices Nevada Properties",
   brandName: "Berkshire Hathaway HomeServices",
   shortName: "BHHS",
-  url: "https://heyberkshire.com",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? `https://www.${SITE_DOMAIN}`,
   description:
-    "Expert real estate services in Las Vegas and Henderson, NV. Buy, sell, or invest with Dr. Jan Duffy, your trusted Berkshire Hathaway HomeServices Nevada Properties agent.",
+    "Search Tournament Hills homes for sale in Summerlin West, Las Vegas. Luxury golf community listings and expert guidance from Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties.",
+  primaryNeighborhood: "Tournament Hills",
 };
 
 export const agentInfo = {
@@ -99,6 +102,13 @@ export const valuePropositions = {
 
 // Neighborhoods served
 export const neighborhoods = [
+  {
+    name: "Tournament Hills",
+    slug: "tournament-hills",
+    description: "Guard-gated luxury golf community in Summerlin West near TPC Las Vegas",
+    medianPrice: "$850,000",
+    highlights: ["TPC Las Vegas golf", "Guard-gated", "Strip views", "Custom estates"],
+  },
   {
     name: "Summerlin",
     slug: "summerlin",

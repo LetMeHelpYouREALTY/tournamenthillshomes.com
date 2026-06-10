@@ -4,6 +4,7 @@ import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
 import { Phone } from "lucide-react";
 import type { Metadata } from "next";
+import { agentInfo } from "@/lib/site-config";
 import SchemaScript from "@/components/SchemaScript";
 import {
   generateBreadcrumbSchema,
@@ -146,7 +147,7 @@ const faqCategories = [
       },
       {
         q: "How do I contact Dr. Jan Duffy?",
-        a: "Call or text (702) 500-1942 or email homes@heyberkshire.com. Office located at 9406 W Lake Mead Blvd, Suite 100, Las Vegas, NV 89134.",
+        a: `Call or text (702) 500-1942 or email ${agentInfo.email}. Office located at 9406 W Lake Mead Blvd, Suite 100, Las Vegas, NV 89134.`,
       },
       {
         q: "What areas does Dr. Jan cover?",
