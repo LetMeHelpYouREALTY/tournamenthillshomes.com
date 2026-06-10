@@ -14,15 +14,15 @@ import {
 } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "FAQ | Berkshire Hathaway HomeServices Las Vegas Real Estate",
+  title: "Tournament Hills FAQ | Las Vegas Real Estate | Dr. Jan Duffy",
   description:
-    "Frequently asked questions about Las Vegas real estate, Berkshire Hathaway HomeServices, buying, selling, and working with Dr. Jan Duffy at BHHS Nevada Properties.",
+    "FAQ about Tournament Hills homes for sale, TPC Summerlin luxury real estate, and working with Dr. Jan Duffy at Berkshire Hathaway HomeServices Nevada Properties. Call (702) 500-1942.",
   keywords: [
+    "Tournament Hills FAQ",
+    "TPC Summerlin real estate questions",
+    "Tournament Hills homes for sale",
     "Berkshire Hathaway HomeServices FAQ",
-    "Las Vegas real estate questions",
-    "buying a home Las Vegas",
-    "selling a home Henderson",
-    "BHHS agent questions",
+    "Las Vegas luxury real estate",
   ],
 };
 
@@ -32,7 +32,13 @@ const breadcrumbs = [
   { name: "FAQ", url: "/faq" },
 ];
 
+import { tournamentHillsFaqs } from "@/lib/tournament-hills-content";
+
 const faqCategories = [
+  {
+    title: "Tournament Hills & TPC Summerlin",
+    faqs: tournamentHillsFaqs.map((faq) => ({ q: faq.question, a: faq.answer })),
+  },
   {
     title: "About Berkshire Hathaway HomeServices",
     faqs: [
@@ -151,7 +157,7 @@ const faqCategories = [
       },
       {
         q: "What areas does Dr. Jan cover?",
-        a: "Dr. Jan serves all of Las Vegas, Henderson, Summerlin, Green Valley, North Las Vegas, Southern Highlands, Skye Canyon, Centennial Hills, The Ridges, and surrounding communities.",
+        a: "Dr. Jan serves all of Las Vegas, Henderson, Summerlin, Green Valley, North Las Vegas, Southern Highlands, Skye Canyon, Centennial Hills, The Ridges, Tournament Hills, and surrounding communities.",
       },
     ],
   },

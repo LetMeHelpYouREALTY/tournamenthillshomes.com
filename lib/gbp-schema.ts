@@ -2,6 +2,8 @@
 // Supports GBP ranking factors: Relevance, Distance, Prominence
 
 import { agentInfo, siteConfig } from "./site-config";
+import { generateFAQSchema as createFAQPageSchema } from "./schema";
+import { tournamentHillsFaqs } from "./tournament-hills-content";
 
 export const businessInfo = {
   // NAP - Must match GBP exactly
@@ -43,10 +45,9 @@ export const businessInfo = {
 
   // Service areas - Start focused, expand with prominence
   serviceAreas: [
-    // Primary (immediate city)
     "Las Vegas, NV",
     "Summerlin, NV",
-    // Secondary (close ZIPs)
+    "Tournament Hills, NV",
     "Henderson, NV",
     "North Las Vegas, NV",
     // Tertiary (county expansion)
@@ -166,11 +167,13 @@ Dr. Jan's approach is simple: treat every client like family, know the market in
 Office located at 9406 W Lake Mead Blvd, Suite 100, Las Vegas, NV 89134. Available Monday through Friday 9am-6pm, Saturday 10am-4pm, and Sunday by appointment. Call (702) 500-1942 for a free consultation or visit ${siteConfig.domain} to start your Las Vegas real estate journey today.`,
 };
 
-// FAQ Schema for GBP Q&A section
+// FAQ Schema for GBP Q&A section (Tournament Hills + general Las Vegas)
 export const gbpFAQs = [
+  ...tournamentHillsFaqs,
   {
     question: "What areas does Dr. Jan Duffy serve in Las Vegas?",
-    answer: "Dr. Jan serves all of Las Vegas, Summerlin, Henderson, North Las Vegas, and Clark County. Specialized neighborhood expertise includes Summerlin, Green Valley, The Ridges, Southern Highlands, Centennial Hills, Skye Canyon, Inspirada, and Mountains Edge.",
+    answer:
+      "Dr. Jan serves all of Las Vegas, Summerlin, Henderson, North Las Vegas, and Clark County. Specialized neighborhood expertise includes Tournament Hills, Summerlin, Green Valley, The Ridges, Southern Highlands, Centennial Hills, Skye Canyon, Inspirada, and Mountains Edge.",
   },
   {
     question: "Does Dr. Jan help buyers relocating from California?",
@@ -190,7 +193,8 @@ export const gbpFAQs = [
   },
   {
     question: "What is the average home price in Las Vegas in 2026?",
-    answer: "As of January 2026, the Las Vegas median home price is $450,000, up 4.2% year-over-year. Henderson's median is slightly higher at $485,000. Luxury communities like Summerlin average $625,000, while The Ridges averages $2.5 million. Contact Dr. Jan for current market data.",
+    answer:
+      "As of June 2026, the Las Vegas Valley median is approximately $450,000. Tournament Hills in Summerlin is an ultra-luxury guard-gated enclave where active listings commonly start around $3.5M+. Summerlin overall averages near $625,000. Contact Dr. Jan for a current MLS snapshot for your target community.",
   },
   {
     question: "Does Dr. Jan work with first-time home buyers?",
@@ -269,18 +273,7 @@ export function generateLocalBusinessSchema() {
   };
 }
 
-// Generate FAQPage Schema
+// Generate FAQPage Schema (delegates to lib/schema.ts)
 export function generateFAQSchema(faqs = gbpFAQs) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((faq) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: faq.answer,
-      },
-    })),
-  };
+  return createFAQPageSchema(faqs);
 }

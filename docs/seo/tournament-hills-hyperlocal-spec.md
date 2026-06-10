@@ -151,9 +151,9 @@ Do **not** block `/_next/static` in robots.
 | Phase | Status | Scope |
 |-------|--------|--------|
 | P0 | Done | This spec + research appendix + NAP audit + schema matrix |
-| P1 | In progress | TH neighborhood page, layout schema, homepage FAQ/NAP, sitemap |
-| P2 | Planned | `metadataBase`, expanded gbpFAQs, homepage market band from `tournamentHillsMarket` |
-| P3 | Planned | robots.txt alignment, consolidate FAQ generators, Rich Results QA |
+| P1 | Done | TH neighborhood page, layout schema, homepage FAQ/NAP, sitemap |
+| P2 | Done | `metadataBase`, expanded gbpFAQs, homepage market band from `tournamentHillsMarket` |
+| P3 | In progress | robots via `app/robots.ts`, consolidate FAQ generators, Rich Results QA |
 
 ---
 
