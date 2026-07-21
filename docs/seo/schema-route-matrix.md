@@ -2,24 +2,24 @@
 
 Maps each route to JSON-LD types. **One combined `@graph` per page** via `combineSchemas()`.
 
-| Route | JSON-LD types | Generator / source |
-|-------|---------------|-------------------|
-| All pages (layout) | `RealEstateAgent`, `WebSite` | `generateRealEstateAgentSchema()`, `generateWebSiteSchema()` in `lib/schema.ts` |
-| `/` | + `FAQPage` | `generateFAQPageSchema(tournamentHillsFaqs)` |
-| `/neighborhoods/tournament-hills` | `BreadcrumbList`, `Place`, `FAQPage` | `generateBreadcrumbSchema`, `generateNeighborhoodSchema`, TH FAQs |
-| `/neighborhoods/summerlin` | `BreadcrumbList`, `Place`, `FAQPage` | Inline in page |
-| `/contact` | `ContactPage` | `generateContactPageSchema()` if present |
-| `/faq` | `FAQPage` | `gbpFAQs` or merged set |
-| `/listings` | (optional) `ItemList` | Future — listing carousel |
+| Route                             | JSON-LD types                        | Generator / source                                                              |
+| --------------------------------- | ------------------------------------ | ------------------------------------------------------------------------------- |
+| All pages (layout)                | `RealEstateAgent`, `WebSite`         | `generateRealEstateAgentSchema()`, `generateWebSiteSchema()` in `lib/schema.ts` |
+| `/`                               | + `FAQPage`                          | `generateFAQPageSchema(tournamentHillsFaqs)`                                    |
+| `/neighborhoods/tournament-hills` | `BreadcrumbList`, `Place`, `FAQPage` | `generateBreadcrumbSchema`, `generateNeighborhoodSchema`, TH FAQs               |
+| `/neighborhoods/summerlin`        | `BreadcrumbList`, `Place`, `FAQPage` | Inline in page                                                                  |
+| `/contact`                        | `ContactPage`                        | `generateContactPageSchema()` if present                                        |
+| `/faq`                            | `FAQPage`                            | `gbpFAQs` or merged set                                                         |
+| `/listings`                       | (optional) `ItemList`                | Future — listing carousel                                                       |
 
 ---
 
 ## @id conventions
 
-| Entity | @id |
-|--------|-----|
-| Organization / agent | `https://www.tournamenthillshomes.com/#organization` |
-| WebSite | `https://www.tournamenthillshomes.com/#website` |
+| Entity                 | @id                                                                         |
+| ---------------------- | --------------------------------------------------------------------------- |
+| Organization / agent   | `https://www.tournamenthillshomes.com/#organization`                        |
+| WebSite                | `https://www.tournamenthillshomes.com/#website`                             |
 | Tournament Hills Place | `https://www.tournamenthillshomes.com/neighborhoods/tournament-hills#place` |
 
 ---
@@ -33,4 +33,4 @@ Maps each route to JSON-LD types. **One combined `@graph` per page** via `combin
 
 ---
 
-*Last updated: June 2026*
+_Last updated: June 2026_

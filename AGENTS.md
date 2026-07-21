@@ -21,7 +21,7 @@ Hyperlocal SEO microsite for **Tournament Hills** (Summerlin West, Las Vegas 891
 ## Do not
 
 - Modify `/components/idx/*` without explicit approval
-- Fabricate medians or DOM stats — use price *bands* with `lastUpdated`
+- Fabricate medians or DOM stats — use price _bands_ with `lastUpdated`
 - Duplicate `RealEstateAgent` JSON-LD on pages (layout emits site-wide schema)
 - Block `/_next/static` in robots
 
@@ -35,12 +35,12 @@ vercel build
 
 ## Key routes
 
-| Route | Purpose |
-|-------|---------|
-| `/` | Homepage + Tournament Hills FAQ |
-| `/neighborhoods/tournament-hills` | Primary hyperlocal hub |
-| `/listings` | RealScout search |
-| `/contact` | NAP + lead capture |
+| Route                             | Purpose                         |
+| --------------------------------- | ------------------------------- |
+| `/`                               | Homepage + Tournament Hills FAQ |
+| `/neighborhoods/tournament-hills` | Primary hyperlocal hub          |
+| `/listings`                       | RealScout search                |
+| `/contact`                        | NAP + lead capture              |
 
 ## RealScout CSP
 

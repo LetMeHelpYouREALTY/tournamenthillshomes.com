@@ -22,7 +22,8 @@ export default function RealScoutOfficeListings({
               Homes for Sale
             </h2>
             <p className="text-slate-600 mt-2 text-sm md:text-base">
-              Live MLS listings — $700K–$1M single-family homes in Las Vegas &amp; Summerlin
+              Live MLS listings — $700K–$1M single-family homes in Las Vegas
+              &amp; Summerlin
             </p>
           </div>
         )}

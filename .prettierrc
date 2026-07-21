@@ -16,11 +16,5 @@
   "requirePragma": false,
   "tabWidth": 2,
   "useTabs": false,
-  "embeddedLanguageFormatting": "auto",
-  "jsxBracketSameLine": false,
-  "fluid": false,
-  "importOrderSeparation": true,
-  "importOrderSortSpecifiers": true,
-  "importOrderBuiltinModulesToTop": true,
-  "importOrderParserPlugins": ["typescript", "jsx"]
+  "embeddedLanguageFormatting": "auto"
 }

@@ -10,12 +10,12 @@ This document is the single source of truth for SEO, AEO, GEO, and JSON-LD work 
 
 ## 1. Mission and canonical host
 
-| Item | Value |
-|------|--------|
-| Canonical URL | `https://www.tournamenthillshomes.com` |
-| Apex redirect | `tournamenthillshomes.com` → 308 → www (Vercel + `next.config.js`) |
+| Item                    | Value                                                                        |
+| ----------------------- | ---------------------------------------------------------------------------- |
+| Canonical URL           | `https://www.tournamenthillshomes.com`                                       |
+| Apex redirect           | `tournamenthillshomes.com` → 308 → www (Vercel + `next.config.js`)           |
 | Primary keyword cluster | Tournament Hills homes for sale, TPC Summerlin luxury, Summerlin guard-gated |
-| Env var | `NEXT_PUBLIC_SITE_URL=https://www.tournamenthillshomes.com` |
+| Env var                 | `NEXT_PUBLIC_SITE_URL=https://www.tournamenthillshomes.com`                  |
 
 ---
 
@@ -50,18 +50,18 @@ Stable `@id` and canonical URLs must match visible copy on every page.
 
 Synthesized from public competitor area guides and MLS listing pages ([Luxury Homes of Las Vegas](https://luxuryhomesoflasvegas.com/communities/tournament-hills/), [Huntington & Ellis](https://huntingtonandellis.com/neighborhoods/tournament-hills)). **Re-verify before each quarterly content refresh.**
 
-| Topic | Content guidance |
-|-------|------------------|
-| Community type | Guard-gated luxury; custom traditional and contemporary estates |
-| Golf | TPC Summerlin — PGA Tour history; membership course adjacent to community |
-| Price band | Ultra-luxury; public active listings commonly **$3.5M – $7M+** (use range, not a fabricated median) |
-| Location | Central Summerlin; Summerlin Parkway, US-95, 215 access |
-| Nearby retail | Downtown Summerlin, Tivoli Village, Boca Park |
-| Healthcare | Summerlin Hospital, Red Rock medical campus |
-| Recreation | Red Rock Canyon, City National Arena, Las Vegas Ballpark, 150+ Summerlin parks |
-| Parks (nearby) | Bruce Trent Park, Hills Park, Pueblo Park |
-| Schools (examples) | Bonner Elementary, West CTA, Bendorf Elementary — CCSD; verify ratings on GreatSchools |
-| Lifestyle scores | Car-oriented community (Walk Score ~40s typical for enclave) |
+| Topic              | Content guidance                                                                                    |
+| ------------------ | --------------------------------------------------------------------------------------------------- |
+| Community type     | Guard-gated luxury; custom traditional and contemporary estates                                     |
+| Golf               | TPC Summerlin — PGA Tour history; membership course adjacent to community                           |
+| Price band         | Ultra-luxury; public active listings commonly **$3.5M – $7M+** (use range, not a fabricated median) |
+| Location           | Central Summerlin; Summerlin Parkway, US-95, 215 access                                             |
+| Nearby retail      | Downtown Summerlin, Tivoli Village, Boca Park                                                       |
+| Healthcare         | Summerlin Hospital, Red Rock medical campus                                                         |
+| Recreation         | Red Rock Canyon, City National Arena, Las Vegas Ballpark, 150+ Summerlin parks                      |
+| Parks (nearby)     | Bruce Trent Park, Hills Park, Pueblo Park                                                           |
+| Schools (examples) | Bonner Elementary, West CTA, Bendorf Elementary — CCSD; verify ratings on GreatSchools              |
+| Lifestyle scores   | Car-oriented community (Walk Score ~40s typical for enclave)                                        |
 
 **Content integrity:** Never invent medians, DOM, or review counts. Cite `lastUpdated` on market sections.
 
@@ -82,14 +82,14 @@ Before publishing stats or review schema:
 
 ## 5. Page inventory and content requirements
 
-| Route | Title/H1 focus | Min words | Required sections |
-|-------|----------------|-----------|-------------------|
-| `/` | Tournament Hills Homes for Sale | 600+ | Domain hero, TH market band, RealScout, TH FAQ + FAQPage, NAP, CTA |
-| `/neighborhoods/tournament-hills` | Tournament Hills Summerlin Real Estate | 800+ | Breadcrumb, market band, TPC/golf, guard-gate, amenities table, schools, commute, map embed, FAQ + schema, CTA |
-| `/listings` | Tournament Hills / Summerlin listings | 300+ | RealScout widget, MLS disclaimer |
-| `/contact` | Contact Dr. Jan Duffy | 300+ | NAP, hours, map, ContactPage schema |
-| `/home-valuation` | Tournament Hills home value | 300+ | Lead form, localized copy |
-| `/faq` | Tournament Hills + BHHS FAQs | 500+ | TH subset + general; FAQPage |
+| Route                             | Title/H1 focus                         | Min words | Required sections                                                                                              |
+| --------------------------------- | -------------------------------------- | --------- | -------------------------------------------------------------------------------------------------------------- |
+| `/`                               | Tournament Hills Homes for Sale        | 600+      | Domain hero, TH market band, RealScout, TH FAQ + FAQPage, NAP, CTA                                             |
+| `/neighborhoods/tournament-hills` | Tournament Hills Summerlin Real Estate | 800+      | Breadcrumb, market band, TPC/golf, guard-gate, amenities table, schools, commute, map embed, FAQ + schema, CTA |
+| `/listings`                       | Tournament Hills / Summerlin listings  | 300+      | RealScout widget, MLS disclaimer                                                                               |
+| `/contact`                        | Contact Dr. Jan Duffy                  | 300+      | NAP, hours, map, ContactPage schema                                                                            |
+| `/home-valuation`                 | Tournament Hills home value            | 300+      | Lead form, localized copy                                                                                      |
+| `/faq`                            | Tournament Hills + BHHS FAQs           | 500+      | TH subset + general; FAQPage                                                                                   |
 
 Every page: business name, address, phone in footer; LocalBusiness/RealEstateAgent on layout or page.
 
@@ -120,27 +120,27 @@ Visible FAQ text must match `FAQPage` JSON-LD exactly.
 
 ## 8. Internal linking map
 
-| From | To | Anchor text example |
-|------|-----|---------------------|
-| `/` | `/neighborhoods/tournament-hills` | Tournament Hills neighborhood guide |
-| `/` | `/listings` | Tournament Hills homes for sale |
-| `/` | `/home-valuation` | Free Tournament Hills home valuation |
-| `/` | `/contact` | Contact Dr. Jan Duffy |
-| `/neighborhoods/tournament-hills` | `/listings` | Search Tournament Hills listings |
-| `/neighborhoods/tournament-hills` | `/luxury-homes` | Las Vegas luxury homes |
-| `/neighborhoods` | `/neighborhoods/tournament-hills` | Tournament Hills (featured first) |
+| From                              | To                                | Anchor text example                  |
+| --------------------------------- | --------------------------------- | ------------------------------------ |
+| `/`                               | `/neighborhoods/tournament-hills` | Tournament Hills neighborhood guide  |
+| `/`                               | `/listings`                       | Tournament Hills homes for sale      |
+| `/`                               | `/home-valuation`                 | Free Tournament Hills home valuation |
+| `/`                               | `/contact`                        | Contact Dr. Jan Duffy                |
+| `/neighborhoods/tournament-hills` | `/listings`                       | Search Tournament Hills listings     |
+| `/neighborhoods/tournament-hills` | `/luxury-homes`                   | Las Vegas luxury homes               |
+| `/neighborhoods`                  | `/neighborhoods/tournament-hills` | Tournament Hills (featured first)    |
 
 ---
 
 ## 9. GSC workflow
 
-| Step | Action |
-|------|--------|
-| Property | `https://www.tournamenthillshomes.com` |
-| Sitemap | `https://www.tournamenthillshomes.com/sitemap.xml` |
-| Priority URLs | `/`, `/neighborhoods/tournament-hills`, `/contact`, `/listings` |
-| Validate | [Rich Results Test](https://search.google.com/test/rich-results) |
-| Index | URL Inspection → Request indexing (sparingly) after deploy |
+| Step          | Action                                                           |
+| ------------- | ---------------------------------------------------------------- |
+| Property      | `https://www.tournamenthillshomes.com`                           |
+| Sitemap       | `https://www.tournamenthillshomes.com/sitemap.xml`               |
+| Priority URLs | `/`, `/neighborhoods/tournament-hills`, `/contact`, `/listings`  |
+| Validate      | [Rich Results Test](https://search.google.com/test/rich-results) |
+| Index         | URL Inspection → Request indexing (sparingly) after deploy       |
 
 Do **not** block `/_next/static` in robots.
 
@@ -148,12 +148,12 @@ Do **not** block `/_next/static` in robots.
 
 ## 10. Implementation phases
 
-| Phase | Status | Scope |
-|-------|--------|--------|
-| P0 | Done | This spec + research appendix + NAP audit + schema matrix |
-| P1 | Done | TH neighborhood page, layout schema, homepage FAQ/NAP, sitemap |
-| P2 | Done | `metadataBase`, expanded gbpFAQs, homepage market band from `tournamentHillsMarket` |
-| P3 | In progress | robots via `app/robots.ts`, consolidate FAQ generators, Rich Results QA |
+| Phase | Status      | Scope                                                                               |
+| ----- | ----------- | ----------------------------------------------------------------------------------- |
+| P0    | Done        | This spec + research appendix + NAP audit + schema matrix                           |
+| P1    | Done        | TH neighborhood page, layout schema, homepage FAQ/NAP, sitemap                      |
+| P2    | Done        | `metadataBase`, expanded gbpFAQs, homepage market band from `tournamentHillsMarket` |
+| P3    | In progress | robots via `app/robots.ts`, consolidate FAQ generators, Rich Results QA             |
 
 ---
 

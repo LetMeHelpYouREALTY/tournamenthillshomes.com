@@ -27,13 +27,13 @@ Supporting research for [`tournament-hills-hyperlocal-spec.md`](./tournament-hil
 
 LLMs and AI search surfaces favor:
 
-| Signal | Implementation on this site |
-|--------|----------------------------|
-| Clear entity names | "Tournament Hills", "TPC Summerlin", "Dr. Jan Duffy" |
-| Factual, citable structure | H2/H3 sections, tables, FAQ Q&A pairs |
-| Geographic anchors | Zip 89134, Summerlin, Clark County NV |
-| No fabricated stats | Price *ranges* from MLS samples; dated `lastUpdated` |
-| Internal links | Neighborhood hub → listings → contact |
+| Signal                     | Implementation on this site                          |
+| -------------------------- | ---------------------------------------------------- |
+| Clear entity names         | "Tournament Hills", "TPC Summerlin", "Dr. Jan Duffy" |
+| Factual, citable structure | H2/H3 sections, tables, FAQ Q&A pairs                |
+| Geographic anchors         | Zip 89134, Summerlin, Clark County NV                |
+| No fabricated stats        | Price _ranges_ from MLS samples; dated `lastUpdated` |
+| Internal links             | Neighborhood hub → listings → contact                |
 
 Avoid keyword stuffing; write for humans first, schema second.
 
@@ -52,10 +52,10 @@ Avoid keyword stuffing; write for humans first, schema second.
 
 **Purpose:** Inform original copy for Dr. Jan Duffy—not verbatim reuse.
 
-| Source | URL | Useful facts |
-|--------|-----|--------------|
-| Luxury Homes of Las Vegas | https://luxuryhomesoflasvegas.com/communities/tournament-hills/ | Guard-gated; TPC Summerlin; Tiger Woods first PGA win; zip 89134; listing band ~$3.5M–$6.25M+; Tivoli Village, Summerlin Hospital, Red Rock proximity |
-| Huntington & Ellis | https://huntingtonandellis.com/neighborhoods/tournament-hills | Shriners Open; parks (Bruce Trent, Hills, Pueblo); CCSD schools with GreatSchools ratings; Downtown Summerlin amenities (City National Arena, Ballpark); adjacent villages (Vistas, Paseos, Cliffs) |
+| Source                    | URL                                                             | Useful facts                                                                                                                                                                                        |
+| ------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Luxury Homes of Las Vegas | https://luxuryhomesoflasvegas.com/communities/tournament-hills/ | Guard-gated; TPC Summerlin; Tiger Woods first PGA win; zip 89134; listing band ~$3.5M–$6.25M+; Tivoli Village, Summerlin Hospital, Red Rock proximity                                               |
+| Huntington & Ellis        | https://huntingtonandellis.com/neighborhoods/tournament-hills   | Shriners Open; parks (Bruce Trent, Hills, Pueblo); CCSD schools with GreatSchools ratings; Downtown Summerlin amenities (City National Arena, Ballpark); adjacent villages (Vistas, Paseos, Cliffs) |
 
 **Our differentiation:** BHHS brand, Dr. Jan Duffy license and track record, RealScout search, FUB lead routing, Berkshire Hathaway trust narrative.
 
@@ -81,14 +81,14 @@ Avoid keyword stuffing; write for humans first, schema second.
 
 ## 7. Quarterly refresh cadence
 
-| Task | Frequency |
-|------|-----------|
-| MLS price band on TH page | Quarterly |
-| FAQ accuracy (schools, events) | Quarterly |
-| GSC coverage / CWV | Monthly |
-| GBP NAP audit | On GBP change or monthly |
-| Competitor page scan | Quarterly |
+| Task                           | Frequency                |
+| ------------------------------ | ------------------------ |
+| MLS price band on TH page      | Quarterly                |
+| FAQ accuracy (schools, events) | Quarterly                |
+| GSC coverage / CWV             | Monthly                  |
+| GBP NAP audit                  | On GBP change or monthly |
+| Competitor page scan           | Quarterly                |
 
 ---
 
-*Last updated: June 2026*
+_Last updated: June 2026_

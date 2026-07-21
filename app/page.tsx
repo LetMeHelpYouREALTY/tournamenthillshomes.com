@@ -4,7 +4,13 @@ import ReviewsSection from "@/components/sections/ReviewsSection";
 import FAQSection from "@/components/sections/FAQSection";
 import Footer from "@/components/layouts/Footer";
 import Link from "next/link";
-import { Phone, Home as HomeIcon, TrendingUp, Shield, Users } from "lucide-react";
+import {
+  Phone,
+  Home as HomeIcon,
+  TrendingUp,
+  Shield,
+  Users,
+} from "lucide-react";
 import { getPageDomainConfig } from "@/lib/get-domain-config";
 import { agentInfo, marketStats } from "@/lib/site-config";
 import SchemaScript from "@/components/SchemaScript";
@@ -12,7 +18,9 @@ import { combineSchemas, generateFAQSchema } from "@/lib/schema";
 import { tournamentHillsAllFaqs } from "@/lib/tournament-hills-content";
 import RealScoutOfficeListings from "@/components/realscout/RealScoutOfficeListings";
 
-const homepageFaqSchema = combineSchemas(generateFAQSchema(tournamentHillsAllFaqs));
+const homepageFaqSchema = combineSchemas(
+  generateFAQSchema(tournamentHillsAllFaqs),
+);
 
 export default async function Home() {
   const config = await getPageDomainConfig();
@@ -79,15 +87,32 @@ export default async function Home() {
                 Why Work With Dr. Jan Duffy?
               </h2>
               <p className="text-lg text-slate-600">
-                Berkshire Hathaway HomeServices Nevada Properties — trusted luxury Summerlin expertise.
+                Berkshire Hathaway HomeServices Nevada Properties — trusted
+                luxury Summerlin expertise.
               </p>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
               {[
-                { icon: Shield, title: "Trusted Brand", desc: "Backed by Warren Buffett's Berkshire Hathaway — unmatched integrity" },
-                { icon: Users, title: "50K+ Network", desc: "Global referral network for seamless moves to or from any market" },
-                { icon: TrendingUp, title: "$127M+ Sold", desc: "Proven results across Summerlin guard-gated communities since 2008" },
-                { icon: HomeIcon, title: "Tournament Hills", desc: "Guard-gated TPC Summerlin expertise — buying, selling, and valuations" },
+                {
+                  icon: Shield,
+                  title: "Trusted Brand",
+                  desc: "Backed by Warren Buffett's Berkshire Hathaway — unmatched integrity",
+                },
+                {
+                  icon: Users,
+                  title: "50K+ Network",
+                  desc: "Global referral network for seamless moves to or from any market",
+                },
+                {
+                  icon: TrendingUp,
+                  title: "$127M+ Sold",
+                  desc: "Proven results across Summerlin guard-gated communities since 2008",
+                },
+                {
+                  icon: HomeIcon,
+                  title: "Tournament Hills",
+                  desc: "Guard-gated TPC Summerlin expertise — buying, selling, and valuations",
+                },
               ].map(({ icon: Icon, title, desc }) => (
                 <div key={title} className="text-center p-6">
                   <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
@@ -113,27 +138,45 @@ export default async function Home() {
         <section className="py-16 bg-slate-900 text-white">
           <div className="container mx-auto px-4">
             <div className="text-center mb-10">
-              <h2 className="text-3xl font-bold mb-3">Tournament Hills Luxury Market</h2>
+              <h2 className="text-3xl font-bold mb-3">
+                Tournament Hills Luxury Market
+              </h2>
               <p className="text-slate-400">
-                Guard-gated golf community · Zip {thMarket.zip} · Updated {thMarket.lastUpdated}
+                Guard-gated golf community · Zip {thMarket.zip} · Updated{" "}
+                {thMarket.lastUpdated}
               </p>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
               {[
-                { value: thMarket.priceRangeFormatted, label: "Active Price Band", sub: "MLS samples" },
+                {
+                  value: thMarket.priceRangeFormatted,
+                  label: "Active Price Band",
+                  sub: "MLS samples",
+                },
                 { value: thMarket.zip, label: "Zip Code", sub: "" },
                 { value: "Guard-Gated", label: "Community Type", sub: "" },
-                { value: "TPC Summerlin", label: "Golf Course", sub: "PGA Tour venue" },
+                {
+                  value: "TPC Summerlin",
+                  label: "Golf Course",
+                  sub: "PGA Tour venue",
+                },
               ].map(({ value, label, sub }) => (
                 <div key={label} className="text-center">
-                  <div className="text-2xl md:text-3xl font-bold text-blue-400 mb-1">{value}</div>
+                  <div className="text-2xl md:text-3xl font-bold text-blue-400 mb-1">
+                    {value}
+                  </div>
                   <div className="text-slate-300 text-sm">{label}</div>
-                  {sub && <div className="text-green-400 text-xs mt-1">{sub}</div>}
+                  {sub && (
+                    <div className="text-green-400 text-xs mt-1">{sub}</div>
+                  )}
                 </div>
               ))}
             </div>
             <div className="text-center mt-8">
-              <Link href="/market-report" className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md font-semibold transition-colors">
+              <Link
+                href="/market-report"
+                className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md font-semibold transition-colors"
+              >
                 Full Market Report
               </Link>
             </div>
@@ -173,7 +216,8 @@ export default async function Home() {
               </Link>
             </div>
             <p className="mt-6 text-blue-200 text-sm">
-              Dr. Jan Duffy | License {agentInfo.license} | Berkshire Hathaway HomeServices Nevada Properties
+              Dr. Jan Duffy | License {agentInfo.license} | Berkshire Hathaway
+              HomeServices Nevada Properties
             </p>
           </div>
         </section>

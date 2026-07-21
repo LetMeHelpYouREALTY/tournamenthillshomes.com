@@ -1,0 +1,13 @@
+# Build output
+.next/
+.vercel/
+out/
+coverage/
+node_modules/
+
+# Lockfiles & generated
+package-lock.json
+pnpm-lock.yaml
+
+# Public assets
+public/
