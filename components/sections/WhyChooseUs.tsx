@@ -4,17 +4,20 @@ const features = [
   {
     icon: Shield,
     title: "Trusted Expertise",
-    description: "Serving Las Vegas and Henderson since 2008 with proven results.",
+    description:
+      "Serving Las Vegas and Henderson since 2008 with proven results.",
   },
   {
     icon: TrendingUp,
     title: "Market Knowledge",
-    description: "Deep understanding of local market trends and neighborhood insights.",
+    description:
+      "Deep understanding of local market trends and neighborhood insights.",
   },
   {
     icon: Users,
     title: "Personalized Service",
-    description: "Dedicated attention to every client with customized solutions.",
+    description:
+      "Dedicated attention to every client with customized solutions.",
   },
   {
     icon: Award,
@@ -42,7 +45,8 @@ export default function WhyChooseUs() {
             Why Choose Us
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            Experience the difference of working with a trusted real estate professional
+            Experience the difference of working with a trusted real estate
+            professional
           </p>
         </div>
 
@@ -57,7 +61,9 @@ export default function WhyChooseUs() {
                 <div className="bg-blue-100 rounded-full p-4 mb-4">
                   <Icon className="h-8 w-8 text-blue-600" />
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">{feature.title}</h3>
+                <h3 className="text-xl font-bold text-slate-900 mb-2">
+                  {feature.title}
+                </h3>
                 <p className="text-slate-600">{feature.description}</p>
               </div>
             );

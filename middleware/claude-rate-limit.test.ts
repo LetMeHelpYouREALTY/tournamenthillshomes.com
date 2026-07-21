@@ -3,207 +3,152 @@
  * Critical path: AI API cost control and rate limiting
  */
 
-import { describe, it, expect, vi, beforeEach } from 'vitest'
-import { claudeRateLimiter } from './claude-rate-limit'
+import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
+import { NextRequest } from "next/server";
+import { claudeRateLimit, rateLimitStore } from "./claude-rate-limit";
 
-describe('Claude Rate Limiting', () => {
+function makeRequest(ip: string): NextRequest {
+  return new NextRequest("http://localhost:3000/api/claude/chat", {
+    headers: { "x-forwarded-for": ip },
+  });
+}
+
+describe("Claude Rate Limiting", () => {
   beforeEach(() => {
-    vi.clearAllMocks()
-    // Reset rate limiter between tests
-    claudeRateLimiter.reset()
-  })
+    vi.useFakeTimers();
+  });
 
-  it('allows requests within rate limit', async () => {
-    const clientId = 'client-1'
-    
-    // Should allow first request
-    const result1 = await claudeRateLimiter.check(clientId)
-    expect(result1.allowed).toBe(true)
-    expect(result1.remaining).toBeGreaterThan(0)
-    
-    // Should allow second request
-    const result2 = await claudeRateLimiter.check(clientId)
-    expect(result2.allowed).toBe(true)
-    expect(result2.remaining).toBeLessThan(result1.remaining)
-  })
+  afterEach(() => {
+    vi.useRealTimers();
+    vi.clearAllMocks();
+  });
 
-  it('blocks requests exceeding rate limit', async () => {
-    const clientId = 'client-excessive'
-    
-    // Make requests up to limit
-    for (let i = 0; i < 10; i++) {
-      const result = await claudeRateLimiter.check(clientId)
-      if (i < 9) {
-        expect(result.allowed).toBe(true)
-      }
+  it("allows requests within rate limit", async () => {
+    const result = await claudeRateLimit(makeRequest("10.0.0.1"), {
+      requestsPerMinute: 5,
+    });
+
+    // null means the request is allowed to proceed
+    expect(result).toBeNull();
+  });
+
+  it("blocks requests exceeding rate limit with a 429", async () => {
+    const ip = "10.0.0.2";
+
+    for (let i = 0; i < 3; i++) {
+      const allowed = await claudeRateLimit(makeRequest(ip), {
+        requestsPerMinute: 3,
+      });
+      expect(allowed).toBeNull();
     }
-    
-    // 11th request should be blocked
-    const blocked = await claudeRateLimiter.check(clientId)
-    expect(blocked.allowed).toBe(false)
-    expect(blocked.retryAfter).toBeGreaterThan(0)
-  })
 
-  it('uses token bucket algorithm', async () => {
-    const clientId = 'client-bucket'
-    
-    // Consume tokens rapidly
-    const result1 = await claudeRateLimiter.check(clientId)
-    const result2 = await claudeRateLimiter.check(clientId)
-    
-    expect(result1.remaining).toBeGreaterThan(result2.remaining)
-    expect(result2.tokensConsumed).toBeGreaterThan(result1.tokensConsumed)
-  })
+    const blocked = await claudeRateLimit(makeRequest(ip), {
+      requestsPerMinute: 3,
+    });
 
-  it('tracks different clients separately', async () => {
-    const client1 = 'client-1'
-    const client2 = 'client-2'
-    
-    // Exhaust client1's limit
-    for (let i = 0; i < 10; i++) {
-      await claudeRateLimiter.check(client1)
+    expect(blocked).not.toBeNull();
+    expect(blocked!.status).toBe(429);
+
+    const body = await blocked!.json();
+    expect(body.error).toBe("Rate limit exceeded");
+    expect(body.retryAfter).toBeGreaterThan(0);
+    expect(blocked!.headers.get("Retry-After")).toBeDefined();
+    expect(blocked!.headers.get("X-RateLimit-Remaining")).toBe("0");
+  });
+
+  it("tracks different clients separately", async () => {
+    const limit = { requestsPerMinute: 2 };
+
+    // Exhaust client A's limit
+    await claudeRateLimit(makeRequest("10.0.1.1"), limit);
+    await claudeRateLimit(makeRequest("10.0.1.1"), limit);
+    const blockedA = await claudeRateLimit(makeRequest("10.0.1.1"), limit);
+    expect(blockedA).not.toBeNull();
+    expect(blockedA!.status).toBe(429);
+
+    // Client B should still be allowed
+    const allowedB = await claudeRateLimit(makeRequest("10.0.1.2"), limit);
+    expect(allowedB).toBeNull();
+  });
+
+  it("resets after the time window passes", async () => {
+    const ip = "10.0.2.1";
+    const limit = { requestsPerMinute: 2 };
+
+    await claudeRateLimit(makeRequest(ip), limit);
+    await claudeRateLimit(makeRequest(ip), limit);
+
+    const blocked = await claudeRateLimit(makeRequest(ip), limit);
+    expect(blocked).not.toBeNull();
+
+    // Advance past the 60-second window
+    vi.advanceTimersByTime(61000);
+
+    const allowed = await claudeRateLimit(makeRequest(ip), limit);
+    expect(allowed).toBeNull();
+  });
+
+  it("provides retry-after time no greater than the window", async () => {
+    const ip = "10.0.3.1";
+    const limit = { requestsPerMinute: 1 };
+
+    await claudeRateLimit(makeRequest(ip), limit);
+    const blocked = await claudeRateLimit(makeRequest(ip), limit);
+
+    expect(blocked).not.toBeNull();
+    const retryAfter = parseInt(blocked!.headers.get("Retry-After")!, 10);
+    expect(retryAfter).toBeGreaterThan(0);
+    expect(retryAfter).toBeLessThanOrEqual(60);
+  });
+
+  it("can be disabled via config", async () => {
+    const ip = "10.0.4.1";
+    const config = { requestsPerMinute: 1, enabled: false };
+
+    // Even repeated requests are allowed when disabled
+    for (let i = 0; i < 5; i++) {
+      const result = await claudeRateLimit(makeRequest(ip), config);
+      expect(result).toBeNull();
     }
-    
-    // Client1 should be blocked
-    const blocked = await claudeRateLimiter.check(client1)
-    expect(blocked.allowed).toBe(false)
-    
-    // Client2 should still be allowed
-    const allowed = await claudeRateLimiter.check(client2)
-    expect(allowed.allowed).toBe(true)
-  })
+  });
 
-  it('resets tokens after time window', async () => {
-    const clientId = 'client-reset'
-    
-    // Consume all tokens
-    for (let i = 0; i < 10; i++) {
-      await claudeRateLimiter.check(clientId)
-    }
-    
-    // Should be blocked
-    const blocked = await claudeRateLimiter.check(clientId)
-    expect(blocked.allowed).toBe(false)
-    
-    // Mock time passing (61 seconds)
-    vi.useFakeTimers()
-    vi.advanceTimersByTime(61000)
-    
-    // Should be allowed again
-    const allowed = await claudeRateLimiter.check(clientId)
-    expect(allowed.allowed).toBe(true)
-    
-    vi.useRealTimers()
-  })
+  it('falls back to "unknown" client when no IP headers exist', async () => {
+    const request = new NextRequest("http://localhost:3000/api/claude/chat");
 
-  it('provides retry-after time when blocked', async () => {
-    const clientId = 'client-retry'
-    
-    // Exhaust limit
-    for (let i = 0; i < 10; i++) {
-      await claudeRateLimiter.check(clientId)
-    }
-    
-    const blocked = await claudeRateLimiter.check(clientId)
-    
-    expect(blocked.allowed).toBe(false)
-    expect(blocked.retryAfter).toBeDefined()
-    expect(blocked.retryAfter).toBeGreaterThan(0)
-    expect(blocked.retryAfter).toBeLessThanOrEqual(60) // Max 60 seconds
-  })
+    const result = await claudeRateLimit(request, { requestsPerMinute: 100 });
+    expect(result).toBeNull();
 
-  it('handles concurrent requests correctly', async () => {
-    const clientId = 'client-concurrent'
-    
-    // Make 5 concurrent requests
-    const promises = Array.from({ length: 5 }, () =>
-      claudeRateLimiter.check(clientId)
-    )
-    
-    const results = await Promise.all(promises)
-    
-    // All should be allowed (within limit)
-    results.forEach(result => {
-      expect(result.allowed).toBe(true)
-    })
-    
-    // Remaining should decrease correctly
-    const remaining = results.map(r => r.remaining)
-    expect(remaining[0]).toBeGreaterThan(remaining[4])
-  })
+    const usage = rateLimitStore.getUsage("unknown");
+    expect(usage.requestsLastMinute).toBeGreaterThan(0);
+  });
 
-  it('supports custom rate limits per endpoint', async () => {
-    const clientId = 'client-custom'
-    
-    // Chat endpoint: 10/min
-    const chatResult = await claudeRateLimiter.check(clientId, {
-      endpoint: 'chat',
-      limit: 10,
-      window: 60,
-    })
-    
-    // Completion endpoint: 100/min
-    const completionResult = await claudeRateLimiter.check(clientId, {
-      endpoint: 'completion',
-      limit: 100,
-      window: 60,
-    })
-    
-    expect(chatResult.limit).toBe(10)
-    expect(completionResult.limit).toBe(100)
-  })
+  it("tracks token usage per client", async () => {
+    rateLimitStore.trackTokens("token-client", 500);
 
-  it('tracks token consumption for cost monitoring', async () => {
-    const clientId = 'client-tokens'
-    
-    const result1 = await claudeRateLimiter.check(clientId)
-    const result2 = await claudeRateLimiter.check(clientId)
-    
-    expect(result1.tokensConsumed).toBe(1)
-    expect(result2.tokensConsumed).toBe(2)
-  })
+    const usage = rateLimitStore.getUsage("token-client");
+    expect(usage.tokensLastMinute).toBeGreaterThan(0);
+  });
 
-  it('returns metadata for monitoring', async () => {
-    const clientId = 'client-metadata'
-    
-    const result = await claudeRateLimiter.check(clientId)
-    
-    expect(result).toHaveProperty('allowed')
-    expect(result).toHaveProperty('remaining')
-    expect(result).toHaveProperty('limit')
-    expect(result).toHaveProperty('reset')
-    expect(result).toHaveProperty('tokensConsumed')
-  })
+  it("reports usage stats for monitoring", async () => {
+    const ip = "10.0.5.1";
+    await claudeRateLimit(makeRequest(ip), { requestsPerMinute: 10 });
+    await claudeRateLimit(makeRequest(ip), { requestsPerMinute: 10 });
 
-  it('supports manual token refund for failed requests', async () => {
-    const clientId = 'client-refund'
-    
-    // Consume token
-    const result1 = await claudeRateLimiter.check(clientId)
-    expect(result1.remaining).toBe(9) // Assuming limit of 10
-    
-    // Refund token (API call failed)
-    await claudeRateLimiter.refund(clientId, 1)
-    
-    // Check again - should have refunded token
-    const result2 = await claudeRateLimiter.check(clientId)
-    expect(result2.remaining).toBe(9) // Back to 9
-  })
+    const usage = rateLimitStore.getUsage(ip);
+    expect(usage).toHaveProperty("requestsLastMinute");
+    expect(usage).toHaveProperty("tokensLastMinute");
+    expect(usage.requestsLastMinute).toBe(2);
+  });
 
-  it('handles invalid client IDs', async () => {
-    await expect(claudeRateLimiter.check('')).rejects.toThrow()
-    await expect(claudeRateLimiter.check(null as any)).rejects.toThrow()
-  })
+  it("cleans up stale entries", async () => {
+    const ip = "10.0.6.1";
+    await claudeRateLimit(makeRequest(ip), { requestsPerMinute: 10 });
 
-  it('integrates with cost tracking', async () => {
-    const clientId = 'client-cost'
-    
-    const result = await claudeRateLimiter.check(clientId, {
-      trackCost: true,
-      modelCost: 0.003, // $0.003 per request
-    })
-    
-    expect(result.costTracking).toBeDefined()
-    expect(result.costTracking.estimatedCost).toBe(0.003)
-  })
-})
+    // Advance past the one-hour cleanup horizon
+    vi.advanceTimersByTime(3600001);
+    rateLimitStore.cleanup();
+
+    const usage = rateLimitStore.getUsage(ip);
+    expect(usage.requestsLastMinute).toBe(0);
+  });
+});

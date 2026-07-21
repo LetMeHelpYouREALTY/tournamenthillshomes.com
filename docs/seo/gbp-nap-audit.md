@@ -6,37 +6,37 @@ Reconcile visible site copy, JSON-LD, and Google Business Profile before each de
 
 ## Canonical NAP (source of truth)
 
-| Field | Value |
-|-------|--------|
+| Field                        | Value                                                             |
+| ---------------------------- | ----------------------------------------------------------------- |
 | **Business / agent display** | Dr. Jan Duffy — Berkshire Hathaway HomeServices Nevada Properties |
-| **Street** | 9406 W Lake Mead Blvd, Suite 100 |
-| **City, state, zip** | Las Vegas, NV 89134 |
-| **Phone** | (702) 500-1942 |
-| **Phone tel:** | `tel:+17025001942` |
-| **Email** | DrDuffySells@TournamentHillsHomes.com |
-| **License** | S.0197614.LLC |
-| **Website** | https://www.tournamenthillshomes.com |
+| **Street**                   | 9406 W Lake Mead Blvd, Suite 100                                  |
+| **City, state, zip**         | Las Vegas, NV 89134                                               |
+| **Phone**                    | (702) 500-1942                                                    |
+| **Phone tel:**               | `tel:+17025001942`                                                |
+| **Email**                    | DrDuffySells@TournamentHillsHomes.com                             |
+| **License**                  | S.0197614.LLC                                                     |
+| **Website**                  | https://www.tournamenthillshomes.com                              |
 
 ---
 
 ## Hours (schema + visible)
 
-| Day | Hours |
-|-----|--------|
-| Monday – Friday | 9:00 AM – 6:00 PM |
-| Saturday | 10:00 AM – 4:00 PM |
-| Sunday | By appointment |
+| Day             | Hours              |
+| --------------- | ------------------ |
+| Monday – Friday | 9:00 AM – 6:00 PM  |
+| Saturday        | 10:00 AM – 4:00 PM |
+| Sunday          | By appointment     |
 
 ---
 
 ## Known discrepancies to fix
 
-| Location | Issue | Fix |
-|----------|--------|-----|
-| `app/page.tsx` | Legacy phone 702-222-1964 | → (702) 500-1942 |
-| `lib/gbp-schema.ts` vs `lib/schema.ts` | Duplicate FAQ generators | Consolidate in Phase 3 |
-| Neighborhood zip in old notes | 89135 mentioned | Community is **89134** per MLS/area guides |
-| `marketStats.lasVegas.medianPrice` on homepage | Valley-wide $450K | Use Tournament Hills / luxury band on TH site |
+| Location                                       | Issue                     | Fix                                           |
+| ---------------------------------------------- | ------------------------- | --------------------------------------------- |
+| `app/page.tsx`                                 | Legacy phone 702-222-1964 | → (702) 500-1942                              |
+| `lib/gbp-schema.ts` vs `lib/schema.ts`         | Duplicate FAQ generators  | Consolidate in Phase 3                        |
+| Neighborhood zip in old notes                  | 89135 mentioned           | Community is **89134** per MLS/area guides    |
+| `marketStats.lasVegas.medianPrice` on homepage | Valley-wide $450K         | Use Tournament Hills / luxury band on TH site |
 
 ---
 
@@ -61,4 +61,4 @@ After deploy, spot-check:
 
 ---
 
-*Last updated: June 2026*
+_Last updated: June 2026_

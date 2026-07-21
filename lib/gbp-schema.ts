@@ -57,30 +57,66 @@ export const businessInfo = {
   // Categories - Primary + Secondary for GBP
   categories: {
     primary: "Real Estate Agent",
-    secondary: [
-      "Real Estate Agency",
-      "Real Estate Consultant",
-    ],
+    secondary: ["Real Estate Agency", "Real Estate Consultant"],
   },
 
   // Services - Each creates searchable fields in GBP
   services: [
     // Core Services
-    { name: "Buyer Representation", description: "Full-service home buying assistance" },
-    { name: "Seller Representation", description: "List and sell your home for top dollar" },
+    {
+      name: "Buyer Representation",
+      description: "Full-service home buying assistance",
+    },
+    {
+      name: "Seller Representation",
+      description: "List and sell your home for top dollar",
+    },
     { name: "Luxury Home Sales", description: "High-end properties $1M+" },
     // Niche Services (trigger intent phrases)
-    { name: "California Relocation Services", description: "Helping CA buyers transition to Las Vegas" },
-    { name: "55+ Community Specialist", description: "Sun City, Anthem, Del Webb communities" },
-    { name: "First-Time Home Buyer Guidance", description: "FHA, VA, down payment assistance" },
-    { name: "Probate Real Estate Sales", description: "Estate and probate property transactions" },
-    { name: "Divorce Real Estate Sales", description: "Neutral representation for marital asset division" },
-    { name: "Relocation Services", description: "Corporate and individual relocation assistance" },
-    { name: "Investment Property Consulting", description: "Rental properties and investment analysis" },
-    { name: "New Construction Representation", description: "Builder negotiations and buyer protection" },
-    { name: "Military/VA Home Buying", description: "Specialized service for veterans" },
-    { name: "Downsizing Consultation", description: "Transition to smaller, maintenance-free living" },
-    { name: "Luxury Condo Sales", description: "High-rise and resort-style condominiums" },
+    {
+      name: "California Relocation Services",
+      description: "Helping CA buyers transition to Las Vegas",
+    },
+    {
+      name: "55+ Community Specialist",
+      description: "Sun City, Anthem, Del Webb communities",
+    },
+    {
+      name: "First-Time Home Buyer Guidance",
+      description: "FHA, VA, down payment assistance",
+    },
+    {
+      name: "Probate Real Estate Sales",
+      description: "Estate and probate property transactions",
+    },
+    {
+      name: "Divorce Real Estate Sales",
+      description: "Neutral representation for marital asset division",
+    },
+    {
+      name: "Relocation Services",
+      description: "Corporate and individual relocation assistance",
+    },
+    {
+      name: "Investment Property Consulting",
+      description: "Rental properties and investment analysis",
+    },
+    {
+      name: "New Construction Representation",
+      description: "Builder negotiations and buyer protection",
+    },
+    {
+      name: "Military/VA Home Buying",
+      description: "Specialized service for veterans",
+    },
+    {
+      name: "Downsizing Consultation",
+      description: "Transition to smaller, maintenance-free living",
+    },
+    {
+      name: "Luxury Condo Sales",
+      description: "High-rise and resort-style condominiums",
+    },
   ],
 
   // Attributes for GBP - Fill out ALL available
@@ -98,32 +134,15 @@ export const businessInfo = {
       "Same-day appointments",
     ],
     // Highlights
-    highlights: [
-      "Identifies as women-owned",
-      "LGBTQ+ friendly",
-      "Veteran-led",
-    ],
+    highlights: ["Identifies as women-owned", "LGBTQ+ friendly", "Veteran-led"],
     // Offerings
-    offerings: [
-      "Free consultation",
-      "Free estimates",
-    ],
+    offerings: ["Free consultation", "Free estimates"],
     // Amenities
-    amenities: [
-      "Free Wi-Fi",
-      "Free parking",
-    ],
+    amenities: ["Free Wi-Fi", "Free parking"],
     // Planning
-    planning: [
-      "Appointment required",
-      "Accepts new clients",
-    ],
+    planning: ["Appointment required", "Accepts new clients"],
     // Payments (if applicable)
-    payments: [
-      "Credit cards",
-      "Checks",
-      "Wire transfer",
-    ],
+    payments: ["Credit cards", "Checks", "Wire transfer"],
   },
 
   // Social profiles for sameAs schema
@@ -177,19 +196,25 @@ export const gbpFAQs = [
   },
   {
     question: "Does Dr. Jan help buyers relocating from California?",
-    answer: "Yes! California relocation is a specialty. Dr. Jan helps CA buyers understand Nevada's 0% state income tax advantage, compare home values (40-60% lower than comparable CA properties), and find the perfect Las Vegas neighborhood. Call (702) 500-1942 for California relocation assistance.",
+    answer:
+      "Yes! California relocation is a specialty. Dr. Jan helps CA buyers understand Nevada's 0% state income tax advantage, compare home values (40-60% lower than comparable CA properties), and find the perfect Las Vegas neighborhood. Call (702) 500-1942 for California relocation assistance.",
   },
   {
     question: "What 55+ communities does Dr. Jan specialize in?",
-    answer: "Dr. Jan specializes in Sun City Summerlin (Nevada's largest 55+ community with 7,700+ homes), Sun City Anthem in Henderson, Del Webb Lake Las Vegas, and Solera at Anthem. Each community offers different amenities and price points for active adult living.",
+    answer:
+      "Dr. Jan specializes in Sun City Summerlin (Nevada's largest 55+ community with 7,700+ homes), Sun City Anthem in Henderson, Del Webb Lake Las Vegas, and Solera at Anthem. Each community offers different amenities and price points for active adult living.",
   },
   {
-    question: "Does Berkshire Hathaway HomeServices help with new construction?",
-    answer: "Yes! Dr. Jan provides free buyer representation for new construction purchases from builders like Toll Brothers, Lennar, and Century Communities. The builder pays the commission, but Dr. Jan works exclusively for you—protecting your interests during the build process.",
+    question:
+      "Does Berkshire Hathaway HomeServices help with new construction?",
+    answer:
+      "Yes! Dr. Jan provides free buyer representation for new construction purchases from builders like Toll Brothers, Lennar, and Century Communities. The builder pays the commission, but Dr. Jan works exclusively for you—protecting your interests during the build process.",
   },
   {
-    question: "How does Dr. Jan help with probate or divorce real estate sales?",
-    answer: "Dr. Jan handles sensitive transactions with discretion and professionalism. For probate sales, she coordinates with estate attorneys and ensures court compliance. For divorce sales, she provides neutral representation and works with both parties' attorneys. Call (702) 500-1942 for a confidential consultation.",
+    question:
+      "How does Dr. Jan help with probate or divorce real estate sales?",
+    answer:
+      "Dr. Jan handles sensitive transactions with discretion and professionalism. For probate sales, she coordinates with estate attorneys and ensures court compliance. For divorce sales, she provides neutral representation and works with both parties' attorneys. Call (702) 500-1942 for a confidential consultation.",
   },
   {
     question: "What is the average home price in Las Vegas in 2026?",
@@ -198,11 +223,13 @@ export const gbpFAQs = [
   },
   {
     question: "Does Dr. Jan work with first-time home buyers?",
-    answer: "Absolutely! Dr. Jan guides first-time buyers through every step, including pre-approval, loan programs (FHA 3.5% down, VA 0% down, conventional options), Nevada down payment assistance programs, and new construction incentives. Free buyer consultations available.",
+    answer:
+      "Absolutely! Dr. Jan guides first-time buyers through every step, including pre-approval, loan programs (FHA 3.5% down, VA 0% down, conventional options), Nevada down payment assistance programs, and new construction incentives. Free buyer consultations available.",
   },
   {
     question: "Why choose Berkshire Hathaway HomeServices over other agencies?",
-    answer: "Berkshire Hathaway HomeServices is backed by Warren Buffett's Berkshire Hathaway Inc.—the only real estate brand with this level of financial stability and trust. You get a global network of 50,000+ agents, world-class marketing, and a name synonymous with integrity.",
+    answer:
+      "Berkshire Hathaway HomeServices is backed by Warren Buffett's Berkshire Hathaway Inc.—the only real estate brand with this level of financial stability and trust. You get a global network of 50,000+ agents, world-class marketing, and a name synonymous with integrity.",
   },
   {
     question: "How do I schedule a consultation with Dr. Jan Duffy?",
@@ -210,7 +237,8 @@ export const gbpFAQs = [
   },
   {
     question: "Does Dr. Jan help with investment properties in Las Vegas?",
-    answer: "Yes! Dr. Jan provides investment property consulting including rental property analysis, cap rate calculations, short-term rental regulations, and multi-family opportunities across the Las Vegas Valley. Contact (702) 500-1942 for investment property guidance.",
+    answer:
+      "Yes! Dr. Jan provides investment property consulting including rental property analysis, cap rate calculations, short-term rental regulations, and multi-family opportunities across the Las Vegas Valley. Contact (702) 500-1942 for investment property guidance.",
   },
 ];
 
@@ -236,12 +264,42 @@ export function generateLocalBusinessSchema() {
       longitude: businessInfo.geo.longitude,
     },
     openingHoursSpecification: [
-      { "@type": "OpeningHoursSpecification", dayOfWeek: "Monday", opens: "09:00", closes: "18:00" },
-      { "@type": "OpeningHoursSpecification", dayOfWeek: "Tuesday", opens: "09:00", closes: "18:00" },
-      { "@type": "OpeningHoursSpecification", dayOfWeek: "Wednesday", opens: "09:00", closes: "18:00" },
-      { "@type": "OpeningHoursSpecification", dayOfWeek: "Thursday", opens: "09:00", closes: "18:00" },
-      { "@type": "OpeningHoursSpecification", dayOfWeek: "Friday", opens: "09:00", closes: "18:00" },
-      { "@type": "OpeningHoursSpecification", dayOfWeek: "Saturday", opens: "10:00", closes: "16:00" },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: "Monday",
+        opens: "09:00",
+        closes: "18:00",
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: "Tuesday",
+        opens: "09:00",
+        closes: "18:00",
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: "Wednesday",
+        opens: "09:00",
+        closes: "18:00",
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: "Thursday",
+        opens: "09:00",
+        closes: "18:00",
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: "Friday",
+        opens: "09:00",
+        closes: "18:00",
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: "Saturday",
+        opens: "10:00",
+        closes: "16:00",
+      },
     ],
     areaServed: businessInfo.serviceAreas.map((area) => ({
       "@type": "City",

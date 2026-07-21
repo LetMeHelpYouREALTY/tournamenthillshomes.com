@@ -60,7 +60,8 @@ export const tournamentHillsFaqs: FAQItem[] = [
       "Tournament Hills is in the Clark County School District. Highly rated options nearby include John W. Bonner Elementary, West Career & Technical Academy, Patricia A. Bendorf Elementary, and several other Summerlin schools rated 9/10 or higher on GreatSchools. Private options include The Meadows School and Bishop Gorman.",
   },
   {
-    question: "How does Tournament Hills compare to The Ridges or other Summerlin villages?",
+    question:
+      "How does Tournament Hills compare to The Ridges or other Summerlin villages?",
     answer:
       "Tournament Hills offers a golf-centric, guard-gated lifestyle centered on TPC Summerlin with custom estate homes. The Ridges is another ultra-luxury guard-gated Summerlin community with a different village character and price profile. Dr. Jan Duffy can tour both and match you with the village that fits your lifestyle and budget.",
   },
@@ -80,12 +81,14 @@ export const tournamentHillsPeopleAlsoSearchFaqs: FAQItem[] = [
       "Yes. Tournament Hills is a guard-gated luxury golf community in central Summerlin, Las Vegas (zip 89134), with custom estates for sale around TPC Summerlin. Browse live MLS listings on this site or call Dr. Jan Duffy at (702) 500-1942 for golf-front and off-market opportunities.",
   },
   {
-    question: "Tournament Hills gated community Las Vegas Summerlin — homes for sale?",
+    question:
+      "Tournament Hills gated community Las Vegas Summerlin — homes for sale?",
     answer:
       "Tournament Hills homes for sale are marketed through the Las Vegas MLS. Inventory is ultra-luxury—often $3.5M and above for custom single-family estates. Search current listings on tournamenthillshomes.com or request a curated tour from Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties.",
   },
   {
-    question: "What do reviews say about Tournament Hills in Summerlin Las Vegas?",
+    question:
+      "What do reviews say about Tournament Hills in Summerlin Las Vegas?",
     answer:
       "Buyers choose Tournament Hills for guard-gated privacy, TPC Summerlin golf adjacency, and central Summerlin access. For agent reviews, Dr. Jan Duffy holds a 4.9 client rating across 500+ Las Vegas transactions—ask for recent references. HOA and seller disclosures provide the authoritative community rules during a purchase.",
   },

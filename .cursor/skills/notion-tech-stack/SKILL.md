@@ -10,15 +10,15 @@ When creating or updating Notion tasks, pages, databases, or docs in this worksp
 
 ## Tech stack (reference)
 
-| Layer | Stack |
-|-------|--------|
-| **Framework** | Next.js 15 App Router, React 19, TypeScript |
-| **UI** | Tailwind CSS, shadcn/ui |
-| **Deploy** | Vercel (primary), Cloudflare (optional) |
+| Layer                 | Stack                                                                                                                                  |
+| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| **Framework**         | Next.js 15 App Router, React 19, TypeScript                                                                                            |
+| **UI**                | Tailwind CSS, shadcn/ui                                                                                                                |
+| **Deploy**            | Vercel (primary), Cloudflare (optional)                                                                                                |
 | **Tools / Platforms** | Cursor (IDE, MCP, rules), GitHub (repos, Actions, CI/CD), Cloudflare (CDN, Workers, Pages, DNS), Vercel (deploy, previews, serverless) |
-| **Integrations** | RealScout (MLS/widgets), Follow Up Boss (FUB) CRM |
-| **Domain** | Real estate; Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties; Henderson/Las Vegas; 135+ domains |
-| **Code quality** | Biome (lint/format), strict TypeScript |
+| **Integrations**      | RealScout (MLS/widgets), Follow Up Boss (FUB) CRM                                                                                      |
+| **Domain**            | Real estate; Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties; Henderson/Las Vegas; 135+ domains                       |
+| **Code quality**      | Biome (lint/format), strict TypeScript                                                                                                 |
 
 Use this when naming tasks, tagging work, or writing Notion content so the agent and team know the context.
 
@@ -26,12 +26,12 @@ Use this when naming tasks, tagging work, or writing Notion content so the agent
 
 When tasks or content involve these tools or platforms, tag accordingly. Use for database property **Tool** or **Platform** (or add to **Stack**).
 
-| Platform | Use for |
-|----------|--------|
-| **Cursor** | IDE workflow, MCP servers, rules, skills, Notion plugin. |
-| **GitHub** | Repos, Actions, CI/CD, branch strategy, issues, PRs. |
+| Platform       | Use for                                                                                    |
+| -------------- | ------------------------------------------------------------------------------------------ |
+| **Cursor**     | IDE workflow, MCP servers, rules, skills, Notion plugin.                                   |
+| **GitHub**     | Repos, Actions, CI/CD, branch strategy, issues, PRs.                                       |
 | **Cloudflare** | CDN, Workers, Pages, DNS (gray cloud with Vercel; no orange proxy to avoid SSL conflicts). |
-| **Vercel** | Deploy, preview URLs, serverless, env vars; prefer `vercel build` for production. |
+| **Vercel**     | Deploy, preview URLs, serverless, env vars; prefer `vercel build` for production.          |
 
 **Optional task prefixes:** `[cursor]`, `[github]`, `[cloudflare]`, `[vercel]`. See `reference.md` for the full list.
 
@@ -39,16 +39,16 @@ When tasks or content involve these tools or platforms, tag accordingly. Use for
 
 When creating tasks or pages, tag by **service area** when relevant. Use for Project/Service database properties or in task descriptions.
 
-| Service | Description |
-|--------|-------------|
-| **SEO** | Increase search rankings for higher conversions. |
-| **SEM/PPC** | Targeted traffic, improved visibility, measurable results. |
-| **Link Building Services** | Get backlinks from trusted websites to boost your ranking. |
+| Service                           | Description                                                          |
+| --------------------------------- | -------------------------------------------------------------------- |
+| **SEO**                           | Increase search rankings for higher conversions.                     |
+| **SEM/PPC**                       | Targeted traffic, improved visibility, measurable results.           |
+| **Link Building Services**        | Get backlinks from trusted websites to boost your ranking.           |
 | **AI Search Engine Optimization** | Get discovered in AI search results and turn visibility into growth. |
-| **Web Design & Creative** | Creative visuals to enhance your brand identity. |
-| **A/B Testing Services** | Data-driven experiments, higher conversions, smarter decisions. |
-| **HubSpot Implementation** | Leverage an efficient customer platform and boost revenue. |
-| **Content** | Creating content that attracts, engages, converts. |
+| **Web Design & Creative**         | Creative visuals to enhance your brand identity.                     |
+| **A/B Testing Services**          | Data-driven experiments, higher conversions, smarter decisions.      |
+| **HubSpot Implementation**        | Leverage an efficient customer platform and boost revenue.           |
+| **Content**                       | Creating content that attracts, engages, converts.                   |
 
 **Optional task prefixes** (use with tech tags when the work maps to a service): `[seo]`, `[sem]`, `[links]`, `[ai-seo]`, `[design]`, `[ab-test]`, `[hubspot]`, `[content]`. See `reference.md` for the full We Do list.
 
@@ -56,8 +56,8 @@ When creating tasks or pages, tag by **service area** when relevant. Use for Pro
 
 Use for tagging tasks or pages by work type. Use for database property **Category** (or **Categories**).
 
-| Category |
-|----------|
+| Category                                                                                                                                                                                                                    |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **SEO Strategy** · **SEO** · **Paid Media** · **PPC** · **Local Search** · **Link Building** · **Generative AI** · **Digital Strategy** · **Digital Marketing** · **Content Strategy** · **Content Creation** · **Content** |
 
 **Optional task prefixes:** `[seo-strategy]`, `[seo]`, `[paid-media]`, `[ppc]`, `[local-search]`, `[link-building]`, `[generative-ai]`, `[digital-strategy]`, `[digital-marketing]`, `[content-strategy]`, `[content-creation]`, `[content]`. See `reference.md` for the full list.
@@ -66,12 +66,12 @@ Use for tagging tasks or pages by work type. Use for database property **Categor
 
 Use these when tasks or content focus on AI and generative discovery. Tag tasks or set database properties accordingly.
 
-| Acronym | Full name | Use for |
-|---------|-----------|--------|
-| **GEO** | Generative Engine Optimization | Optimizing for generative search / AI-generated answers (e.g. SGE, Perplexity, ChatGPT search). |
-| **AEO** | Answer Engine Optimization | Optimizing for answer engines and featured snippets; direct answers, FAQs, structured data. |
-| **LLMO** | Large Language Model Optimization | Optimizing content and signals so LLMs cite, summarize, or recommend your brand. |
-| **AIO** | Artificial Intelligence Optimization | Broad AI visibility: discoverability across AI assistants, chatbots, and AI-powered search. |
+| Acronym  | Full name                            | Use for                                                                                         |
+| -------- | ------------------------------------ | ----------------------------------------------------------------------------------------------- |
+| **GEO**  | Generative Engine Optimization       | Optimizing for generative search / AI-generated answers (e.g. SGE, Perplexity, ChatGPT search). |
+| **AEO**  | Answer Engine Optimization           | Optimizing for answer engines and featured snippets; direct answers, FAQs, structured data.     |
+| **LLMO** | Large Language Model Optimization    | Optimizing content and signals so LLMs cite, summarize, or recommend your brand.                |
+| **AIO**  | Artificial Intelligence Optimization | Broad AI visibility: discoverability across AI assistants, chatbots, and AI-powered search.     |
 
 **Optional task prefixes:** `[geo]`, `[aeo]`, `[llmo]`, `[aio]`. See `reference.md` for the full list.
 
@@ -81,17 +81,17 @@ When tasks or content involve social channels, tag by **category** and/or **plat
 
 **Categories**
 
-| Category | Use for |
-|----------|--------|
-| **All Social Media** | Cross-channel work, multi-platform campaigns. |
-| **Social Media News** | News, updates, trends, algorithm or policy changes. |
-| **Social Strategy** | Strategy, planning, calendars, audience, goals. |
-| **Social Media Advertising** | Paid social, ads, targeting, creative, reporting. |
+| Category                     | Use for                                             |
+| ---------------------------- | --------------------------------------------------- |
+| **All Social Media**         | Cross-channel work, multi-platform campaigns.       |
+| **Social Media News**        | News, updates, trends, algorithm or policy changes. |
+| **Social Strategy**          | Strategy, planning, calendars, audience, goals.     |
+| **Social Media Advertising** | Paid social, ads, targeting, creative, reporting.   |
 
 **Platforms**
 
-| Platform |
-|----------|
+| Platform                                                                                                        |
+| --------------------------------------------------------------------------------------------------------------- |
 | **Bluesky** · **Facebook** · **Instagram** · **LinkedIn** · **TikTok** · **Twitter** · **YouTube** · **Reddit** |
 
 **Optional task prefixes:** Category — `[social]`, `[social-news]`, `[social-strategy]`, `[social-ads]`. Platform — `[bluesky]`, `[facebook]`, `[instagram]`, `[linkedin]`, `[tiktok]`, `[twitter]`, `[youtube]`, `[reddit]`. See `reference.md` for the full list.
