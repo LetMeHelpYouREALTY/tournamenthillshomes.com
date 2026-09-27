@@ -4,13 +4,20 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import {
   amenityCategories,
   AMENITY_MAP_DEFAULT_CATEGORY,
-  AMENITY_SEARCH_RADIUS_METERS,
   getDirectionsUrl,
   getGoogleMapsEmbedUrl,
   tournamentHillsMapCenter,
   type AmenityCategoryId,
 } from "@/lib/community-map-config";
-import { curatedAmenityPlaces } from "@/lib/tournament-hills-amenities-content";
+import {
+  getCuratedPlacesForCategory,
+  type CuratedAmenityPlace,
+} from "@/lib/tournament-hills-amenities-content";
+import {
+  loadGoogleMaps,
+  mapsAuthFailed,
+} from "@/lib/google-maps-loader";
+import { searchCategory } from "@/lib/places-search";
 import { cn } from "@/lib/utils";
 
 type MapMode = "interactive" | "fallback";
@@ -29,21 +36,51 @@ function AmenityMapSkeleton() {
   );
 }
 
-function CuratedPlacesList({ compact }: { compact?: boolean }) {
+function CuratedPlaceCard({ place }: { place: CuratedAmenityPlace }) {
+  return (
+    <li>
+      <span className="font-medium">{place.name}</span>
+      <br />
+      <span className="text-slate-600">
+        {place.streetAddress}, {place.city}, NV {place.postalCode}
+      </span>
+      {place.note && (
+        <p className="text-slate-500 text-xs mt-1">{place.note}</p>
+      )}
+    </li>
+  );
+}
+
+function CuratedPlacesList({
+  compact,
+  categoryId,
+}: {
+  compact?: boolean;
+  categoryId?: AmenityCategoryId;
+}) {
+  if (categoryId) {
+    const items = getCuratedPlacesForCategory(categoryId);
+    if (!items.length) return null;
+    const label =
+      amenityCategories.find((c) => c.id === categoryId)?.label ?? "Places";
+    return (
+      <div>
+        <h3 className="text-lg font-semibold text-slate-900 mb-3">
+          Curated {label.toLowerCase()} near Tournament Hills
+        </h3>
+        <ul className="space-y-2 text-sm text-slate-700">
+          {items.map((place) => (
+            <CuratedPlaceCard key={place.name} place={place} />
+          ))}
+        </ul>
+      </div>
+    );
+  }
+
   const grouped = amenityCategories.reduce<
-    Record<string, typeof curatedAmenityPlaces>
+    Record<string, CuratedAmenityPlace[]>
   >((acc, cat) => {
-    const items = curatedAmenityPlaces.filter((p) => {
-      const map: Partial<Record<AmenityCategoryId, string[]>> = {
-        golf: ["Golf"],
-        parks: ["Parks & recreation"],
-        healthcare: ["Healthcare"],
-        shopping: ["Shopping", "Shopping & dining"],
-        schools: ["Schools (CCSD)"],
-      };
-      const labels = map[cat.id];
-      return labels?.some((l) => p.category.includes(l) || p.category === l);
-    });
+    const items = getCuratedPlacesForCategory(cat.id);
     if (items.length) acc[cat.label] = items;
     return acc;
   }, {});
@@ -60,13 +97,7 @@ function CuratedPlacesList({ compact }: { compact?: boolean }) {
           <h3 className="font-semibold text-slate-900 mb-2">{label}</h3>
           <ul className="space-y-2">
             {places.map((place) => (
-              <li key={place.name}>
-                <span className="font-medium">{place.name}</span>
-                <br />
-                <span className="text-slate-600">
-                  {place.streetAddress}, {place.city}, NV {place.postalCode}
-                </span>
-              </li>
+              <CuratedPlaceCard key={place.name} place={place} />
             ))}
           </ul>
         </li>
@@ -75,7 +106,13 @@ function CuratedPlacesList({ compact }: { compact?: boolean }) {
   );
 }
 
-function FallbackMapView({ compact }: { compact?: boolean }) {
+function FallbackMapView({
+  compact,
+  categoryId,
+}: {
+  compact?: boolean;
+  categoryId?: AmenityCategoryId;
+}) {
   return (
     <div className="space-y-6">
       <div
@@ -94,43 +131,70 @@ function FallbackMapView({ compact }: { compact?: boolean }) {
       </div>
       {!compact && (
         <div>
-          <h3 className="text-lg font-semibold text-slate-900 mb-3">
-            Curated places near Tournament Hills
-          </h3>
-          <CuratedPlacesList />
+          {categoryId ? (
+            <CuratedPlacesList categoryId={categoryId} />
+          ) : (
+            <>
+              <h3 className="text-lg font-semibold text-slate-900 mb-3">
+                Curated places near Tournament Hills
+              </h3>
+              <CuratedPlacesList />
+            </>
+          )}
         </div>
       )}
     </div>
   );
 }
 
-declare global {
-  interface Window {
-    google: typeof google;
-  }
+function openPlaceInfoWindow(
+  infoWindow: google.maps.InfoWindow,
+  map: google.maps.Map,
+  marker: google.maps.Marker,
+  title: string,
+  address: string,
+  mapsUri?: string | null,
+) {
+  const center = {
+    lat: tournamentHillsMapCenter.lat,
+    lng: tournamentHillsMapCenter.lng,
+  };
+  const dest =
+    mapsUri ?? getDirectionsUrl(center.lat, center.lng, title);
+
+  const root = document.createElement("div");
+  root.style.maxWidth = "260px";
+  root.style.fontFamily = "system-ui, sans-serif";
+
+  const strong = document.createElement("strong");
+  strong.textContent = title;
+  root.appendChild(strong);
+
+  const addr = document.createElement("p");
+  addr.style.margin = "8px 0";
+  addr.style.fontSize = "0.875rem";
+  addr.textContent = address;
+  root.appendChild(addr);
+
+  const link = document.createElement("a");
+  link.href = dest;
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
+  link.textContent = "Directions";
+  root.appendChild(link);
+
+  infoWindow.setContent(root);
+  infoWindow.open({ map, anchor: marker });
 }
 
-async function loadGoogleMapsScript(apiKey: string): Promise<void> {
-  if (window.google?.maps) return;
-  await new Promise<void>((resolve, reject) => {
-    const existing = document.querySelector('script[data-google-maps="true"]');
-    if (existing) {
-      existing.addEventListener("load", () => resolve());
-      existing.addEventListener("error", () =>
-        reject(new Error("Google Maps failed to load")),
-      );
-      if (window.google?.maps) resolve();
-      return;
-    }
-    const script = document.createElement("script");
-    script.dataset.googleMaps = "true";
-    script.src = `https://maps.googleapis.com/maps/api/js?key=${encodeURIComponent(apiKey)}&libraries=places&v=weekly&loading=async`;
-    script.async = true;
-    script.defer = true;
-    script.onload = () => resolve();
-    script.onerror = () => reject(new Error("Google Maps failed to load"));
-    document.head.appendChild(script);
-  });
+function placePosition(
+  location: google.maps.LatLng | google.maps.LatLngLiteral,
+): google.maps.LatLngLiteral {
+  if (typeof (location as google.maps.LatLng).lat === "function") {
+    const ll = location as google.maps.LatLng;
+    return { lat: ll.lat(), lng: ll.lng() };
+  }
+  return location as google.maps.LatLngLiteral;
 }
 
 type CommunityAmenityMapProps = {
@@ -154,25 +218,55 @@ export default function CommunityAmenityMap({
   const infoWindowRef = useRef<google.maps.InfoWindow | null>(null);
   const observerRef = useRef<IntersectionObserver | null>(null);
 
-  const [mode, setMode] = useState<MapMode>(apiKey ? "interactive" : "fallback");
+  const [mode, setMode] = useState<MapMode>(() =>
+    !apiKey || mapsAuthFailed ? "fallback" : "interactive",
+  );
   const [activeCategory, setActiveCategory] =
     useState<AmenityCategoryId>(defaultCategory);
   const [isVisible, setIsVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [loadError, setLoadError] = useState<string | null>(null);
+  const [placesSearchFailed, setPlacesSearchFailed] = useState(false);
+  const mapInitializedRef = useRef(false);
+  const [mapReady, setMapReady] = useState(false);
 
   const clearPlaceMarkers = useCallback(() => {
     markersRef.current.forEach((m) => m.setMap(null));
     markersRef.current = [];
   }, []);
 
+  const teardownMap = useCallback(() => {
+    clearPlaceMarkers();
+    communityMarkerRef.current?.setMap(null);
+    communityMarkerRef.current = null;
+    mapRef.current = null;
+    mapInitializedRef.current = false;
+    setMapReady(false);
+    if (mapDivRef.current) {
+      mapDivRef.current.replaceChildren();
+    }
+  }, [clearPlaceMarkers]);
+
+  const enterFallback = useCallback(() => {
+    teardownMap();
+    setMode("fallback");
+    setIsLoading(false);
+    setPlacesSearchFailed(false);
+  }, [teardownMap]);
+
+  useEffect(() => {
+    const onAuthFailure = () => enterFallback();
+    window.addEventListener("gmaps:auth-failure", onAuthFailure);
+    return () => window.removeEventListener("gmaps:auth-failure", onAuthFailure);
+  }, [enterFallback]);
+
   const searchPlaces = useCallback(
     async (categoryId: AmenityCategoryId) => {
-      if (!mapRef.current || !window.google?.maps) return;
+      if (!mapRef.current || mode !== "interactive") return;
       const category = amenityCategories.find((c) => c.id === categoryId);
       if (!category) return;
 
       setIsLoading(true);
+      setPlacesSearchFailed(false);
       clearPlaceMarkers();
 
       const center = {
@@ -184,137 +278,51 @@ export default function CommunityAmenityMap({
         infoWindowRef.current ?? new google.maps.InfoWindow();
       infoWindowRef.current = infoWindow;
 
-      const showInfo = (
-        marker: google.maps.Marker,
-        title: string,
-        address: string,
-        rating?: number | null,
-        mapsUri?: string | null,
-      ) => {
-        const ratingLine =
-          rating != null && rating > 0
-            ? `<p class="text-sm mt-1">Rating: ${rating.toFixed(1)}</p>`
-            : "";
-        const dest = mapsUri || getDirectionsUrl(center.lat, center.lng, title);
-        infoWindow.setContent(
-          `<div style="max-width:260px;font-family:system-ui,sans-serif">
-            <strong>${title}</strong>
-            ${ratingLine}
-            <p class="text-sm" style="margin:8px 0">${address}</p>
-            <a href="${dest}" target="_blank" rel="noopener noreferrer">Directions</a>
-          </div>`,
+      try {
+        const places = await searchCategory(
+          center,
+          categoryId,
+          category.primaryTypes,
         );
-        infoWindow.open({ map: mapRef.current!, anchor: marker });
-      };
 
-      try {
-        const placesLib = (await google.maps.importLibrary(
-          "places",
-        )) as google.maps.PlacesLibrary;
-        const PlaceCtor = placesLib.Place;
-
-        if (PlaceCtor?.searchNearby) {
-          const primaryType = category.primaryTypes[0];
-          const { places } = await PlaceCtor.searchNearby({
-            fields: [
-              "displayName",
-              "location",
-              "formattedAddress",
-              "rating",
-              "googleMapsURI",
-            ],
-            locationRestriction: {
-              center,
-              radius: AMENITY_SEARCH_RADIUS_METERS,
-            },
-            includedPrimaryTypes: [primaryType],
-            maxResultCount: 20,
+        places.forEach((place) => {
+          const loc = place.location;
+          if (!loc) return;
+          const position = placePosition(loc);
+          const marker = new google.maps.Marker({
+            map: mapRef.current!,
+            position,
+            title: place.displayName ?? "Place",
           });
-
-          places.forEach((place) => {
-            const loc = place.location;
-            if (!loc) return;
-            const marker = new google.maps.Marker({
-              map: mapRef.current!,
-              position: loc,
-              title: place.displayName ?? "Place",
-            });
-            marker.addListener("click", () => {
-              showInfo(
-                marker,
-                place.displayName ?? "Place",
-                place.formattedAddress ?? "",
-                place.rating,
-                place.googleMapsURI,
-              );
-            });
-            markersRef.current.push(marker);
+          marker.addListener("click", () => {
+            openPlaceInfoWindow(
+              infoWindow,
+              mapRef.current!,
+              marker,
+              place.displayName ?? "Place",
+              place.formattedAddress ?? "",
+              place.googleMapsURI,
+            );
           });
-          setIsLoading(false);
-          return;
-        }
-      } catch {
-        // Fall through to legacy Nearby Search
-      }
-
-      try {
-        const service = new google.maps.places.PlacesService(mapRef.current);
-        const type = category.primaryTypes[0] as string;
-        await new Promise<void>((resolve) => {
-          service.nearbySearch(
-            {
-              location: new google.maps.LatLng(center.lat, center.lng),
-              radius: AMENITY_SEARCH_RADIUS_METERS,
-              type,
-            },
-            (results, status) => {
-              if (
-                status !== google.maps.places.PlacesServiceStatus.OK ||
-                !results
-              ) {
-                resolve();
-                return;
-              }
-              results.slice(0, 20).forEach((result) => {
-                if (!result.geometry?.location) return;
-                const marker = new google.maps.Marker({
-                  map: mapRef.current!,
-                  position: result.geometry.location,
-                  title: result.name,
-                });
-                marker.addListener("click", () => {
-                  showInfo(
-                    marker,
-                    result.name ?? "Place",
-                    result.vicinity ?? result.formatted_address ?? "",
-                    result.rating,
-                    result.place_id
-                      ? `https://www.google.com/maps/place/?q=place_id:${result.place_id}`
-                      : undefined,
-                  );
-                });
-                markersRef.current.push(marker);
-              });
-              resolve();
-            },
-          );
+          markersRef.current.push(marker);
         });
       } catch {
-        setLoadError("Unable to load nearby places.");
+        setPlacesSearchFailed(true);
       } finally {
         setIsLoading(false);
       }
     },
-    [clearPlaceMarkers],
+    [clearPlaceMarkers, mode],
   );
-
-  const mapInitializedRef = useRef(false);
-  const [mapReady, setMapReady] = useState(false);
 
   const initMap = useCallback(async () => {
     if (!apiKey || !mapDivRef.current || mapInitializedRef.current) return;
+    if (mapsAuthFailed) {
+      enterFallback();
+      return;
+    }
     try {
-      await loadGoogleMapsScript(apiKey);
+      await loadGoogleMaps(apiKey);
       const { Map } = (await google.maps.importLibrary(
         "maps",
       )) as google.maps.MapsLibrary;
@@ -348,29 +356,25 @@ export default function CommunityAmenityMap({
       const infoWindow = new google.maps.InfoWindow();
       infoWindowRef.current = infoWindow;
       communityMarkerRef.current.addListener("click", () => {
-        infoWindow.setContent(
-          `<div style="font-family:system-ui,sans-serif">
-            <strong>${tournamentHillsMapCenter.communityName}</strong>
-            <p style="margin:8px 0">Guard-gated luxury near TPC Summerlin<br/>Summerlin, Las Vegas NV ${tournamentHillsMapCenter.postalCode}</p>
-            <a href="https://www.google.com/maps?q=${center.lat},${center.lng}" target="_blank" rel="noopener noreferrer">View on Google Maps</a>
-          </div>`,
+        openPlaceInfoWindow(
+          infoWindow,
+          mapRef.current!,
+          communityMarkerRef.current!,
+          tournamentHillsMapCenter.communityName,
+          `Guard-gated luxury near TPC Summerlin — Summerlin, Las Vegas NV ${tournamentHillsMapCenter.postalCode}`,
+          `https://www.google.com/maps?q=${center.lat},${center.lng}`,
         );
-        infoWindow.open({
-          map: mapRef.current!,
-          anchor: communityMarkerRef.current!,
-        });
       });
 
       setMode("interactive");
       setMapReady(true);
     } catch {
-      setMode("fallback");
-      setLoadError(null);
+      enterFallback();
     }
-  }, [apiKey, compact, mapId]);
+  }, [apiKey, compact, enterFallback, mapId]);
 
   useEffect(() => {
-    if (mode !== "interactive" || !apiKey) return;
+    if (mode !== "interactive" || !apiKey || mapsAuthFailed) return;
     if (!containerRef.current) return;
 
     observerRef.current = new IntersectionObserver(
@@ -399,10 +403,12 @@ export default function CommunityAmenityMap({
   if (mode === "fallback") {
     return (
       <div className={className}>
-        <FallbackMapView compact={compact} />
+        <FallbackMapView compact={compact} categoryId={activeCategory} />
       </div>
     );
   }
+
+  const curatedForCategory = getCuratedPlacesForCategory(activeCategory);
 
   return (
     <div ref={containerRef} className={cn("space-y-4", className)}>
@@ -434,12 +440,6 @@ export default function CommunityAmenityMap({
         })}
       </div>
 
-      {loadError && (
-        <p className="text-sm text-amber-800 bg-amber-50 border border-amber-200 rounded-md px-3 py-2">
-          {loadError} Showing map with community pin; try another category.
-        </p>
-      )}
-
       <div className="relative rounded-lg overflow-hidden border border-slate-200">
         {!isVisible && <AmenityMapSkeleton />}
         <div
@@ -456,6 +456,20 @@ export default function CommunityAmenityMap({
           </div>
         )}
       </div>
+
+      {placesSearchFailed && curatedForCategory.length > 0 && (
+        <div className="border border-slate-200 rounded-lg p-4 bg-slate-50">
+          <p className="text-sm text-slate-700 mb-3">
+            Live place results are unavailable right now. Here are verified
+            nearby options for this category:
+          </p>
+          <ul className="space-y-2 text-sm text-slate-700">
+            {curatedForCategory.map((place) => (
+              <CuratedPlaceCard key={place.name} place={place} />
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }

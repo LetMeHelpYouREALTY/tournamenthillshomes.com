@@ -610,7 +610,7 @@ export const DOMAIN_CONFIGS: Record<string, DomainConfig> = {
     neighborhood: "Tournament Hills",
     tagline: "Tournament Hills Homes for Sale",
     description:
-      "Search Tournament Hills gated community homes for sale in Summerlin Las Vegas (89134). TPC Summerlin luxury estates, map, HOA info, and MLS listings. Dr. Jan Duffy, BHHS Nevada Properties.",
+      "Tournament Hills homes for sale in Summerlin West, Las Vegas (89134). Guard-gated TPC Summerlin golf listings with Dr. Jan Duffy, BHHS Nevada Properties.",
     heroHeadline: "Tournament Hills Homes for Sale",
     heroSubheadline:
       "Guard-gated luxury living in Summerlin's premier TPC Summerlin golf community.",

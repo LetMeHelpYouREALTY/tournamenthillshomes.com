@@ -14,14 +14,12 @@ import {
 import type { Metadata } from "next";
 import SchemaScript from "@/components/SchemaScript";
 import {
-  generateBreadcrumbSchema,
   generateFAQSchema,
   generateNeighborhoodSchema,
   combineSchemas,
 } from "@/lib/schema";
 import {
   tournamentHillsAllFaqs,
-  tournamentHillsBreadcrumbs,
   tournamentHillsMarket,
   tournamentHillsNeighborhood,
   tournamentHillsPeopleAlsoSearchQueries,
@@ -50,7 +48,6 @@ export const metadata: Metadata = {
 };
 
 const pageSchemas = combineSchemas(
-  generateBreadcrumbSchema(tournamentHillsBreadcrumbs),
   generateNeighborhoodSchema(tournamentHillsNeighborhood),
   generateFAQSchema(tournamentHillsAllFaqs),
 );

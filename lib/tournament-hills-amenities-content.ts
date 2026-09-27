@@ -1,9 +1,10 @@
 /**
  * Hyperlocal amenities copy, curated places, and amenities-page FAQ (AEO).
- * Only verified names/addresses — no fabricated ratings or drive times as facts.
+ * Addresses verified against primary sources (sourceUrl on each curated place).
  */
 
 import type { FAQItem } from "./schema";
+import type { AmenityCategoryId } from "./community-map-config";
 import { tournamentHillsMapCenter } from "./community-map-config";
 
 export type CuratedAmenityPlace = {
@@ -21,7 +22,9 @@ export type CuratedAmenityPlace = {
   streetAddress: string;
   city: string;
   postalCode: string;
-  category: string;
+  /** Maps to amenity map chip filters */
+  amenityCategoryId: AmenityCategoryId;
+  sourceUrl: string;
   note?: string;
 };
 
@@ -32,16 +35,18 @@ export const curatedAmenityPlaces: CuratedAmenityPlace[] = [
     streetAddress: "1700 Village Center Circle",
     city: "Las Vegas",
     postalCode: "89134",
-    category: "Golf",
-    note: "PGA Tour venue adjacent to Tournament Hills",
+    amenityCategoryId: "golf",
+    sourceUrl: "https://tpc.com/summerlin/contact-directions/",
+    note: "Private PGA Tour club adjacent to Tournament Hills",
   },
   {
     name: "Summerlin Hospital Medical Center",
     schemaType: "Hospital",
-    streetAddress: "657 Town Center Drive",
+    streetAddress: "657 N. Town Center Drive",
     city: "Las Vegas",
     postalCode: "89144",
-    category: "Healthcare",
+    amenityCategoryId: "healthcare",
+    sourceUrl: "https://www.summerlinhospital.com/about/contact-us",
   },
   {
     name: "Downtown Summerlin",
@@ -49,15 +54,18 @@ export const curatedAmenityPlaces: CuratedAmenityPlace[] = [
     streetAddress: "1980 Festival Plaza Drive",
     city: "Las Vegas",
     postalCode: "89135",
-    category: "Shopping & dining",
+    amenityCategoryId: "shopping",
+    sourceUrl: "https://www.downtownsummerlin.com/",
   },
   {
     name: "Tivoli Village",
     schemaType: "ShoppingCenter",
-    streetAddress: "440 S Rampart Boulevard",
+    streetAddress: "400 S Rampart Boulevard",
     city: "Las Vegas",
     postalCode: "89145",
-    category: "Shopping & dining",
+    amenityCategoryId: "restaurants",
+    sourceUrl: "https://tivolivillagelv.com/",
+    note: "Shopping and dining destination on Rampart Boulevard",
   },
   {
     name: "Boca Park Fashion Village",
@@ -65,47 +73,64 @@ export const curatedAmenityPlaces: CuratedAmenityPlace[] = [
     streetAddress: "750 S Rampart Boulevard",
     city: "Las Vegas",
     postalCode: "89145",
-    category: "Shopping",
+    amenityCategoryId: "shopping",
+    sourceUrl: "https://bocaparklasvegas.com/",
+  },
+  {
+    name: "Whole Foods Market",
+    schemaType: "Store",
+    streetAddress: "2475 S Town Center Drive",
+    city: "Las Vegas",
+    postalCode: "89135",
+    amenityCategoryId: "grocery",
+    sourceUrl: "https://www.wholefoodsmarket.com/stores/summerlin",
   },
   {
     name: "Bruce Trent Park",
     schemaType: "Park",
     streetAddress: "8851 Vegas Drive",
     city: "Las Vegas",
+    postalCode: "89128",
+    amenityCategoryId: "parks",
+    sourceUrl:
+      "https://www.lasvegasnevada.gov/Residents/Parks-Facilities/Bruce-Trent-Park",
+  },
+  {
+    name: "The Hills Park",
+    schemaType: "Park",
+    streetAddress: "9100 Hillpointe Road",
+    city: "Las Vegas",
     postalCode: "89134",
-    category: "Parks & recreation",
+    amenityCategoryId: "parks",
+    sourceUrl: "https://summerlin.com/explore/parks/",
+    note: "Summerlin North community park",
   },
   {
-    name: "Hills Park",
+    name: "The Pueblo Park",
     schemaType: "Park",
-    streetAddress: "8301 W Charleston Boulevard",
+    streetAddress: "7663 W Lake Mead Boulevard",
     city: "Las Vegas",
-    postalCode: "89117",
-    category: "Parks & recreation",
-  },
-  {
-    name: "Pueblo Park",
-    schemaType: "Park",
-    streetAddress: "6320 W Maule Avenue",
-    city: "Las Vegas",
-    postalCode: "89139",
-    category: "Parks & recreation",
+    postalCode: "89128",
+    amenityCategoryId: "parks",
+    sourceUrl: "https://summerlin.com/explore/parks/",
   },
   {
     name: "John W. Bonner Elementary School",
     schemaType: "School",
-    streetAddress: "765 Crestda Lane",
+    streetAddress: "765 Crestdale Lane",
     city: "Las Vegas",
     postalCode: "89144",
-    category: "Schools (CCSD)",
+    amenityCategoryId: "schools",
+    sourceUrl: "https://www.bonnerelementary.com/contact",
   },
   {
     name: "Patricia A. Bendorf Elementary School",
     schemaType: "School",
-    streetAddress: "3850 S Town Center Drive",
+    streetAddress: "3550 Kevin Way",
     city: "Las Vegas",
-    postalCode: "89135",
-    category: "Schools (CCSD)",
+    postalCode: "89147",
+    amenityCategoryId: "schools",
+    sourceUrl: "https://www.bendorfelementary.org/apps/contact/",
   },
 ];
 
@@ -113,7 +138,7 @@ export const amenitiesPageFaqs: FAQItem[] = [
   {
     question: "What grocery stores are near Tournament Hills?",
     answer:
-      "Tournament Hills residents typically shop at Downtown Summerlin grocers (including Whole Foods Market at 1980 Festival Plaza Drive), Trader Joe's and Costco locations along the Summerlin corridor, and additional supermarkets within a short drive on Charleston Boulevard and Rampart Boulevard.",
+      "Tournament Hills residents often shop at Whole Foods Market at 2475 S Town Center Drive in Summerlin, plus grocers at Downtown Summerlin and along the Charleston and Rampart corridors. Drive times vary by address—verify with your navigation app before showings.",
   },
   {
     question: "How far is Tournament Hills from the Las Vegas Strip?",
@@ -123,7 +148,7 @@ export const amenitiesPageFaqs: FAQItem[] = [
   {
     question: "Are there hospitals near Tournament Hills?",
     answer:
-      "Yes. Summerlin Hospital Medical Center at 657 Town Center Drive is the primary full-service hospital serving the Summerlin area west of Tournament Hills, with additional medical offices and urgent care along Town Center and Rampart corridors.",
+      "Yes. Summerlin Hospital Medical Center at 657 N. Town Center Drive is the primary full-service hospital serving west Summerlin, with additional medical offices and urgent care along Town Center and Rampart corridors.",
   },
   {
     question: "What dining is close to Tournament Hills?",
@@ -133,7 +158,7 @@ export const amenitiesPageFaqs: FAQItem[] = [
   {
     question: "Is TPC Summerlin part of Tournament Hills?",
     answer:
-      "Tournament Hills is a guard-gated residential community surrounding TPC Summerlin, a private PGA Tour golf club at 1700 Village Center Circle; membership is separate from homeownership, but the course defines the neighborhood's golf-centric lifestyle.",
+      "Tournament Hills is a guard-gated residential community surrounding TPC Summerlin, a private PGA Tour golf club at 1700 Village Center Circle; membership is separate from homeownership, but the course defines the neighborhood's golf-centric setting.",
   },
   {
     question: "How do I get to Harry Reid International Airport from Tournament Hills?",
@@ -143,12 +168,12 @@ export const amenitiesPageFaqs: FAQItem[] = [
   {
     question: "What parks are near Tournament Hills in Summerlin?",
     answer:
-      "Summerlin maintains 150+ parks; Bruce Trent Park, Hills Park, and Pueblo Park are well-known options within a reasonable drive of Tournament Hills for trails, sports fields, and community events.",
+      "Summerlin maintains 150+ parks. Bruce Trent Park (8851 Vegas Drive), The Hills Park (9100 Hillpointe Road), and The Pueblo Park (7663 W Lake Mead Boulevard) are well-known options within a reasonable drive of Tournament Hills for trails, sports fields, and community events.",
   },
   {
-    question: "What schools serve Tournament Hills families?",
+    question: "What CCSD schools are assigned to Tournament Hills addresses?",
     answer:
-      "Tournament Hills is in the Clark County School District; nearby public schools include John W. Bonner Elementary and Patricia A. Bendorf Elementary, with West Career & Technical Academy and other Summerlin schools a short drive away—verify boundaries and ratings on CCSD and GreatSchools before you buy.",
+      "Tournament Hills is in the Clark County School District. Nearby public schools include John W. Bonner Elementary and Patricia A. Bendorf Elementary—verify your assigned schools with the CCSD Zoning Search before you buy.",
   },
 ];
 
@@ -171,4 +196,10 @@ export const amenitiesCommuteNotes = {
 
 export function getAmenitiesPageTitle(): string {
   return `Nearby Amenities in ${tournamentHillsMapCenter.communityName}, Las Vegas`;
+}
+
+export function getCuratedPlacesForCategory(
+  categoryId: AmenityCategoryId,
+): CuratedAmenityPlace[] {
+  return curatedAmenityPlaces.filter((p) => p.amenityCategoryId === categoryId);
 }

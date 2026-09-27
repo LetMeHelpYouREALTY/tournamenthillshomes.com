@@ -27,8 +27,7 @@ const pageUrl = `${siteConfig.url.replace(/\/$/, "")}/amenities`;
 
 export const metadata: Metadata = {
   title: `${getAmenitiesPageTitle()} | Dr. Jan Duffy REALTOR®`,
-  description:
-    "Interactive map and guide to restaurants, golf, parks, healthcare, grocery, and shopping near Tournament Hills and TPC Summerlin in Summerlin, Las Vegas 89134. Dr. Jan Duffy, BHHS Nevada. Call (702) 500-1942.",
+  description: `Interactive map and guide to restaurants, golf, parks, healthcare, grocery, and shopping near Tournament Hills and TPC Summerlin in Summerlin, Las Vegas 89134. Dr. Jan Duffy, BHHS Nevada. Call ${agentInfo.phoneFormatted}.`,
   alternates: {
     canonical: pageUrl,
   },
@@ -112,9 +111,9 @@ export default function AmenitiesPage() {
               separate from homeownership, but the course shapes Tournament
               Hills streetscapes and views. For public recreation, Summerlin
               offers 150+ parks; <strong>Bruce Trent Park</strong> (8851 Vegas
-              Drive), <strong>Hills Park</strong> (8301 W Charleston Boulevard),
-              and <strong>Pueblo Park</strong> (6320 W Maule Avenue) are popular
-              options within a reasonable drive.
+              Drive), <strong>The Hills Park</strong> (9100 Hillpointe Road),
+              and <strong>The Pueblo Park</strong> (7663 W Lake Mead Boulevard)
+              are popular options within a reasonable drive.
             </p>
             <p>
               <strong>Red Rock Canyon National Conservation Area</strong> is
@@ -124,7 +123,7 @@ export default function AmenitiesPage() {
 
             <h2>Healthcare</h2>
             <p>
-              <strong>Summerlin Hospital Medical Center</strong> at 657 Town
+              <strong>Summerlin Hospital Medical Center</strong> at 657 N. Town
               Center Drive anchors west-Summerlin healthcare, with physician
               offices and urgent care along Town Center and the Red Rock medical
               campus corridor. Always confirm in-network providers with your
@@ -142,12 +141,12 @@ export default function AmenitiesPage() {
 
             <h2>Schools (CCSD)</h2>
             <p>
-              Tournament Hills families attend Clark County School District
+              Tournament Hills households attend Clark County School District
               schools; nearby examples include{" "}
               <strong>John W. Bonner Elementary</strong> (765 Crestda Lane) and{" "}
-              <strong>Patricia A. Bendorf Elementary</strong> (3850 S Town
-              Center Drive). Boundaries change — confirm assigned schools on
-              CCSD and GreatSchools before you write an offer.
+              <strong>Patricia A. Bendorf Elementary</strong> (3550 Kevin Way).
+              Boundaries change — confirm assigned schools with the CCSD Zoning
+              Search before you write an offer.
             </p>
 
             <h2>Commute &amp; key destinations</h2>
