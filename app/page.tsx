@@ -17,6 +17,7 @@ import SchemaScript from "@/components/SchemaScript";
 import { combineSchemas, generateFAQSchema } from "@/lib/schema";
 import { tournamentHillsAllFaqs } from "@/lib/tournament-hills-content";
 import RealScoutOfficeListings from "@/components/realscout/RealScoutOfficeListings";
+import AmenityMapSection from "@/components/maps/AmenityMapSection";
 
 const homepageFaqSchema = combineSchemas(
   generateFAQSchema(tournamentHillsAllFaqs),
@@ -180,6 +181,12 @@ export default async function Home() {
                 Full Market Report
               </Link>
             </div>
+          </div>
+        </section>
+
+        <section className="py-16 md:py-20 bg-slate-50">
+          <div className="container mx-auto px-4">
+            <AmenityMapSection variant="compact" />
           </div>
         </section>
 
