@@ -12,7 +12,9 @@ import {
   generateWebSiteSchema,
 } from "@/lib/schema";
 import { siteConfig } from "@/lib/site-config";
+import { defaultOpenGraph, defaultTwitter } from "@/lib/seo-metadata";
 import { REALSCOUT_SCRIPT_URL } from "@/lib/realscout-config";
+import BreadcrumbSchemaFromPath from "@/components/BreadcrumbSchemaFromPath";
 import RealScoutAfterHero from "@/components/realscout/RealScoutAfterHero";
 
 const siteWideSchemas = combineSchemas(
@@ -30,10 +32,15 @@ export async function generateMetadata(): Promise<Metadata> {
     description: config.description,
     keywords: config.keywords,
     openGraph: {
+      ...defaultOpenGraph,
       title: config.heroHeadline,
       description: config.description,
-      type: "website",
       url: metadataBase,
+    },
+    twitter: {
+      ...defaultTwitter,
+      title: config.heroHeadline,
+      description: config.description,
     },
   };
 }
@@ -65,6 +72,7 @@ export default function RootLayout({
       </head>
       <body>
         <SchemaScript schema={siteWideSchemas} id="site-wide-schema" />
+        <BreadcrumbSchemaFromPath />
         <RealScoutAfterHero />
         {children}
         <Analytics />

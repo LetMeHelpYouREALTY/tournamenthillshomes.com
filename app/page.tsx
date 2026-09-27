@@ -17,6 +17,13 @@ import SchemaScript from "@/components/SchemaScript";
 import { combineSchemas, generateFAQSchema } from "@/lib/schema";
 import { tournamentHillsAllFaqs } from "@/lib/tournament-hills-content";
 import RealScoutOfficeListings from "@/components/realscout/RealScoutOfficeListings";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "/",
+  },
+};
 
 const homepageFaqSchema = combineSchemas(
   generateFAQSchema(tournamentHillsAllFaqs),

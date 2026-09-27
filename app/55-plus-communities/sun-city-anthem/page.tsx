@@ -14,7 +14,6 @@ import {
 import type { Metadata } from "next";
 import SchemaScript from "@/components/SchemaScript";
 import {
-  generateBreadcrumbSchema,
   generateSeniorCommunitySchema,
   generateFAQSchema,
   combineSchemas,
@@ -32,13 +31,6 @@ export const metadata: Metadata = {
     "Berkshire Hathaway Sun City Anthem",
   ],
 };
-
-// Breadcrumb items
-const breadcrumbs = [
-  { name: "Home", url: "/" },
-  { name: "55+ Communities", url: "/55-plus-communities" },
-  { name: "Sun City Anthem", url: "/55-plus-communities/sun-city-anthem" },
-];
 
 // Community amenities for schema
 const communityAmenities = [
@@ -92,7 +84,6 @@ const sunCityAnthemFaqs = [
 
 // Combined page schemas
 const pageSchemas = combineSchemas(
-  generateBreadcrumbSchema(breadcrumbs),
   generateSeniorCommunitySchema({
     name: "Sun City Anthem",
     description:

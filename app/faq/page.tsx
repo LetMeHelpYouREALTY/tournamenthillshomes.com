@@ -11,7 +11,6 @@ import {
 } from "@/lib/tournament-hills-content";
 import SchemaScript from "@/components/SchemaScript";
 import {
-  generateBreadcrumbSchema,
   generateFAQSchema,
   generateWebPageSchema,
   combineSchemas,
@@ -29,12 +28,6 @@ export const metadata: Metadata = {
     "Las Vegas luxury real estate",
   ],
 };
-
-// Breadcrumb items
-const breadcrumbs = [
-  { name: "Home", url: "/" },
-  { name: "FAQ", url: "/faq" },
-];
 
 const faqCategories = [
   {
@@ -185,7 +178,6 @@ const allFaqs = faqCategories.flatMap((category) =>
 
 // Combined page schemas including all FAQs
 const pageSchemas = combineSchemas(
-  generateBreadcrumbSchema(breadcrumbs),
   generateWebPageSchema({
     name: "Frequently Asked Questions | Berkshire Hathaway HomeServices Las Vegas",
     description:
