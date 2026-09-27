@@ -44,6 +44,14 @@ export interface CommunityAmenity {
   description?: string;
 }
 
+export interface FeaturedPlaceListItem {
+  name: string;
+  schemaType: string;
+  streetAddress: string;
+  city: string;
+  postalCode: string;
+}
+
 export interface SeniorCommunityData {
   name: string;
   description: string;
@@ -349,6 +357,74 @@ export function generateReviewSchema(reviews: ReviewItem[]) {
 // ============================================================================
 // Location Schema Generators
 // ============================================================================
+
+/**
+ * ItemList of verified nearby places for GEO / rich results
+ */
+export function generateFeaturedPlacesItemList(
+  places: FeaturedPlaceListItem[],
+  listName: string,
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: listName,
+    itemListElement: places.map((place, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      item: {
+        "@type": place.schemaType,
+        name: place.name,
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: place.streetAddress,
+          addressLocality: place.city,
+          addressRegion: "NV",
+          postalCode: place.postalCode,
+          addressCountry: "US",
+        },
+      },
+    })),
+  };
+}
+
+/**
+ * Community Place with geo for amenities / hyperlocal pages
+ */
+export function generateCommunityPlaceSchema(options: {
+  name: string;
+  description: string;
+  slug: string;
+  latitude: number;
+  longitude: number;
+  postalCode: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Place",
+    "@id": `${BASE_URL}/amenities#community`,
+    name: `${options.name}, Summerlin`,
+    description: options.description,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Las Vegas",
+      addressRegion: "NV",
+      postalCode: options.postalCode,
+      addressCountry: "US",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: options.latitude,
+      longitude: options.longitude,
+    },
+    containedInPlace: {
+      "@type": "City",
+      name: "Summerlin, Las Vegas",
+      addressRegion: "NV",
+    },
+    url: `${BASE_URL}/neighborhoods/${options.slug}`,
+  };
+}
 
 /**
  * Generate Place schema for neighborhoods

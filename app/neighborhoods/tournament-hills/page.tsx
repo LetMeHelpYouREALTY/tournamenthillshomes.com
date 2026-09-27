@@ -24,7 +24,8 @@ import {
   tournamentHillsNeighborhood,
   tournamentHillsPeopleAlsoSearchQueries,
 } from "@/lib/tournament-hills-content";
-import { agentInfo, officeInfo } from "@/lib/site-config";
+import AmenityMapSection from "@/components/maps/AmenityMapSection";
+import { agentInfo } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   title:
@@ -305,23 +306,9 @@ export default function TournamentHillsPage() {
             </div>
           </section>
 
-          {/* Map */}
-          <section className="mb-16 max-w-4xl mx-auto">
-            <h2 className="text-2xl font-bold text-slate-900 mb-4 text-center">
-              Tournament Hills Area
-            </h2>
-            <div className="aspect-video rounded-lg overflow-hidden border border-slate-200">
-              <iframe
-                title="Tournament Hills Summerlin map"
-                src="https://maps.google.com/maps?q=Tournament+Hills+Summerlin+Las+Vegas+NV+89134&output=embed"
-                className="w-full h-full border-0"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-            </div>
-            <p className="text-center text-sm text-slate-500 mt-3">
-              {officeInfo.address.full} · {agentInfo.phoneFormatted}
-            </p>
+          {/* Interactive amenity map */}
+          <section className="mb-16 max-w-6xl mx-auto">
+            <AmenityMapSection />
           </section>
 
           {/* Expert quote */}
