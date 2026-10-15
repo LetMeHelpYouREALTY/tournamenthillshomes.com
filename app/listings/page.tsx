@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import type { Metadata } from "next";
 import { REALSCOUT_OFFICE_LISTINGS_HTML } from "@/lib/realscout-config";
+import AmenityMapSection from "@/components/maps/AmenityMapSection";
 
 export const metadata: Metadata = {
   title:
@@ -513,6 +514,10 @@ export default function ListingsPage() {
                 </div>
               </div>
             </div>
+          </section>
+
+          <section className="mb-16 max-w-6xl mx-auto">
+            <AmenityMapSection variant="compact" />
           </section>
 
           {/* FAQ Section */}

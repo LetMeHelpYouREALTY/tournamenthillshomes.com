@@ -7,6 +7,7 @@
  */
 
 import type { FAQItem, NeighborhoodData } from "./schema";
+import { tournamentHillsMapCenter } from "./community-map-config";
 
 export const tournamentHillsMarket = {
   lastUpdated: "June 2026",
@@ -23,8 +24,8 @@ export const tournamentHillsNeighborhood: NeighborhoodData = {
   description:
     "Guard-gated luxury community in central Summerlin, Las Vegas, built around TPC Summerlin with custom estates, golf course views, and Red Rock Canyon proximity.",
   medianPrice: tournamentHillsMarket.priceRangeFormatted,
-  latitude: 36.169,
-  longitude: -115.333,
+  latitude: tournamentHillsMapCenter.lat,
+  longitude: tournamentHillsMapCenter.lng,
   containedIn: "Summerlin, Las Vegas",
 };
 
