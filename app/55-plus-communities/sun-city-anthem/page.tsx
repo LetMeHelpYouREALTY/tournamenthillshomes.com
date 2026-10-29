@@ -176,7 +176,7 @@ export default function SunCityAnthemPage() {
               </h2>
               <p>
                 <strong>Sun City Anthem</strong> brings the legendary Sun City
-                lifestyle to Henderson, Nevada's safest and most desirable city.
+                lifestyle to Henderson, Nevada's second-largest city.
                 Built by Del Webb from 1998-2008, this 7,100+ home community
                 offers stunning mountain views, championship golf, and
                 resort-caliber amenities—all within Henderson's renowned safety
@@ -209,7 +209,7 @@ export default function SunCityAnthemPage() {
                     Why Henderson Matters
                   </h3>
                   <p className="text-slate-700 mb-4">
-                    Henderson consistently ranks as one of America's safest
+                    Henderson Police publish crime data online, for one of America's largest
                     cities. For 55+ buyers, this translates to peace of mind,
                     stable property values, and a community that attracts
                     similar residents who value safety and quality of life.
@@ -220,7 +220,7 @@ export default function SunCityAnthemPage() {
                         #2
                       </div>
                       <div className="text-sm text-slate-600">
-                        Safest Large City
+                        Crime Map Online
                       </div>
                     </div>
                     <div className="text-center bg-white rounded-lg p-4">

@@ -370,7 +370,7 @@ export default function InvestmentPropertiesPage() {
                 </h3>
                 <p className="text-slate-600 mb-4">
                   <strong>Best for: Balanced investors.</strong> Premium tenant
-                  quality, excellent schools, and steady appreciation. Lower
+                  quality, nearby public schools, and steady appreciation. Lower
                   vacancy rates and longer tenant retention offset slightly
                   lower cap rates.
                 </p>
