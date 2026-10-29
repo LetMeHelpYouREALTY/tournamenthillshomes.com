@@ -716,7 +716,7 @@ export const DEFAULT_CONFIG: DomainConfig = {
   ctaBadge: "Las Vegas Expert",
   ctaHeadline: "Find Your Las Vegas Home",
   ctaSubheadline:
-    "Call or text Dr. Jan at (702) 500-1942 — I answer my own phone.",
+    "Call or text Dr. Jan at (702) 500-1955 — I answer my own phone.",
 };
 
 export function getDomainConfig(hostname: string): DomainConfig {
