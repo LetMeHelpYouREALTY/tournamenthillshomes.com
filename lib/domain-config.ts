@@ -239,7 +239,7 @@ export const DOMAIN_CONFIGS: Record<string, DomainConfig> = {
     neighborhood: "Las Vegas",
     tagline: "Just Call Dr. Jan — Las Vegas Real Estate",
     description:
-      "Ready to buy or sell in Las Vegas? Just call Dr. Jan Duffy at 702-222-1964.",
+      "Ready to buy or sell in Las Vegas? Just call Dr. Jan Duffy at 702-500-1955.",
     heroHeadline: "Just Call Dr. Jan",
     heroSubheadline:
       "30+ years. 500+ families. No runaround — just expert Las Vegas real estate guidance.",
@@ -249,7 +249,7 @@ export const DOMAIN_CONFIGS: Record<string, DomainConfig> = {
     ctaBadge: "Direct Access",
     ctaHeadline: "I Answer My Own Phone",
     ctaSubheadline:
-      "No assistant, no callback queue. Call or text 702-222-1964 and reach me directly.",
+      "No assistant, no callback queue. Call or text 702-500-1955 and reach me directly.",
   },
   "lasvegashomeexpert.com": {
     domain: "lasvegashomeexpert.com",
@@ -541,7 +541,7 @@ export const DOMAIN_CONFIGS: Record<string, DomainConfig> = {
     ctaBadge: "Cash Offer Specialist",
     ctaHeadline: "Get Your Cash Offer Today",
     ctaSubheadline:
-      "Call 702-222-1964 for a no-obligation cash offer on your Las Vegas home.",
+      "Call 702-500-1955 for a no-obligation cash offer on your Las Vegas home.",
   },
   "suncitysummerlinhomesforsale.com": {
     domain: "suncitysummerlinhomesforsale.com",
