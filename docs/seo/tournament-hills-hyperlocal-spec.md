@@ -72,7 +72,7 @@ Synthesized from public competitor area guides and MLS listing pages ([Luxury Ho
 Before publishing stats or review schema:
 
 - [ ] Visible NAP on every page matches JSON-LD
-- [ ] Phone `(702) 500-1942` everywhere (no legacy 702-222-1964)
+- [ ] Phone `(702) 500-1942` everywhere (no legacy 702-500-1955)
 - [ ] Office address matches GBP: 9406 W Lake Mead Blvd, Suite 100, Las Vegas, NV 89134
 - [ ] Hours in schema match GBP (M–F 9–6, Sat 10–4, Sun by appointment)
 - [ ] `aggregateRating` only if verified against GBP / documented reviews

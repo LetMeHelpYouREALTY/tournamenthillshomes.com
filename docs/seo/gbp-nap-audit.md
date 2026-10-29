@@ -33,7 +33,7 @@ Reconcile visible site copy, JSON-LD, and Google Business Profile before each de
 
 | Location                                       | Issue                     | Fix                                           |
 | ---------------------------------------------- | ------------------------- | --------------------------------------------- |
-| `app/page.tsx`                                 | Legacy phone 702-222-1964 | → (702) 500-1942                              |
+| `app/page.tsx`                                 | Legacy phone 702-500-1955 | → (702) 500-1942                              |
 | `lib/gbp-schema.ts` vs `lib/schema.ts`         | Duplicate FAQ generators  | Consolidate in Phase 3                        |
 | Neighborhood zip in old notes                  | 89135 mentioned           | Community is **89134** per MLS/area guides    |
 | `marketStats.lasVegas.medianPrice` on homepage | Valley-wide $450K         | Use Tournament Hills / luxury band on TH site |
