@@ -349,7 +349,7 @@ export default function MarketInsightsPage() {
                   </span>
                 </div>
                 <p className="text-slate-600 text-sm mb-3">
-                  Red Rock views, Downtown Summerlin, and top schools maintain
+                  Red Rock views, Downtown Summerlin, and nearby public schools maintain
                   premium positioning. Limited new inventory keeps values
                   strong.
                 </p>
@@ -382,7 +382,7 @@ export default function MarketInsightsPage() {
                   </span>
                 </div>
                 <p className="text-slate-600 text-sm mb-3">
-                  Family-friendly community with the valley's largest park. New
+                  Community with the valley's largest park. New
                   construction competing with resales. Solid appreciation.
                 </p>
                 <div className="text-sm text-slate-500">

@@ -89,7 +89,7 @@ const neighborhoods = [
   {
     name: "Henderson",
     price: "$485K",
-    description: "Family-friendly with low crime rates",
+    description: "Master-planned communities and parks",
   },
   {
     name: "Green Valley",
@@ -253,7 +253,7 @@ export default function BuyersPage() {
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
               Las Vegas offers diverse neighborhoods for every lifestyle and
               budget. Whether you're seeking luxury estates in guard-gated
-              communities, family homes near top-rated schools, or affordable
+              communities, family homes near nearby public schools, or affordable
               new construction, Dr. Jan helps you find the perfect neighborhood.
               Here's a quick guide to median prices and what each area offers.
             </p>
@@ -498,7 +498,7 @@ export default function BuyersPage() {
                 },
                 {
                   q: "What are the best neighborhoods for families in Las Vegas?",
-                  a: "Summerlin, Henderson (Green Valley, Inspirada), and Centennial Hills are top choices for families, offering excellent schools, parks, and community amenities. Dr. Jan can match you with the right neighborhood based on your priorities—schools, commute, budget, and lifestyle.",
+                  a: "Summerlin, Henderson (Green Valley, Inspirada), and Centennial Hills are top choices for families, offering nearby public schools, parks, and community amenities. Dr. Jan can match you with the right neighborhood based on your priorities—schools, commute, budget, and lifestyle.",
                 },
               ].map((faq, index) => (
                 <div key={index} className="bg-slate-50 rounded-lg p-6">

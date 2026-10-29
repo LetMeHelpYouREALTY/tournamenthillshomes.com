@@ -35,7 +35,7 @@ const faqSchema = {
       name: "How exclusive is The Ridges community?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "The Ridges is one of Las Vegas's most exclusive communities with 24/7 guard-gated security, only 900 home sites across six distinct villages, and strict architectural guidelines ensuring estate-quality construction throughout.",
+        text: "The Ridges is a guard-gated Summerlin community with 24/7 staffed entry, only 900 home sites across six distinct villages, and strict architectural guidelines ensuring estate-quality construction throughout.",
       },
     },
     {
@@ -373,7 +373,7 @@ export default function TheRidgesPage() {
               </h3>
               <div className="not-prose bg-white border border-slate-200 rounded-xl p-6">
                 <p className="text-slate-700 mb-4">
-                  The Ridges is served by top-rated public schools in the Palo
+                  The Ridges is served by public schools in the Palo
                   Verde cluster, plus Las Vegas's finest private school options:
                 </p>
                 <div className="grid md:grid-cols-2 gap-4">
@@ -467,7 +467,7 @@ export default function TheRidgesPage() {
                   How exclusive is The Ridges community?
                 </h3>
                 <p className="text-slate-600">
-                  The Ridges is one of Las Vegas's most exclusive communities
+                  The Ridges is a guard-gated Summerlin community
                   with 24/7 guard-gated security, only 900 home sites across six
                   distinct villages, and strict architectural guidelines
                   ensuring estate-quality construction throughout.

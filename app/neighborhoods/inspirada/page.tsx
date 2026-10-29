@@ -48,7 +48,7 @@ const faqSchema = {
       name: "How are the schools in Inspirada?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Inspirada is served by highly-rated Henderson schools including newer facilities built specifically for the growing community. The area attracts families specifically for its educational options and family-friendly environment.",
+        text: "Inspirada is served by Henderson public schools including newer facilities built for the growing community. Check CCSD and state school data for current ratings.",
       },
     },
     {
@@ -465,7 +465,7 @@ export default function InspiradaPage() {
                   Inspirada is served by highly-rated Henderson schools
                   including newer facilities built specifically for the growing
                   community. The area attracts families specifically for its
-                  educational options and family-friendly environment.
+                  educational options and parks.
                 </p>
               </div>
               <div className="bg-white border border-slate-200 rounded-lg p-6">

@@ -82,7 +82,7 @@ const priceRanges = [
   },
   {
     range: "$400K - $600K",
-    description: "Family homes, established neighborhoods",
+    description: "Family homes, older neighborhoods",
     count: "2,100+",
   },
   {
@@ -106,14 +106,14 @@ const neighborhoods = [
   {
     name: "Summerlin",
     description:
-      "Master-planned community with Red Rock views, top schools, and 150+ parks",
+      "Master-planned community with Red Rock views, nearby public schools, and 150+ parks",
     medianPrice: "$625,000",
     daysOnMarket: 22,
   },
   {
     name: "Henderson",
     description:
-      "Nevada's second-largest city with family-friendly communities and low crime",
+      "Nevada's second-largest city with master-planned communities and public crime data",
     medianPrice: "$485,000",
     daysOnMarket: 24,
   },
@@ -205,7 +205,7 @@ export default function ListingsPage() {
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
               Las Vegas offers diverse neighborhoods for every lifestyle and
               budget. Whether you're seeking luxury estates in guard-gated
-              communities, family homes near top-rated schools, or affordable
+              communities, family homes near nearby public schools, or affordable
               new construction, our comprehensive search tools help you find
               exactly what you're looking for. Browse the most popular searches
               below or use the advanced filters to customize your home search
@@ -276,7 +276,7 @@ export default function ListingsPage() {
             </h2>
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
               Each Las Vegas neighborhood offers a unique lifestyle, from the
-              resort-style living of Summerlin to the family-friendly
+              resort-style living of Summerlin to the master-planned
               communities of Henderson. Understanding these differences is
               crucial to finding a home that fits your needs. As a Berkshire
               Hathaway HomeServices agent serving Las Vegas since 2008, Dr. Jan
