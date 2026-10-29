@@ -317,12 +317,6 @@ export function generateLocalBusinessSchema() {
         },
       })),
     },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.9",
-      reviewCount: "200",
-      bestRating: "5",
-    },
     sameAs: [
       "https://www.facebook.com/drjanduffy",
       "https://www.instagram.com/drjanduffy",
