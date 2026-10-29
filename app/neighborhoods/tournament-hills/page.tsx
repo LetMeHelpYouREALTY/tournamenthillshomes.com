@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   title:
     "Tournament Hills Homes for Sale | TPC Summerlin Luxury | Summerlin West",
   description:
-    "Explore Tournament Hills homes for sale in guard-gated Summerlin West, Las Vegas (89134). TPC Summerlin golf community with custom luxury estates. Dr. Jan Duffy, BHHS Nevada. Call (702) 500-1942.",
+    "Explore Tournament Hills homes for sale in guard-gated Summerlin West, Las Vegas (89134). TPC Summerlin golf community with custom luxury estates. Dr. Jan Duffy, BHHS Nevada. Call (702) 500-1955.",
   keywords: [
     "Tournament Hills homes for sale",
     "Tournament Hills gated community Summerlin",

@@ -68,7 +68,7 @@ export const tournamentHillsFaqs: FAQItem[] = [
   {
     question: "Why work with Dr. Jan Duffy for Tournament Hills real estate?",
     answer:
-      "Dr. Jan Duffy, REALTOR® (License S.0197614.LLC) with Berkshire Hathaway HomeServices Nevada Properties, has served Las Vegas since 2008. She provides guard-gated community expertise, off-market awareness, and negotiation support for luxury Summerlin buyers and sellers. Call (702) 500-1942 for a private consultation.",
+      "Dr. Jan Duffy, REALTOR® (License S.0197614.LLC) with Berkshire Hathaway HomeServices Nevada Properties, has served Las Vegas since 2008. She provides guard-gated community expertise, off-market awareness, and negotiation support for luxury Summerlin buyers and sellers. Call (702) 500-1955 for a private consultation.",
   },
 ];
 
@@ -78,7 +78,7 @@ export const tournamentHillsPeopleAlsoSearchFaqs: FAQItem[] = [
     question:
       "Are there Tournament Hills gated community homes for sale in Summerlin Las Vegas?",
     answer:
-      "Yes. Tournament Hills is a guard-gated luxury golf community in central Summerlin, Las Vegas (zip 89134), with custom estates for sale around TPC Summerlin. Browse live MLS listings on this site or call Dr. Jan Duffy at (702) 500-1942 for golf-front and off-market opportunities.",
+      "Yes. Tournament Hills is a guard-gated luxury golf community in central Summerlin, Las Vegas (zip 89134), with custom estates for sale around TPC Summerlin. Browse live MLS listings on this site or call Dr. Jan Duffy at (702) 500-1955 for golf-front and off-market opportunities.",
   },
   {
     question:
@@ -95,7 +95,7 @@ export const tournamentHillsPeopleAlsoSearchFaqs: FAQItem[] = [
   {
     question: "Are Tournament Hills Summerlin rentals available?",
     answer:
-      "Tournament Hills is primarily owner-occupied luxury housing. Long-term rentals appear occasionally but are uncommon; guard-gated HOA rules and price points limit the rental pool. Contact Dr. Jan Duffy at (702) 500-1942 if you need lease options in Summerlin or comparable guard-gated villages.",
+      "Tournament Hills is primarily owner-occupied luxury housing. Long-term rentals appear occasionally but are uncommon; guard-gated HOA rules and price points limit the rental pool. Contact Dr. Jan Duffy at (702) 500-1955 if you need lease options in Summerlin or comparable guard-gated villages.",
   },
   {
     question: "Where is Tournament Hills on the map in Summerlin Las Vegas?",
