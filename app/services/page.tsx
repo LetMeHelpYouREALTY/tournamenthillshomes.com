@@ -456,7 +456,7 @@ export default function ServicesPage() {
               </div>
               <div>
                 <div className="text-3xl font-bold text-blue-400 mb-2">
-                  4.9★
+                  5.0★
                 </div>
                 <div className="text-slate-300 text-sm">Client Rating</div>
               </div>
