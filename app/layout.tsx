@@ -16,6 +16,7 @@ import { defaultOpenGraph, defaultTwitter } from "@/lib/seo-metadata";
 import { REALSCOUT_SCRIPT_URL } from "@/lib/realscout-config";
 import BreadcrumbSchemaFromPath from "@/components/BreadcrumbSchemaFromPath";
 import RealScoutAfterHero from "@/components/realscout/RealScoutAfterHero";
+import { SpeedInsights as VercelSpeedInsights } from "@vercel/speed-insights/next";
 
 const siteWideSchemas = combineSchemas(
   generateRealEstateAgentSchema(),
@@ -76,6 +77,7 @@ export default function RootLayout({
         <RealScoutAfterHero />
         {children}
         <Analytics />
+        <VercelSpeedInsights />
       </body>
     </html>
   );
