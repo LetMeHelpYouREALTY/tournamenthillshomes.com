@@ -16,6 +16,7 @@ import {
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/55-plus-communities/trilogy-summerlin' },
   title:
     "Trilogy at Summerlin Homes for Sale | Luxury Resort 55+ Living | Dr. Jan Duffy",
   description:

@@ -18,6 +18,7 @@ import {
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/buyers/first-time-buyers' },
   title: "First-Time Home Buyers Las Vegas | Berkshire Hathaway HomeServices",
   description:
     "First-time buyer in Las Vegas? Down payment assistance, builder incentives, and expert guidance from Dr. Jan Duffy at Berkshire Hathaway HomeServices. Call (702) 500-1955.",

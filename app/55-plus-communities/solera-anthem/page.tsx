@@ -16,6 +16,7 @@ import {
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/55-plus-communities/solera-anthem' },
   title:
     "Solera at Anthem Homes for Sale | Intimate Guard-Gated 55+ Henderson | Dr. Jan Duffy",
   description:

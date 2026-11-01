@@ -19,6 +19,7 @@ import {
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/new-construction' },
   title:
     "Berkshire Hathaway HomeServices New Construction Las Vegas | Buyer's Guide",
   description:

@@ -18,6 +18,7 @@ import {
 } from "@/lib/schema";
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/neighborhoods/summerlin' },
   title:
     "Berkshire Hathaway HomeServices Summerlin | Las Vegas Luxury Real Estate",
   description:

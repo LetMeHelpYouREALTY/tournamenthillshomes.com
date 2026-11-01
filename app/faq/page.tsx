@@ -17,6 +17,7 @@ import {
 } from "@/lib/schema";
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/faq' },
   title: "Tournament Hills FAQ | Las Vegas Real Estate | Dr. Jan Duffy",
   description:
     "FAQ about Tournament Hills homes for sale, TPC Summerlin luxury real estate, and working with Dr. Jan Duffy at Berkshire Hathaway HomeServices Nevada Properties. Call (702) 500-1955.",

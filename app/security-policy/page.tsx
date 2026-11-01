@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { agentInfo, SITE_DOMAIN, siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/security-policy' },
   title: "Security Policy",
   description: `Security policy and responsible disclosure information for ${SITE_DOMAIN}`,
   robots: {

@@ -27,6 +27,7 @@ import {
 import { agentInfo, officeInfo } from "@/lib/site-config";
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/neighborhoods/tournament-hills' },
   title:
     "Tournament Hills Homes for Sale | TPC Summerlin Luxury | Summerlin West",
   description:

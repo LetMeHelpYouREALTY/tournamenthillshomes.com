@@ -15,6 +15,7 @@ import {
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/sellers/relocation' },
   title: "Relocation Home Sales Las Vegas | Berkshire Hathaway HomeServices",
   description:
     "Leaving Las Vegas for a new opportunity? Dr. Jan Duffy helps relocating homeowners sell fast and coordinates with BHHS offices nationwide. Call (702) 500-1955.",

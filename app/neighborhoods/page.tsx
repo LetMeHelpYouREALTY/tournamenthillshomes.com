@@ -5,6 +5,7 @@ import { MapPin, Phone, Home, Users, GraduationCap } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/neighborhoods' },
   title: "Las Vegas Neighborhoods | Berkshire Hathaway HomeServices",
   description:
     "Explore Las Vegas and Henderson neighborhoods with Dr. Jan Duffy at Berkshire Hathaway HomeServices Nevada Properties. Summerlin, Henderson, The Ridges, Southern Highlands & more.",

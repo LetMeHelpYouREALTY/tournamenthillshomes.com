@@ -11,6 +11,7 @@ import {
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/neighborhoods/north-las-vegas' },
   title: "Berkshire Hathaway HomeServices North Las Vegas | Affordable Homes",
   description:
     "Find affordable North Las Vegas homes with Berkshire Hathaway HomeServices Nevada Properties. Dr. Jan Duffy helps first-time buyers and investors. Median price $385K. Call (702) 500-1955.",

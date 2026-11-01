@@ -11,6 +11,7 @@ import {
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/neighborhoods/green-valley' },
   title: "Berkshire Hathaway HomeServices Green Valley | Henderson Real Estate",
   description:
     "Find Green Valley homes with Berkshire Hathaway HomeServices Nevada Properties. Dr. Jan Duffy specializes in Green Valley, Southern Nevada's first master-planned community (1978). Median price $520K. Call (702) 500-1955.",

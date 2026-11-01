@@ -15,6 +15,7 @@ import {
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/home-valuation' },
   title:
     "Free Home Valuation Las Vegas | What's Your Home Worth? | Berkshire Hathaway HomeServices",
   description:

@@ -11,6 +11,7 @@ import {
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/neighborhoods/centennial-hills' },
   title: "Berkshire Hathaway HomeServices Centennial Hills | Las Vegas Homes",
   description:
     "Find Centennial Hills homes with Berkshire Hathaway HomeServices Nevada Properties. Dr. Jan Duffy specializes in this established northwest community. Median price $495K. Call (702) 500-1955.",

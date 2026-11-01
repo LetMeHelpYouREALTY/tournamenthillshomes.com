@@ -19,6 +19,7 @@ import type { Metadata } from "next";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/buyers/california-relocator' },
   title:
     "Relocating from California to Las Vegas | Berkshire Hathaway HomeServices",
   description:

@@ -16,6 +16,7 @@ import type { Metadata } from "next";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/market-update' },
   title:
     "Berkshire Hathaway HomeServices Las Vegas Market Update | January 2026",
   description:

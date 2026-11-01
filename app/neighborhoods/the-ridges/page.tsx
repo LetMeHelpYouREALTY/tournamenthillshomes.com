@@ -5,6 +5,7 @@ import { Phone, Shield, Star, Mountain, Home as HomeIcon } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/neighborhoods/the-ridges' },
   title:
     "Berkshire Hathaway HomeServices The Ridges | Las Vegas Luxury Real Estate",
   description:

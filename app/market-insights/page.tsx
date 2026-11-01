@@ -16,6 +16,7 @@ import {
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/market-insights' },
   title:
     "Las Vegas Real Estate Market Insights 2026 | Berkshire Hathaway HomeServices",
   description:

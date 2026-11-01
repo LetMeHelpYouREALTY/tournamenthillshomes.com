@@ -15,6 +15,7 @@ import {
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/sellers/divorce-probate' },
   title:
     "Divorce & Probate Home Sales Las Vegas | Berkshire Hathaway HomeServices",
   description:

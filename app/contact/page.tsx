@@ -17,6 +17,7 @@ import type { Metadata } from "next";
 import { agentInfo, siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/contact' },
   title: "Contact Dr. Jan Duffy | Berkshire Hathaway HomeServices Las Vegas",
   description:
     "Contact Dr. Jan Duffy at Berkshire Hathaway HomeServices Nevada Properties. Schedule an appointment, get directions, or call (702) 500-1955. Las Vegas, Henderson, Summerlin real estate expert.",

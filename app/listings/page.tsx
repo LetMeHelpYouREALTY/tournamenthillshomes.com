@@ -21,6 +21,7 @@ import type { Metadata } from "next";
 import { REALSCOUT_OFFICE_LISTINGS_HTML } from "@/lib/realscout-config";
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/listings' },
   title:
     "Las Vegas Homes for Sale | MLS Property Search | Berkshire Hathaway HomeServices",
   description:

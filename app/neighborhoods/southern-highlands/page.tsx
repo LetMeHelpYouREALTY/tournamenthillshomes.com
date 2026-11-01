@@ -5,6 +5,7 @@ import { Phone, Shield, Mountain, Star, MapPin } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/neighborhoods/southern-highlands' },
   title:
     "Berkshire Hathaway HomeServices Southern Highlands | Las Vegas Golf Community",
   description:
