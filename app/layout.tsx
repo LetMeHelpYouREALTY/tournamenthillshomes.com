@@ -16,6 +16,7 @@ import { defaultOpenGraph, defaultTwitter } from "@/lib/seo-metadata";
 import { REALSCOUT_SCRIPT_URL } from "@/lib/realscout-config";
 import BreadcrumbSchemaFromPath from "@/components/BreadcrumbSchemaFromPath";
 import RealScoutAfterHero from "@/components/realscout/RealScoutAfterHero";
+import GlobalHeroBanner from "@/components/layout/GlobalHeroBanner";
 
 const siteWideSchemas = combineSchemas(
   generateRealEstateAgentSchema(),
@@ -71,6 +72,7 @@ export default function RootLayout({
         />
       </head>
       <body>
+        <GlobalHeroBanner />
         <SchemaScript schema={siteWideSchemas} id="site-wide-schema" />
         <BreadcrumbSchemaFromPath />
         <RealScoutAfterHero />
