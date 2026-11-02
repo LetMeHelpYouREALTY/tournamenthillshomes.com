@@ -127,6 +127,15 @@ export default function Navbar() {
               )}
             </div>
 
+            <a
+              href="https://calendly.com/drjanduffy/showing?utm_source=tournamenthillshomes.com&utm_medium=website&utm_content=navbar"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-700 hover:text-blue-600 font-medium transition-colors text-sm whitespace-nowrap"
+            >
+              Book a showing
+            </a>
+
             <Button asChild className="bg-blue-600 hover:bg-blue-700">
               <Link href="tel:+17025001955" className="flex items-center gap-2">
                 <Phone className="h-4 w-4" />
@@ -203,7 +212,16 @@ export default function Navbar() {
                 ))}
               </div>
 
-              <div className="pt-4">
+              <div className="pt-4 space-y-3">
+                <a
+                  href="https://calendly.com/drjanduffy/showing?utm_source=tournamenthillshomes.com&utm_medium=website&utm_content=navbar"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block text-center text-slate-700 hover:text-blue-600 font-medium transition-colors py-2 px-3 rounded border border-slate-200"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Book a showing
+                </a>
                 <Button
                   asChild
                   className="bg-blue-600 hover:bg-blue-700 w-full"

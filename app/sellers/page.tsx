@@ -3,26 +3,19 @@ import Footer from "@/components/layouts/Footer";
 import Link from "next/link";
 import {
   Phone,
-  Camera,
   Globe,
   DollarSign,
-  TrendingUp,
   CheckCircle,
   BarChart,
   Users,
-  Home,
-  Clock,
-  Shield,
-  ArrowRight,
-  Award,
 } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   alternates: { canonical: '/sellers' },
-  title: "Sell Your Las Vegas Home | Berkshire Hathaway HomeServices",
+  title: "Sell Your Tournament Hills Home | Dr. Jan Duffy",
   description:
-    "Sell your Las Vegas or Henderson home for top dollar with Dr. Jan Duffy at Berkshire Hathaway HomeServices Nevada Properties. Free home valuation. World-class marketing. Call (702) 500-1955.",
+    "Sell your Tournament Hills home in Las Vegas 89134 with Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties. Call (702) 500-1955.",
   keywords: [
     "sell home Las Vegas",
     "Las Vegas listing agent",
@@ -37,13 +30,22 @@ export const metadata: Metadata = {
 const sellerSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  name: "Home Selling Services Las Vegas",
+  name: "Tournament Hills Home Selling by Dr. Jan Duffy",
   provider: {
-    "@type": "RealEstateAgent",
-    name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
-    telephone: "+17025001955",
+    "@id": "https://www.tournamenthillshomes.com#organization",
   },
-  areaServed: "Las Vegas, Henderson, Summerlin, Clark County NV",
+  areaServed: {
+    "@type": "Place",
+    name: "Tournament Hills",
+    containedInPlace: {
+      "@type": "City",
+      name: "Las Vegas",
+      containedInPlace: {
+        "@type": "State",
+        name: "Nevada",
+      },
+    },
+  },
   serviceType: "Seller Representation",
 };
 
@@ -133,7 +135,9 @@ export default function SellersPage() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(sellerSchema) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(sellerSchema).replace(/</g, "\\u003c"),
+        }}
       />
       <Navbar />
       <main className="pt-24 pb-16">
@@ -144,7 +148,7 @@ export default function SellersPage() {
               Berkshire Hathaway HomeServices Nevada Properties
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
-              Sell Your Las Vegas Home for Top Dollar
+              Sell Your Tournament Hills Home
             </h1>
             <p className="text-xl text-slate-600 mb-8">
               When you list with{" "}
@@ -169,47 +173,6 @@ export default function SellersPage() {
               </span>
             </div>
           </div>
-
-          {/* Market Stats */}
-          <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
-            <h2 className="text-2xl font-bold mb-4 text-center">
-              Las Vegas Seller Market Statistics | January 2026
-            </h2>
-            <p className="text-slate-300 text-center max-w-3xl mx-auto mb-8">
-              The Las Vegas housing market remains favorable for sellers with
-              low inventory and steady demand. Well-priced homes are selling
-              quickly, and appreciation continues to outpace national averages.
-              Here's what sellers need to know about current conditions.
-            </p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-green-400 mb-1">
-                  +4.2%
-                </div>
-                <div className="text-slate-300 text-sm">
-                  Year-Over-Year Appreciation
-                </div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold mb-1">28 Days</div>
-                <div className="text-slate-300 text-sm">
-                  Avg. Days on Market
-                </div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold mb-1">2.1 Mo</div>
-                <div className="text-slate-300 text-sm">
-                  Inventory (Seller's Market)
-                </div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold mb-1">98.5%</div>
-                <div className="text-slate-300 text-sm">
-                  List-to-Sale Price Ratio
-                </div>
-              </div>
-            </div>
-          </section>
 
           {/* Benefits */}
           <section className="mb-16 max-w-6xl mx-auto">
@@ -400,50 +363,41 @@ export default function SellersPage() {
 
           {/* Home Valuation CTA */}
           <section className="mb-16 bg-blue-600 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div>
-                <h2 className="text-3xl font-bold mb-4">
-                  What's Your Home Worth?
-                </h2>
-                <p className="text-blue-100 mb-6">
-                  Get a free, no-obligation home valuation from Dr. Jan Duffy.
-                  Using current MLS data and expertise serving Las Vegas since
-                  2008, you'll know exactly what your home could sell for in
-                  today's market. No algorithms—just real analysis from a local
-                  expert.
-                </p>
-                <Link
-                  href="/home-valuation"
-                  className="inline-block bg-white text-blue-600 px-8 py-3 rounded-md font-bold hover:bg-blue-50 transition-colors"
-                >
-                  Get Free Valuation
-                </Link>
-              </div>
-              <div className="text-center">
-                <TrendingUp className="h-24 w-24 text-blue-200 mx-auto mb-4" />
-                <p className="text-2xl font-bold">$450,000</p>
-                <p className="text-blue-200">Median Home Price (Jan 2026)</p>
-                <p className="text-blue-300 text-sm mt-2">
-                  Up 4.2% from last year
-                </p>
-              </div>
+            <div className="max-w-2xl mx-auto text-center md:text-left">
+              <h2 className="text-3xl font-bold mb-4">
+                What&apos;s Your Home Worth?
+              </h2>
+              <p className="text-blue-100 mb-6">
+                Get a free, no-obligation home valuation from Dr. Jan Duffy.
+                Using current MLS data and expertise serving Las Vegas since
+                2008, you&apos;ll know what your Tournament Hills home could
+                sell for in today&apos;s market. No algorithms—just real
+                analysis from a local expert.
+              </p>
+              <Link
+                href="/home-valuation"
+                className="inline-block bg-white text-blue-600 px-8 py-3 rounded-md font-bold hover:bg-blue-50 transition-colors"
+              >
+                Get Free Valuation
+              </Link>
             </div>
           </section>
 
           {/* FAQ */}
           <section className="mb-16 max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
-              Frequently Asked Questions About Selling in Las Vegas
+              Frequently Asked Questions About Selling in Tournament Hills
             </h2>
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
-              Selling your home raises many questions. Here are answers to the
-              most common concerns from Las Vegas home sellers.
+              Selling your Tournament Hills home raises many questions. Here are
+              answers to common concerns from sellers in this guard-gated
+              Summerlin community.
             </p>
             <div className="space-y-4">
               {[
                 {
-                  q: "How long will it take to sell my Las Vegas home?",
-                  a: "Well-priced Las Vegas homes are selling in an average of 28 days. Luxury homes ($1M+) may take 45+ days. The key is pricing correctly from day one—overpriced homes can sit for months, losing both time and money.",
+                  q: "How long will it take to sell my Tournament Hills home?",
+                  a: "Timing depends on pricing, condition, and how your home compares to other listings in Tournament Hills and nearby Summerlin communities. Dr. Jan Duffy reviews recent activity and buyer feedback so you can set expectations and adjust strategy if needed.",
                 },
                 {
                   q: "What do I need to do to prepare my home for sale?",
@@ -459,7 +413,7 @@ export default function SellersPage() {
                 },
                 {
                   q: "Should I wait for prices to go higher?",
-                  a: "Current appreciation of 4.2% year-over-year suggests prices are stable with gradual increases. Timing the market is difficult—most sellers do better by listing when ready rather than waiting. Dr. Jan can provide a personalized market analysis to help you decide.",
+                  a: "Market conditions shift over time, and timing the market is difficult. Most sellers do better by listing when they are ready rather than waiting for a perfect peak. Dr. Jan Duffy can provide a personalized market analysis for your Tournament Hills home to help you decide.",
                 },
                 {
                   q: "Do I need to be moved out before listing?",
@@ -477,7 +431,7 @@ export default function SellersPage() {
           {/* CTA */}
           <section className="text-center bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Ready to Sell Your Las Vegas Home?
+              Ready to Sell Your Tournament Hills Home?
             </h2>
             <p className="text-xl text-slate-300 mb-8">
               Schedule a free listing consultation with Dr. Jan Duffy and
@@ -493,6 +447,14 @@ export default function SellersPage() {
                 <Phone className="h-5 w-5 mr-2" />
                 Call (702) 500-1955
               </a>
+              <a
+                href="https://calendly.com/drjanduffy/listing-consultation?utm_source=tournamenthillshomes.com&utm_medium=website&utm_content=sellers-cta"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-md font-bold text-lg transition-colors"
+              >
+                Book a listing consultation
+              </a>
               <Link
                 href="/contact"
                 className="inline-flex items-center justify-center bg-slate-700 hover:bg-slate-600 text-white px-8 py-4 rounded-md font-bold text-lg transition-colors"
@@ -504,11 +466,6 @@ export default function SellersPage() {
               Berkshire Hathaway HomeServices Nevada Properties
             </p>
           </section>
-        </div>
-
-        {/* Last Updated */}
-        <div className="text-center text-sm text-slate-500 mt-8">
-          Last Updated: January 2026
         </div>
       </main>
       <Footer />
