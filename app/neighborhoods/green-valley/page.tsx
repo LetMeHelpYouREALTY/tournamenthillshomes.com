@@ -11,9 +11,10 @@ import {
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/neighborhoods/green-valley' },
   title: "Berkshire Hathaway HomeServices Green Valley | Henderson Real Estate",
   description:
-    "Find Green Valley homes with Berkshire Hathaway HomeServices Nevada Properties. Dr. Jan Duffy specializes in Henderson's most established community. Median price $520K. Call (702) 500-1942.",
+    "Find Green Valley homes with Berkshire Hathaway HomeServices Nevada Properties. Dr. Jan Duffy specializes in Green Valley, Southern Nevada's first master-planned community (1978). Median price $520K. Call (702) 500-1955.",
   keywords: [
     "Berkshire Hathaway HomeServices Green Valley",
     "Green Valley homes for sale",
@@ -56,7 +57,7 @@ const faqSchema = {
       name: "Is Green Valley a good investment?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Green Valley has shown consistent appreciation due to its prime Henderson location, established infrastructure, and ongoing demand from families seeking top schools and safety. BHHS agents can provide detailed market analysis.",
+        text: "Green Valley has shown consistent appreciation due to its prime Henderson location, established infrastructure, and ongoing demand from families seeking nearby public schools and safety. BHHS agents can provide detailed market analysis.",
       },
     },
   ],
@@ -380,7 +381,7 @@ export default function GreenValleyPage() {
                 <strong>26 days on market</strong>. The median price of{" "}
                 <strong>$520,000</strong>
                 reflects the community's desirability and the premium buyers pay
-                for established neighborhoods. Properties range from
+                for older neighborhoods. Properties range from
                 well-maintained townhomes in the $400,000s to custom homes
                 exceeding $1.2 million in Green Valley's more exclusive
                 enclaves.
@@ -404,7 +405,7 @@ export default function GreenValleyPage() {
             <div className="bg-blue-50 border-l-4 border-blue-600 rounded-lg p-8">
               <blockquote className="text-lg text-slate-700 italic mb-4">
                 "Green Valley offers something newer communities can't
-                replicate—35 years of established neighborhoods, proven schools,
+                replicate—35 years of older neighborhoods, proven schools,
                 and a real sense of community. When clients tell me they want
                 tree-lined streets and neighbors who know each other's names, I
                 show them Green Valley. It's the original, and still one of the
@@ -464,7 +465,7 @@ export default function GreenValleyPage() {
                 <p className="text-slate-600">
                   Green Valley has shown consistent appreciation due to its
                   prime Henderson location, established infrastructure, and
-                  ongoing demand from families seeking top schools and safety.
+                  ongoing demand from families seeking nearby public schools and safety.
                   BHHS agents can provide detailed market analysis.
                 </p>
               </div>
@@ -479,14 +480,14 @@ export default function GreenValleyPage() {
             <p className="text-xl text-blue-100 mb-8">
               Contact Dr. Jan Duffy, your Berkshire Hathaway HomeServices Green
               Valley specialist, for expert guidance in Henderson's most
-              established community.
+              community.
             </p>
             <a
-              href="tel:+17025001942"
+              href="tel:+17025001955"
               className="inline-flex items-center bg-white text-blue-600 px-8 py-4 rounded-md font-bold text-lg hover:bg-blue-50 transition-colors"
             >
               <Phone className="h-5 w-5 mr-2" />
-              Call (702) 500-1942
+              Call (702) 500-1955
             </a>
             <p className="mt-4 text-blue-200 text-sm">
               Berkshire Hathaway HomeServices Nevada Properties

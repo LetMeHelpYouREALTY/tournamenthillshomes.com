@@ -5,10 +5,11 @@ import { Phone, Shield, Mountain, Star, MapPin } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/neighborhoods/southern-highlands' },
   title:
     "Berkshire Hathaway HomeServices Southern Highlands | Las Vegas Golf Community",
   description:
-    "Find Southern Highlands homes with Berkshire Hathaway HomeServices Nevada Properties. Dr. Jan Duffy specializes in this premier golf community. Median price $750K. Call (702) 500-1942.",
+    "Find Southern Highlands homes with Berkshire Hathaway HomeServices Nevada Properties. Dr. Jan Duffy specializes in this premier golf community. Median price $750K. Call (702) 500-1955.",
   keywords: [
     "Berkshire Hathaway HomeServices Southern Highlands",
     "Southern Highlands homes for sale",
@@ -35,7 +36,7 @@ const faqSchema = {
       name: "Does Southern Highlands have guard-gated sections?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes, Southern Highlands features multiple guard-gated luxury sections including Southern Highlands Golf Club estates and exclusive enclaves with 24/7 security. Non-gated sections also offer excellent value with community amenities.",
+        text: "Yes, Southern Highlands features multiple guard-gated luxury sections including Southern Highlands Golf Club estates and luxury enclaves with 24/7 security. Non-gated sections also offer excellent value with community amenities.",
       },
     },
     {
@@ -164,7 +165,7 @@ export default function SouthernHighlandsPage() {
                 has represented buyers and sellers in Southern Highlands for
                 over two decades. Dr. Jan Duffy understands the community's
                 various sections—from the guard-gated luxury estates surrounding
-                the golf course to the family-friendly neighborhoods in the
+                the golf course to the neighborhoods in the
                 community's newer phases. Whether you're seeking a golf course
                 lot with Strip views or a spacious family home with top-rated
                 schools, BHHS has the local expertise to guide your search.
@@ -442,7 +443,7 @@ export default function SouthernHighlandsPage() {
                 "Southern Highlands delivers luxury living at prices that often
                 surprise buyers—especially those relocating from California. You
                 get championship golf, guard-gated security, mountain views, and
-                excellent schools, all just 15 minutes from the Strip. As a
+                nearby public schools, all just 15 minutes from the Strip. As a
                 Berkshire Hathaway HomeServices agent, I help clients see beyond
                 the golf course to the community's full potential."
               </blockquote>
@@ -477,7 +478,7 @@ export default function SouthernHighlandsPage() {
                 <p className="text-slate-600">
                   Yes, Southern Highlands features multiple guard-gated luxury
                   sections including Southern Highlands Golf Club estates and
-                  exclusive enclaves with 24/7 security. Non-gated sections also
+                  luxury enclaves with 24/7 security. Non-gated sections also
                   offer excellent value with community amenities.
                 </p>
               </div>
@@ -517,11 +518,11 @@ export default function SouthernHighlandsPage() {
               golf community.
             </p>
             <a
-              href="tel:+17025001942"
+              href="tel:+17025001955"
               className="inline-flex items-center bg-white text-blue-600 px-8 py-4 rounded-md font-bold text-lg hover:bg-blue-50 transition-colors"
             >
               <Phone className="h-5 w-5 mr-2" />
-              Call (702) 500-1942
+              Call (702) 500-1955
             </a>
             <p className="mt-4 text-blue-200 text-sm">
               Berkshire Hathaway HomeServices Nevada Properties

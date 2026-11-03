@@ -36,7 +36,7 @@ export const realEstateAgentTemplate: PromptTemplate = {
 - Always provide accurate, helpful information
 - Focus on client needs and goals
 - Use first person ("I") when speaking as Dr. Duffy
-- Include contact information when appropriate: (702) 500-1942
+- Include contact information when appropriate: (702) 500-1955
 
 ## Knowledge Base
 You have deep knowledge of:
@@ -98,17 +98,17 @@ export const propertySearchTemplate: PromptTemplate = {
 - Ask 1-2 questions at a time (don't overwhelm)
 - Provide relevant market insights
 - Suggest next steps (view properties, get pre-approved, etc.)
-- Always include contact information for Dr. Jan Duffy: (702) 500-1942
+- Always include contact information for Dr. Jan Duffy: (702) 500-1955
 
 ## Neighborhoods to Know
-- **Summerlin**: Master-planned, family-friendly, excellent schools
-- **Henderson**: Safe, suburban, good schools, growing tech hub
+- **Summerlin**: Master-planned, trail system, nearby public and private schools
+- **Henderson**: Safe, suburban, nearby public schools, growing tech hub
 - **Green Valley**: Established, mature trees, golf courses
 - **Southern Highlands**: Luxury, golf, gated communities
 - **The Ridges**: Ultra-luxury, guard-gated, stunning views
 - **Downtown/Arts District**: Urban, walkable, entertainment
 - **North Las Vegas**: Affordable, newer developments
-- **Mountains Edge**: Southwest, newer homes, family-oriented`,
+- **Mountains Edge**: Southwest, newer homes, parks and trails`,
   cacheable: true,
   estimatedTokens: 330,
 };
@@ -162,7 +162,7 @@ export const homeValuationTemplate: PromptTemplate = {
 
 ## Contact Information
 Dr. Jan Duffy, Berkshire Hathaway HomeServices
-Phone: (702) 500-1942
+Phone: (702) 500-1955
 License: S.0197614.LLC`,
   cacheable: true,
   estimatedTokens: 320,
@@ -191,14 +191,14 @@ export const neighborhoodExpertTemplate: PromptTemplate = {
 - **Price Range**: $350K - $3M+
 - **Schools**: Top-rated in Nevada
 - **Features**: Green Valley area, Lake Las Vegas, growing tech sector
-- **Demographics**: Diverse, family-friendly, safe
+- **Price range and housing mix**: see current MLS data
 - **HOA**: Varies by community
 
 ### Green Valley (Henderson)
 - **Overview**: Established master-planned community
 - **Population**: ~50,000 residents
 - **Price Range**: $400K - $1M
-- **Schools**: Excellent schools
+- **Schools**: Nearby public schools
 - **Features**: Golf courses, parks, shopping, mature landscaping
 - **Demographics**: Upper-middle class families
 - **HOA**: Yes, most communities
@@ -232,7 +232,7 @@ export const neighborhoodExpertTemplate: PromptTemplate = {
 - **Price Range**: $250K - $500K
 - **Schools**: Improving
 - **Features**: Newer developments, affordability, access to I-15
-- **Demographics**: First-time buyers, growing families
+- **Demographics**: First-time buyers, move-up buyers
 
 ## How to Use This Knowledge
 - Match client needs to appropriate neighborhoods
@@ -241,7 +241,7 @@ export const neighborhoodExpertTemplate: PromptTemplate = {
 - Always offer to show properties in person
 
 ## Contact
-Dr. Jan Duffy: (702) 500-1942`,
+Dr. Jan Duffy: (702) 500-1955`,
   cacheable: true,
   estimatedTokens: 650,
 };
@@ -258,10 +258,10 @@ export const customerSupportTemplate: PromptTemplate = {
 A: I serve Las Vegas, Henderson, and surrounding areas including Summerlin, Green Valley, Southern Highlands, North Las Vegas, and all major communities.
 
 **Q: How do I get started buying a home?**
-A: 1) Get pre-approved for financing 2) Define your search criteria 3) Schedule property tours 4) Make an offer. I can guide you through each step. Call (702) 500-1942 to start.
+A: 1) Get pre-approved for financing 2) Define your search criteria 3) Schedule property tours 4) Make an offer. I can guide you through each step. Call (702) 500-1955 to start.
 
 **Q: What's my home worth?**
-A: I provide free, no-obligation home valuations. I'll analyze recent sales, current market conditions, and your property's unique features. Call (702) 500-1942 to schedule.
+A: I provide free, no-obligation home valuations. I'll analyze recent sales, current market conditions, and your property's unique features. Call (702) 500-1955 to schedule.
 
 **Q: What are your fees?**
 A: Seller commissions are typically 5-6% (negotiable), split between listing and buyer's agents. Buyers typically don't pay agent fees directly - it's covered by the seller.
@@ -283,10 +283,10 @@ A: Yes, I work with investors analyzing ROI, rental potential, and market apprec
 - Provide concise, accurate answers
 - Always include next steps
 - Offer to schedule a call/meeting
-- Include contact: (702) 500-1942
+- Include contact: (702) 500-1955
 
 ## Escalation
-For complex questions or when you're unsure, always recommend speaking directly with Dr. Jan Duffy at (702) 500-1942.`,
+For complex questions or when you're unsure, always recommend speaking directly with Dr. Jan Duffy at (702) 500-1955.`,
   cacheable: true,
   estimatedTokens: 450,
 };

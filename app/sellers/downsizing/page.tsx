@@ -15,14 +15,15 @@ import {
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/sellers/downsizing' },
   title: "Downsizing in Las Vegas | Berkshire Hathaway HomeServices",
   description:
-    "Ready to simplify? Dr. Jan Duffy helps Las Vegas homeowners extract equity and transition to low-maintenance living. 55+ communities, condos, and more. Call (702) 500-1942.",
+    "Ready to simplify? Dr. Jan Duffy helps Las Vegas homeowners extract equity and transition to low-maintenance living. 55+ communities, condos, and more. Call (702) 500-1955.",
   keywords: [
     "downsizing Las Vegas",
     "sell large home Las Vegas",
     "55 plus communities Las Vegas",
-    "empty nester Las Vegas",
+    "downsizer Las Vegas",
     "Berkshire Hathaway HomeServices downsizing",
   ],
 };
@@ -62,11 +63,11 @@ export default function DownsizingPage() {
               next chapter.
             </p>
             <a
-              href="tel:+17025001942"
+              href="tel:+17025001955"
               className="inline-flex items-center bg-blue-600 text-white px-8 py-4 rounded-md font-bold text-lg hover:bg-blue-700 transition-colors"
             >
               <Phone className="h-5 w-5 mr-2" />
-              Let's Talk About Your Options → (702) 500-1942
+              Let's Talk About Your Options → (702) 500-1955
             </a>
           </div>
 
@@ -149,7 +150,7 @@ export default function DownsizingPage() {
                   Single-Story Homes
                 </h3>
                 <p className="text-slate-600 text-sm mb-4">
-                  Right-sized single-story in established neighborhoods. No
+                  Right-sized single-story in older neighborhoods. No
                   stairs, smaller yard, lower utility costs. Age-in-place
                   features available.
                 </p>
@@ -205,7 +206,7 @@ export default function DownsizingPage() {
                   <li className="flex items-start">
                     <CheckCircle className="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
                     <span>
-                      Professional staging that showcases family-friendly
+                      Professional staging that showcases each room's
                       features
                     </span>
                   </li>
@@ -590,11 +591,11 @@ export default function DownsizingPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:+17025001942"
+                href="tel:+17025001955"
                 className="inline-flex items-center justify-center bg-white text-blue-600 px-8 py-4 rounded-md font-bold text-lg hover:bg-blue-50 transition-colors"
               >
                 <Phone className="h-5 w-5 mr-2" />
-                Call (702) 500-1942
+                Call (702) 500-1955
               </a>
               <Link
                 href="/home-valuation"

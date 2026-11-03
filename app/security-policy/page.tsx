@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { agentInfo, SITE_DOMAIN, siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/security-policy' },
   title: "Security Policy",
   description: `Security policy and responsible disclosure information for ${SITE_DOMAIN}`,
   robots: {
@@ -55,8 +56,8 @@ export default function SecurityPolicyPage() {
                 </li>
                 <li>
                   <strong>Phone:</strong>{" "}
-                  <a href="tel:+17025001942" className="underline">
-                    (702) 500-1942
+                  <a href="tel:+17025001955" className="underline">
+                    (702) 500-1955
                   </a>
                 </li>
                 <li>
@@ -266,8 +267,8 @@ export default function SecurityPolicyPage() {
               </p>
               <p>
                 Phone:{" "}
-                <a href="tel:+17025001942" className="text-blue-600 underline">
-                  (702) 500-1942
+                <a href="tel:+17025001955" className="text-blue-600 underline">
+                  (702) 500-1955
                 </a>
               </p>
             </div>

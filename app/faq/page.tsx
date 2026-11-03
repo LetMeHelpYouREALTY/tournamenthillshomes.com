@@ -17,9 +17,10 @@ import {
 } from "@/lib/schema";
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/faq' },
   title: "Tournament Hills FAQ | Las Vegas Real Estate | Dr. Jan Duffy",
   description:
-    "FAQ about Tournament Hills homes for sale, TPC Summerlin luxury real estate, and working with Dr. Jan Duffy at Berkshire Hathaway HomeServices Nevada Properties. Call (702) 500-1942.",
+    "FAQ about Tournament Hills homes for sale, TPC Summerlin luxury real estate, and working with Dr. Jan Duffy at Berkshire Hathaway HomeServices Nevada Properties. Call (702) 500-1955.",
   keywords: [
     "Tournament Hills FAQ",
     "TPC Summerlin real estate questions",
@@ -99,7 +100,7 @@ const faqCategories = [
       },
       {
         q: "How long will it take to sell my home?",
-        a: "Currently, well-priced homes in Las Vegas are selling in an average of 28 days. Luxury homes may take longer (45+ days). Pricing strategy is crucial—overpriced homes can sit for months.",
+        a: "Timing depends on pricing, condition, and how your home compares to other listings in Tournament Hills and nearby Summerlin communities. Dr. Jan Duffy reviews recent activity and buyer feedback so you can set expectations and adjust strategy if needed.",
       },
       {
         q: "What do I need to do to prepare my home for sale?",
@@ -111,7 +112,7 @@ const faqCategories = [
       },
       {
         q: "Should I wait for prices to go higher?",
-        a: "Current appreciation of 4.2% YoY suggests prices are stable with gradual increases. Timing the market is difficult—most sellers do better by listing when ready rather than waiting. Dr. Jan can provide a personalized market analysis.",
+        a: "Market conditions shift over time, and timing the market is difficult. Most sellers do better by listing when they are ready rather than waiting for a perfect peak. Dr. Jan Duffy can provide a personalized market analysis for your Tournament Hills home to help you decide.",
       },
     ],
   },
@@ -141,7 +142,7 @@ const faqCategories = [
       },
       {
         q: "What are the best neighborhoods for families?",
-        a: "Summerlin, Henderson (Green Valley, Inspirada), and Centennial Hills are top choices for families, offering excellent schools, parks, and community amenities. Dr. Jan can match you with the right neighborhood based on your priorities.",
+        a: "Summerlin, Henderson (Green Valley, Inspirada), and Centennial Hills are top choices for families, offering nearby public schools, parks, and community amenities. Dr. Jan can match you with the right neighborhood based on your priorities.",
       },
       {
         q: "How is the cost of living in Las Vegas?",
@@ -158,7 +159,7 @@ const faqCategories = [
       },
       {
         q: "How do I contact Dr. Jan Duffy?",
-        a: `Call or text (702) 500-1942 or email ${agentInfo.email}. Office located at 9406 W Lake Mead Blvd, Suite 100, Las Vegas, NV 89134.`,
+        a: `Call or text (702) 500-1955 or email ${agentInfo.email}. Office located at 9406 W Lake Mead Blvd, Suite 100, Las Vegas, NV 89134.`,
       },
       {
         q: "What areas does Dr. Jan cover?",
@@ -239,21 +240,16 @@ export default function FAQPage() {
               real estate or working with Berkshire Hathaway HomeServices.
             </p>
             <a
-              href="tel:+17025001942"
+              href="tel:+17025001955"
               className="inline-flex items-center bg-white text-blue-600 px-8 py-4 rounded-md font-bold text-lg hover:bg-blue-50 transition-colors"
             >
               <Phone className="h-5 w-5 mr-2" />
-              Call (702) 500-1942
+              Call (702) 500-1955
             </a>
             <p className="mt-4 text-blue-200 text-sm">
               Berkshire Hathaway HomeServices Nevada Properties
             </p>
           </section>
-        </div>
-
-        {/* Last Updated */}
-        <div className="text-center text-sm text-slate-500 mt-8">
-          Last Updated: January 2026
         </div>
       </main>
       <Footer />

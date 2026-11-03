@@ -5,10 +5,11 @@ import { Phone, Shield, Star, Mountain, Home as HomeIcon } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/neighborhoods/the-ridges' },
   title:
     "Berkshire Hathaway HomeServices The Ridges | Las Vegas Luxury Real Estate",
   description:
-    "Find luxury homes in The Ridges with Berkshire Hathaway HomeServices Nevada Properties. Dr. Jan Duffy specializes in Summerlin's most exclusive guard-gated community. Median price $2.5M. Call (702) 500-1942.",
+    "Find luxury homes in The Ridges with Berkshire Hathaway HomeServices Nevada Properties. Dr. Jan Duffy specializes in Summerlin's most exclusive guard-gated community. Median price $2.5M. Call (702) 500-1955.",
   keywords: [
     "Berkshire Hathaway HomeServices The Ridges",
     "The Ridges homes for sale",
@@ -35,7 +36,7 @@ const faqSchema = {
       name: "How exclusive is The Ridges community?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "The Ridges is one of Las Vegas's most exclusive communities with 24/7 guard-gated security, only 900 home sites across six distinct villages, and strict architectural guidelines ensuring estate-quality construction throughout.",
+        text: "The Ridges is a guard-gated Summerlin community with 24/7 staffed entry, only 900 home sites across six distinct villages, and strict architectural guidelines ensuring estate-quality construction throughout.",
       },
     },
     {
@@ -373,7 +374,7 @@ export default function TheRidgesPage() {
               </h3>
               <div className="not-prose bg-white border border-slate-200 rounded-xl p-6">
                 <p className="text-slate-700 mb-4">
-                  The Ridges is served by top-rated public schools in the Palo
+                  The Ridges is served by public schools in the Palo
                   Verde cluster, plus Las Vegas's finest private school options:
                 </p>
                 <div className="grid md:grid-cols-2 gap-4">
@@ -467,7 +468,7 @@ export default function TheRidgesPage() {
                   How exclusive is The Ridges community?
                 </h3>
                 <p className="text-slate-600">
-                  The Ridges is one of Las Vegas's most exclusive communities
+                  The Ridges is a guard-gated Summerlin community
                   with 24/7 guard-gated security, only 900 home sites across six
                   distinct villages, and strict architectural guidelines
                   ensuring estate-quality construction throughout.
@@ -510,11 +511,11 @@ export default function TheRidgesPage() {
               or selling in Las Vegas's most prestigious community.
             </p>
             <a
-              href="tel:+17025001942"
+              href="tel:+17025001955"
               className="inline-flex items-center bg-white text-blue-600 px-8 py-4 rounded-md font-bold text-lg hover:bg-blue-50 transition-colors"
             >
               <Phone className="h-5 w-5 mr-2" />
-              Call (702) 500-1942
+              Call (702) 500-1955
             </a>
             <p className="mt-4 text-blue-200 text-sm">
               Berkshire Hathaway HomeServices Nevada Properties

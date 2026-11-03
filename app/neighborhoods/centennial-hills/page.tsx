@@ -11,9 +11,10 @@ import {
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/neighborhoods/centennial-hills' },
   title: "Berkshire Hathaway HomeServices Centennial Hills | Las Vegas Homes",
   description:
-    "Find Centennial Hills homes with Berkshire Hathaway HomeServices Nevada Properties. Dr. Jan Duffy specializes in this established northwest community. Median price $495K. Call (702) 500-1942.",
+    "Find Centennial Hills homes with Berkshire Hathaway HomeServices Nevada Properties. Dr. Jan Duffy specializes in this established northwest community. Median price $495K. Call (702) 500-1955.",
   keywords: [
     "Berkshire Hathaway HomeServices Centennial Hills",
     "Centennial Hills homes for sale",
@@ -40,7 +41,7 @@ const faqSchema = {
       name: "Is Centennial Hills a good family neighborhood?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes, Centennial Hills is one of Las Vegas's best family neighborhoods with highly-rated schools, safe streets, multiple parks including Centennial Hills Park, and convenient shopping at Centennial Center.",
+        text: "Yes, Centennial Hills is one of Las Vegas's best family neighborhoods with nearby public schools, streets, multiple parks including Centennial Hills Park, and convenient shopping at Centennial Center.",
       },
     },
     {
@@ -48,7 +49,7 @@ const faqSchema = {
       name: "How far is Centennial Hills from the Las Vegas Strip?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Centennial Hills is approximately 20-25 minutes from the Strip via US-95. The community offers easy freeway access while maintaining a suburban, family-oriented atmosphere away from tourist areas.",
+        text: "Centennial Hills is approximately 20-25 minutes from the Strip via US-95. The community offers easy freeway access and a suburban setting away from tourist areas.",
       },
     },
     {
@@ -96,7 +97,7 @@ export default function CentennialHillsPage() {
               Berkshire Hathaway HomeServices Centennial Hills
             </h1>
             <p className="text-xl text-slate-600">
-              Family-friendly northwest Las Vegas living. Find your Centennial
+              Northwest Las Vegas living. Find your Centennial
               Hills home with <strong>Berkshire Hathaway HomeServices</strong>{" "}
               and Dr. Jan Duffy.
             </p>
@@ -146,7 +147,7 @@ export default function CentennialHillsPage() {
                 <strong>Centennial Hills</strong> represents the best of
                 established northwest Las Vegas living. While newer communities
                 like Skye Canyon attract attention, Centennial Hills offers
-                something they can't: mature neighborhoods with proven schools,
+                something they can't: older neighborhoods with proven schools,
                 established landscaping, and a genuine sense of community built
                 over nearly two decades.
                 <strong> Berkshire Hathaway HomeServices</strong> helps families
@@ -483,7 +484,7 @@ export default function CentennialHillsPage() {
                 </h3>
                 <p className="text-slate-600">
                   Yes, Centennial Hills is one of Las Vegas's best family
-                  neighborhoods with highly-rated schools, safe streets,
+                  neighborhoods with nearby public schools, streets,
                   multiple parks including Centennial Hills Park, and convenient
                   shopping at Centennial Center.
                 </p>
@@ -495,7 +496,7 @@ export default function CentennialHillsPage() {
                 <p className="text-slate-600">
                   Centennial Hills is approximately 20-25 minutes from the Strip
                   via US-95. The community offers easy freeway access while
-                  maintaining a suburban, family-oriented atmosphere away from
+                  maintaining a suburban setting away from
                   tourist areas.
                 </p>
               </div>
@@ -524,11 +525,11 @@ export default function CentennialHillsPage() {
               community.
             </p>
             <a
-              href="tel:+17025001942"
+              href="tel:+17025001955"
               className="inline-flex items-center bg-white text-blue-600 px-8 py-4 rounded-md font-bold text-lg hover:bg-blue-50 transition-colors"
             >
               <Phone className="h-5 w-5 mr-2" />
-              Call (702) 500-1942
+              Call (702) 500-1955
             </a>
             <p className="mt-4 text-blue-200 text-sm">
               Berkshire Hathaway HomeServices Nevada Properties

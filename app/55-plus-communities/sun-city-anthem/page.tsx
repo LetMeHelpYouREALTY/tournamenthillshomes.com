@@ -20,9 +20,10 @@ import {
 } from "@/lib/schema";
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/55-plus-communities/sun-city-anthem' },
   title: "Sun City Anthem Homes for Sale | Berkshire Hathaway HomeServices",
   description:
-    "Henderson's premier 55+ community. Sun City Anthem homes from $350K-$1.2M. 2 championship golf courses, stunning mountain views. Dr. Jan Duffy. Call (702) 500-1942.",
+    "Henderson's premier 55+ community. Sun City Anthem homes from $350K-$1.2M. 2 championship golf courses, stunning mountain views. Dr. Jan Duffy. Call (702) 500-1955.",
   keywords: [
     "Sun City Anthem homes for sale",
     "Sun City Anthem Henderson",
@@ -176,7 +177,7 @@ export default function SunCityAnthemPage() {
               </h2>
               <p>
                 <strong>Sun City Anthem</strong> brings the legendary Sun City
-                lifestyle to Henderson, Nevada's safest and most desirable city.
+                lifestyle to Henderson, Nevada's second-largest city.
                 Built by Del Webb from 1998-2008, this 7,100+ home community
                 offers stunning mountain views, championship golf, and
                 resort-caliber amenities—all within Henderson's renowned safety
@@ -209,7 +210,7 @@ export default function SunCityAnthemPage() {
                     Why Henderson Matters
                   </h3>
                   <p className="text-slate-700 mb-4">
-                    Henderson consistently ranks as one of America's safest
+                    Henderson Police publish crime data online, for one of America's largest
                     cities. For 55+ buyers, this translates to peace of mind,
                     stable property values, and a community that attracts
                     similar residents who value safety and quality of life.
@@ -220,7 +221,7 @@ export default function SunCityAnthemPage() {
                         #2
                       </div>
                       <div className="text-sm text-slate-600">
-                        Safest Large City
+                        Crime Map Online
                       </div>
                     </div>
                     <div className="text-center bg-white rounded-lg p-4">
@@ -366,11 +367,11 @@ export default function SunCityAnthemPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:+17025001942"
+                href="tel:+17025001955"
                 className="inline-flex items-center justify-center bg-white text-green-600 px-8 py-4 rounded-md font-bold text-lg hover:bg-green-50 transition-colors"
               >
                 <Phone className="h-5 w-5 mr-2" />
-                Call (702) 500-1942
+                Call (702) 500-1955
               </a>
               <Link
                 href="/contact"

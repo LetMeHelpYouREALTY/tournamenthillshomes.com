@@ -11,9 +11,10 @@ import {
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/neighborhoods/skye-canyon' },
   title: "Berkshire Hathaway HomeServices Skye Canyon | Northwest Las Vegas",
   description:
-    "Find Skye Canyon homes with Berkshire Hathaway HomeServices Nevada Properties. Dr. Jan Duffy specializes in this premier northwest community. Median price $550K. Call (702) 500-1942.",
+    "Find Skye Canyon homes with Berkshire Hathaway HomeServices Nevada Properties. Dr. Jan Duffy specializes in this premier northwest community. Median price $550K. Call (702) 500-1955.",
   keywords: [
     "Berkshire Hathaway HomeServices Skye Canyon",
     "Skye Canyon homes for sale",
@@ -48,7 +49,7 @@ const faqSchema = {
       name: "Is Skye Canyon good for families?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes, Skye Canyon is designed for families with new schools, extensive children's amenities, community events, and safe neighborhoods. The community hosts family-friendly events throughout the year at Skye Center.",
+        text: "Skye Canyon has parks with splash pads and play areas, community events, and the Skye Center community facility.",
       },
     },
     {
@@ -419,7 +420,7 @@ export default function SkyeCanyonPage() {
           <section className="mb-16 max-w-4xl mx-auto">
             <div className="bg-blue-50 border-l-4 border-blue-600 rounded-lg p-8">
               <blockquote className="text-lg text-slate-700 italic mb-4">
-                "Skye Canyon is where young families want to be right now. The
+                "Skye Canyon is where buyers want to be right now. The
                 amenities are incredible, the homes are modern and
                 energy-efficient, and the community vibe is exactly what people
                 are looking for. As a Berkshire Hathaway HomeServices agent, I
@@ -469,7 +470,7 @@ export default function SkyeCanyonPage() {
                 <p className="text-slate-600">
                   Yes, Skye Canyon is designed for families with new schools,
                   extensive children's amenities, community events, and safe
-                  neighborhoods. The community hosts family-friendly events
+                  neighborhoods. The community hosts events
                   throughout the year at Skye Center.
                 </p>
               </div>
@@ -500,11 +501,11 @@ export default function SkyeCanyonPage() {
               resale homes.
             </p>
             <a
-              href="tel:+17025001942"
+              href="tel:+17025001955"
               className="inline-flex items-center bg-white text-blue-600 px-8 py-4 rounded-md font-bold text-lg hover:bg-blue-50 transition-colors"
             >
               <Phone className="h-5 w-5 mr-2" />
-              Call (702) 500-1942
+              Call (702) 500-1955
             </a>
             <p className="mt-4 text-blue-200 text-sm">
               Berkshire Hathaway HomeServices Nevada Properties

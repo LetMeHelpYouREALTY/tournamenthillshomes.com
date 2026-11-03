@@ -40,8 +40,8 @@ function labelForSegment(segment: string): string {
 /**
  * Emits BreadcrumbList JSON-LD for inner pages based on the request path.
  */
-export default function BreadcrumbSchemaFromPath() {
-  const pathname = headers().get("x-pathname") ?? "/";
+export default async function BreadcrumbSchemaFromPath() {
+  const pathname = (await headers()).get("x-pathname") ?? "/";
   if (pathname === "/" || pathname === "") {
     return null;
   }
